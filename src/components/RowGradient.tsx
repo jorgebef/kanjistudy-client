@@ -4,6 +4,9 @@ import { Cell, Grid } from './PageContainer'
 
 export const RowGradient = styled(Grid)`
   padding: 8rem ${p => p.theme.sidePad};
+  justify-self: center;
+  align-self: center;
+  max-width: 90rem;
   background: linear-gradient(
     45deg,
     ${p => p.theme.blue} 10%,

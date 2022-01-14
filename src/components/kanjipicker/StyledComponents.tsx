@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { KanjiType } from '../../utils/kanjiData'
 
 export const RowGradient = styled.div`
   padding: 10rem ${p => p.theme.sidePad};
@@ -42,10 +43,6 @@ export const KanjiCell = styled.a<KanjiProps>`
   /* This gives the 3d effect */
   perspective: 1000px;
   overflow: hidden;
-
-  &.toggled {
-    background-color: red;
-  }
 
   & .kanji {
     /* background-color: ${p => p.theme.lavender}; */

@@ -87,7 +87,7 @@ const Footer: React.FC = () => {
     <FooterContainer>
       {/* <TextContainer>TEST</TextContainer> */}
       <ButtonContainer>
-        <But social='github' href=''>
+        <But social='github' href='https://github.com/jorgebef' target='_blank'>
           <BsGithub color='inherit' size={20} />
         </But>
         <But social='linkedin' href=''>

@@ -4,6 +4,7 @@ import { Cell, Container, Grid, TopRow } from '../components/PageContainer'
 import { JLPTn5, RowGradient } from '../components/RowGradient'
 
 const Title: React.FC = styled.p`
+  text-align: center;
   align-self: center;
   font-size: 3rem;
   font-weight: 900;

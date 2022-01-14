@@ -1,18 +1,17 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { Container, TopRow,  Row } from '../components/PageContainer'
-import KanjiPicker  from '../components/KanjiPicker'
+import KanjiQuiz  from '../components/KanjiQuiz'
 import { KanjiContext } from '../context/KanjiContext'
 
-
-export const Kanji: React.FC = () => {
+export const Quiz: React.FC = () => {
 
   return (
     <Container>
       <TopRow>
-        <Title>Review JLPT N5 Kanji!!</Title>
+        <Title>Take a test!!</Title>
       </TopRow>
-      <KanjiPicker />
+      <KanjiQuiz />
     </Container>
   )
 }

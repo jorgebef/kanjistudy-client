@@ -51,7 +51,7 @@ const appTheme: ThemeType = {
   navHS: 3,
   footH: 10,
   // [[[ OTHER VALUES ----
-  borderR: '1rem',
+  borderR: '0.5rem',
   buttonR: '0.3rem',
   // OTHER VALUES ---- ]]]
   // ---- PADDING ----

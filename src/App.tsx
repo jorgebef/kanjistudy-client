@@ -10,6 +10,7 @@ import { ThemeProvider } from 'styled-components'
 import appTheme from './styles/theme'
 import GlobalStyle from './styles/globalStyles'
 import { KanjiCtxProvider } from './context/KanjiContext'
+import { Quiz } from './pages/Quiz'
 
 const App: React.FC = () => {
   return (
@@ -21,7 +22,7 @@ const App: React.FC = () => {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/kanji' element={<Kanji />} />
-            <Route path='/kana' element={<Kanji />} />
+            <Route path='/quiz' element={<Quiz/>} />
             <Route path='*' element={<NotFound />} />
           </Routes>
         </KanjiCtxProvider>

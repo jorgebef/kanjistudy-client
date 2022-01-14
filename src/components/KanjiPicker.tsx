@@ -1,25 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Row } from './PageContainer'
 // import { Row, RowGradient } from '../'
-import { kanjiData } from '../utils/kanjiData'
-import { QuizGrid, KanjiCell } from './kanjipicker/StyledComponents'
+import { kanjiData, KanjiType } from '../utils/kanjiData'
+import { QuizGrid, KanjiCell} from './kanjipicker/StyledComponents'
+import PopupKanji from './kanjipicker/Popup'
 
 const KanjiPicker: React.FC = () => {
-  const flipCell = (e: React.MouseEvent<HTMLElement>) => {
-    e.currentTarget.classList.toggle('toggled')
+  const [kanji, setKanji] = useState<KanjiType | null>(null)
+  const [visible, setVisible] = useState<boolean>(false)
+
+  const pickKanji = (e: React.MouseEvent<HTMLElement>, k: KanjiType) => {
+    // e.currentTarget.classList.toggle('selected')
+    setKanji(k)
+    setVisible(true)
   }
 
   return (
     <Row>
       <QuizGrid>
-        {kanjiData.map((kanji, i) => {
+        {kanjiData.map((k: KanjiType, i) => {
           return (
-            <KanjiCell kanji={kanji.kanji} onClick={flipCell}>
-                <div className='kanji'>{kanji.kanji}</div>
-                {/* <div className='meaning'>{kanji.wk_meanings[0]}</div> */}
+            <KanjiCell key={i} kanji={k.kanji} onClick={e => pickKanji(e, k)}>
+              <div className='kanji'>{k.kanji}</div>
             </KanjiCell>
           )
         })}
+        <PopupKanji visible={visible} setVisible={setVisible} kanji={kanji} />
       </QuizGrid>
     </Row>
   )

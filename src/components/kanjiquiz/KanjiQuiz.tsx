@@ -77,6 +77,8 @@ const KanjiQuiz: React.FC = () => {
       let poolCopy: string[] = kanjiPool
       for (let i = 0; i < aNumber; i++) {
         const kAdd: string = poolCopy[~~(Math.random() * poolCopy.length)]
+        // Remove the used kanji from pool to avoid duplicate answers
+        poolCopy = poolCopy.filter((i: string) => i !== kAdd)
         arr.push(kAdd)
       }
       const kfetch = arr.map(i => singleKanjiFetch(i))

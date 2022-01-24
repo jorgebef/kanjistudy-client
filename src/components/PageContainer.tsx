@@ -4,14 +4,21 @@ import styled, { css } from 'styled-components'
 export const Container: React.FC = styled.div`
   display: flex;
   flex-direction: column;
+  min-height: calc(100vh - ${p => p.theme.footH});
 
   & > div:first-child {
     padding-top: calc(${p => p.theme.navH + 'rem'} + 5vw);
   }
+  & > div:last-child {
+    padding-bottom: 5rem;
+  }
+`
 
-  /* & > div:last-child { */
-  /*   padding-bottom: 4rem; */
-  /* } */
+export const Title: React.FC = styled.p`
+  text-align: center;
+  align-self: center;
+  font-size: 3rem;
+  font-weight: 900;
 `
 
 export const TopRow: React.FC = styled.div.attrs(() => ({
@@ -33,6 +40,8 @@ export const TopRow: React.FC = styled.div.attrs(() => ({
 
 export const Row = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 2rem ${p => p.theme.sidePad};
 `
 

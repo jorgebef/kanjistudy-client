@@ -15,10 +15,11 @@ export interface ThemeType {
 
   navH: number
   navHS: number
-  footH: number
+  footH: string
   borderR: string
   buttonR: string
   sidePad: string
+  compPad: string
 
   mediaSm: string
   mediaMd: string
@@ -30,26 +31,22 @@ const appTheme: ThemeType = {
   // vvvvvvvvvvvvvvvv
   fg: '#30332E',
   bg: '#ffffff',
-  // red: '#B3421D',
   red: '#A31621',
-  // red: '#85212B',
   orange: '#C3533D',
-  grey: '#373460',
+  grey: '#cfcfcf',
   black: '#30332E',
   lavender: '#EAE6FF',
   violet: '#8479d1',
   purple: '#3e3491',
-  // blue: '#5ac3e3',
   blue: '#009FFF',
   yellow: '#f5c745',
-  // pink: '#ef87cb',
   pink: '#ec2F4B',
   // ]]]
   // ---- SIZING ----
   // vvvvvvvvvvvvvvvv
   navH: 4,
   navHS: 3,
-  footH: 10,
+  footH: '10rem',
   // [[[ OTHER VALUES ----
   borderR: '0.5rem',
   buttonR: '0.3rem',
@@ -57,6 +54,7 @@ const appTheme: ThemeType = {
   // ---- PADDING ----
   // vvvvvvvvvvvvvvvv
   sidePad: '10vw',
+  compPad: '3rem',
   // ---- MEDIA ----
   // vvvvvvvvvvvvvvvv
   mediaSm: '850px',

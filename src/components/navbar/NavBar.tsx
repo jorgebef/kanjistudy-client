@@ -9,7 +9,7 @@ import {
   MenuLinkName,
   NavContainer,
   Overlay,
-} from './navbar/styled'
+} from './styled'
 
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)

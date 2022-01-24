@@ -1,14 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Cell, Container, Grid, TopRow } from '../components/PageContainer'
+import {
+  Container,
+  Grid,
+  Title,
+  TopRow,
+} from '../components/PageContainer'
 import { JLPTn5, RowGradient } from '../components/RowGradient'
-
-const Title: React.FC = styled.p`
-  text-align: center;
-  align-self: center;
-  font-size: 3rem;
-  font-weight: 900;
-`
 
 const LastRow = styled(Grid)`
   --specPad: 6rem;
@@ -27,18 +25,8 @@ export const Home: React.FC = () => {
   return (
     <Container>
       <TopRow>
-        <Cell>
-          <Title>Practice Kanji for JLPT N5</Title>
-        </Cell>
-        {/* <VertJPText size={4} bottom={10} left={85}> */}
-        {/*   <span>あ</span> */}
-        {/*   <span>り</span> */}
-        {/*   <span>が</span> */}
-        {/*   <span>と</span> */}
-        {/*   <span>う</span> */}
-        {/* </VertJPText> */}
+        <Title>Practice Kanji for JLPT</Title>
       </TopRow>
-      <Grid></Grid>
       <RowGradient>
         <JLPTn5 to={'/kana'}>
           <h1>KANA</h1>

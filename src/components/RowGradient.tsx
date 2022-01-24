@@ -9,7 +9,7 @@ export const RowGradient = styled(Grid)`
   max-width: 90rem;
   background: linear-gradient(
     45deg,
-    ${p => p.theme.blue} 10%,
+    ${p => p.theme.lavender} 10%,
     ${p => p.theme.violet} 90%
   );
   clip-path: polygon(0 8%, 100% 0, 100% 92%, 0 100%);

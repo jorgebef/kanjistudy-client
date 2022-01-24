@@ -4,23 +4,12 @@ import styled from 'styled-components'
 
 const FooterContainer = styled.footer`
   display: flex;
-  height: ${p => p.theme.footH + 'rem'};
+  height: ${p => p.theme.footH};
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
   background-color: ${p => p.theme.black};
-
 `
-
-// const TextContainer = styled.div`
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   flex-direction: row;
-//   flex-grow: 1;
-//   padding: 1.5rem 0;
-//   background-color: ${p => p.theme.lavender};
-// `
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -104,7 +93,7 @@ const Footer: React.FC = () => {
 
       <CopyrightContainer>
         <p>
-          © 2022 Copyright: <b>Jorge B.</b>
+          2022 Design by: <b>Jorge B.</b>
         </p>
       </CopyrightContainer>
     </FooterContainer>

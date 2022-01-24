@@ -22,7 +22,7 @@ export const NavContainer = styled.nav<NavContainerProps>`
   align-items: stretch;
   transition: all ease-in-out 0.25s;
 
-  @media (max-width: ${p => p.theme.mediaSm}) {
+  @media (max-width: ${p => p.theme.mediaMd}) {
     flex-direction: column;
     background-color: ${p =>
       p.scrollpos !== 0 || p.isopen ? p.theme.bg : null};
@@ -37,7 +37,7 @@ export const LogoContainer = styled.div`
   align-self: flex-start;
   white-space: nowrap;
 
-  @media (max-width: ${p => p.theme.mediaSm}) {
+  @media (max-width: ${p => p.theme.mediaMd}) {
     position: absolute;
     top: 0rem;
     left: 0rem;
@@ -66,7 +66,7 @@ export const HamburguerContainer = styled.div<MenuProps>`
   color: ${p => p.theme.fg};
   justify-content: center;
 
-  @media (max-width: ${p => p.theme.mediaSm}) {
+  @media (max-width: ${p => p.theme.mediaMd}) {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -120,13 +120,13 @@ export const Menu = styled.ul<MenuProps>`
   justify-content: flex-end;
   transition: all ease-in-out 0.25s;
 
-  @media (max-width: ${p => p.theme.mediaSm}) {
+  @media (max-width: ${p => p.theme.mediaMd}) {
     display: flex;
     background-color: ${p => p.theme.bg};
     flex-direction: column;
     margin-top: var(--navH);
     width: 100%;
-    height: ${p => (p.isopen ? '20rem' : '0')};
+    height: ${p => (p.isopen ? '25rem' : '0')};
     /* box-shadow: rgb(10 10 10 / 15%) 0px 0.5rem 1rem 0px; */
   }
 `
@@ -157,7 +157,7 @@ export const MenuLink = styled(NavLink)<MenuProps>`
     }
   }
 
-  @media (max-width: ${p => p.theme.mediaSm}) {
+  @media (max-width: ${p => p.theme.mediaMd}) {
     display: flex;
     justify-content: center;
     visibility: ${p => (p.isopen ? 'visible' : 'hidden')};
@@ -193,7 +193,7 @@ export const MenuLinkName = styled.span`
 export const Overlay = styled.div<MenuProps>`
   visibility: hidden;
 
-  @media (max-width: ${p => p.theme.mediaSm}) {
+  @media (max-width: ${p => p.theme.mediaMd}) {
     display: block;
     visibility: ${p => (p.isopen ? 'visible' : 'hidden')};
     position: fixed;

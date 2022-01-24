@@ -2,15 +2,15 @@ import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import { Home, Kanji, NotFound } from './pages/'
-import Footer from './components/Footer'
-import NavBar from './components/NavBar'
+import Footer from './components/footer/Footer'
+import NavBar from './components/navbar/NavBar'
 
 import { ThemeProvider } from 'styled-components'
 
 import appTheme from './styles/theme'
 import GlobalStyle from './styles/globalStyles'
-import { KanjiCtxProvider } from './context/KanjiContext'
 import { Quiz } from './pages/Quiz'
+import { QuizCtxProvider } from './context/KanjiAliveCtx'
 
 const App: React.FC = () => {
   return (
@@ -18,14 +18,19 @@ const App: React.FC = () => {
       <ThemeProvider theme={appTheme}>
         <GlobalStyle />
         <NavBar />
-        <KanjiCtxProvider>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/kanji' element={<Kanji />} />
-            <Route path='/quiz' element={<Quiz/>} />
-            <Route path='*' element={<NotFound />} />
-          </Routes>
-        </KanjiCtxProvider>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/kanji' element={<Kanji />} />
+          <Route
+            path='/quiz'
+            element={
+              <QuizCtxProvider>
+                <Quiz />
+              </QuizCtxProvider>
+            }
+          />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
         <Footer />
       </ThemeProvider>
     </BrowserRouter>

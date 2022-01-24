@@ -1,17 +1,19 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import { Container, TopRow,  Row } from '../components/PageContainer'
-import KanjiQuiz  from '../components/KanjiQuiz'
-import { KanjiContext } from '../context/KanjiContext'
+import { Container, TopRow } from '../components/PageContainer'
+import { QuizSelector } from '../components/quizselector/QuizSelector'
+import KanjiQuiz from '../components/kanjiquiz/KanjiQuiz'
+import { QuizCtx, QuizCtxT } from '../context/KanjiAliveCtx'
 
 export const Quiz: React.FC = () => {
+  const { quiz }: QuizCtxT = useContext(QuizCtx)
 
   return (
     <Container>
       <TopRow>
         <Title>Take a test!!</Title>
       </TopRow>
-      <KanjiQuiz />
+      {quiz ? <KanjiQuiz /> : <QuizSelector />}
     </Container>
   )
 }

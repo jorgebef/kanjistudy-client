@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { KanjiType } from '../../utils/kanjiData'
+// import { KanjiType } from '../../utils/kanjiData'
 
 export const RowGradient = styled.div`
   padding: 10rem ${p => p.theme.sidePad};
@@ -20,12 +20,18 @@ export const RowGradient = styled.div`
 
 export const QuizGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   width: 100%;
+  max-width: 60rem;
   gap: 1rem;
-  padding: 1rem;
-  /* border-radius: ${p => p.theme.borderR}; */
-  /* background-color: ${p => p.theme.violet}; */
+
+  @media (max-width: ${p => p.theme.mediaMd}) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: ${p => p.theme.mediaSm}) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `
 
 type KanjiProps = {

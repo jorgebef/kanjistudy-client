@@ -7,7 +7,7 @@ export const Kanji: React.FC = () => {
   return (
     <Container>
       <TopRow>
-        <Title>Review JLPT N5 Kanji!!</Title>
+        <Title>Kanji review!!</Title>
       </TopRow>
       <KanjiPicker />
     </Container>

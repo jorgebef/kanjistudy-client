@@ -2,11 +2,14 @@ import styled from 'styled-components'
 import { Link, LinkProps } from 'react-router-dom'
 import { Cell, Grid } from './PageContainer'
 
-export const RowGradient = styled(Grid)`
-  padding: 8rem ${p => p.theme.sidePad};
+export const RowGradient = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 6rem 0;
   justify-self: center;
   align-self: center;
-  max-width: 90rem;
   background: linear-gradient(
     45deg,
     ${p => p.theme.lavender} 10%,
@@ -22,12 +25,51 @@ export const RowGradient = styled(Grid)`
   }
 `
 
-export const JLPTn5 = styled.div.attrs(() => ({
+export const RowGradientInverted = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 6rem 0;
+  justify-self: center;
+  align-self: center;
+  background: linear-gradient(
+    45deg,
+    ${p => p.theme.violet} 10%,
+    ${p => p.theme.purple} 90%
+  );
+  clip-path: polygon(0 0%, 100% 8%, 100% 100%, 0 92%);
+
+  @media (min-width: ${p => p.theme.mediaMd}) {
+    clip-path: polygon(0 0%, 100% 10%, 100% 100%, 0 90%);
+  }
+  @media (min-width: ${p => p.theme.mediaLg}) {
+    clip-path: polygon(0 0%, 100% 15%, 100% 100%, 0 85%);
+  }
+`
+
+export const CellWrapper = styled.div`
+  display: grid;
+  gap: 3rem;
+  width: 100%;
+  padding: 0 ${p => p.theme.compPadLg};
+  max-width: ${p => p.theme.mediaLg};
+  grid-template-columns: repeat(3, 1fr);
+  max-width: ${p => p.theme.mediaMd};
+
+  @media (max-width: ${p => p.theme.mediaMd}) {
+    grid-template-columns: repeat(1, 1fr);
+    padding: ${p => p.theme.compPadMd};
+    gap: 2rem;
+  }
+`
+
+export const HomeCell = styled.div.attrs(() => ({
   as: Link,
 }))<LinkProps>`
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
+  padding: ${p => p.theme.compPadMd};
   justify-self: stretch;
   align-items: start;
   justify-content: center;

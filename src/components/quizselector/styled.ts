@@ -1,27 +1,29 @@
 import styled from 'styled-components'
 import { Btn } from '../common/Button'
 
-export const QuizOptions = styled.form`
+export const QuizMenuContainer = styled.form`
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  padding: ${p => p.theme.compPadLg};
   background-color: ${p => p.theme.lavender};
   border-radius: ${p => p.theme.borderR};
   padding: ${p => p.theme.compPad};
   width: 100%;
-  max-width: 60rem;
+  max-width: ${p => p.theme.mediaMd};
 
   @media (max-width: ${p => p.theme.mediaMd}) {
     grid-template-columns: repeat(1, 1fr);
+    padding: ${p => p.theme.compPadMd};
     max-width: 30rem;
   }
 `
 
-export const OptionCont = styled.div`
+export const OptionContainer = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 3rem;
-  justify-content: center;
+  justify-content: space-evenly;
+  align-items: center;
 
   @media (max-width: ${p => p.theme.mediaMd}) {
     flex-direction: column;
@@ -66,7 +68,7 @@ export const Slider = styled.input.attrs(() => ({
   height: 0.6rem;
   border-radius: 0.2rem;
   margin-top: 1rem;
-  width: 10rem;
+  width: 13rem;
   /* background-color: ${p => p.theme.grey}; */
   background: ${p =>
     'linear-gradient(to right, ' +
@@ -137,12 +139,7 @@ export const Checkbox = styled.input.attrs(() => ({
 `
 
 export const SubmitBtn = styled(Btn)`
-  grid-column-start: 2;
   justify-self: center;
-
-  @media (max-width: ${p => p.theme.mediaMd}) {
-    grid-column-start: 1;
-  }
 
   &:hover {
     background-color: ${p => p.theme.pink};

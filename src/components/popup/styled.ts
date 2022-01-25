@@ -25,7 +25,8 @@ export const Popup = styled.div<PopupProps>`
   flex-direction: column;
   gap: 3rem;
   padding: 1rem 2rem;
-  width: 35%;
+  width: 50%;
+  max-width: ${p => p.theme.mediaSm};
   height: ${p => (p.vis && p.kanjiset ? '80vh' : '40vh')};
   font-size: 1.8rem;
   text-align: center;

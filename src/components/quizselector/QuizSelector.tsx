@@ -8,14 +8,14 @@ import {
 import { QuizCtx, QuizCtxT } from '../../context/KanjiAliveCtx'
 import { Row } from './../PageContainer'
 import {
-  QuizOptions,
+  QuizMenuContainer,
   Slider,
   Option,
   Checkbox,
   Levels,
   OptionTitle,
   SubmitBtn,
-  OptionCont,
+  OptionContainer,
   ValueDisplay,
 } from './styled'
 
@@ -50,8 +50,8 @@ export const QuizSelector: React.FC = () => {
 
   return (
     <Row>
-      <QuizOptions onSubmit={e => createQuiz(e)}>
-        <OptionCont>
+      <QuizMenuContainer onSubmit={e => createQuiz(e)}>
+        <OptionContainer>
           <Option>
             <OptionTitle>Number of questions</OptionTitle>
             <ValueDisplay>{qNumber}</ValueDisplay>
@@ -95,9 +95,9 @@ export const QuizSelector: React.FC = () => {
               onChange={e => setANumber(Number(e.currentTarget.value))}
             />
           </Option>
-        </OptionCont>
+        </OptionContainer>
         <SubmitBtn as='input' type='submit' value='Start Quiz!' />
-      </QuizOptions>
+      </QuizMenuContainer>
     </Row>
   )
 }

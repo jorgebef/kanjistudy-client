@@ -48,7 +48,7 @@ export const Row = styled.div`
 export const Grid = styled.div`
   display: grid;
   gap: 2rem;
-  padding: 2rem ${p => p.theme.sidePad};
+  padding: 2rem 3rem;
 
   @media (min-width: ${p => p.theme.mediaMd}) {
     grid-template-columns: repeat(2, 1fr);

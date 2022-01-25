@@ -130,34 +130,32 @@ const KanjiQuiz: React.FC = () => {
   }
 
   return (
-    <>
-      <Row>
-        <QContainer>
-          {question ? (
-            <>
-              <Question>
-                <span>{question}</span>
-                <ul ref={ulAnswersRef}>
-                  {shuffleArr(answerPool)?.map((option, an) => {
-                    return (
-                      <li key={an} value={option} onClick={quizCheck}>
-                        {option}
-                      </li>
-                    )
-                  })}
-                </ul>
-              </Question>
-              <BtnContainer>
-                <BtnRed onClick={quitQuiz}>Quit</BtnRed>
-                <Btn onClick={nextQuestion}>Next</Btn>
-              </BtnContainer>
-            </>
-          ) : (
-            <Loading />
-          )}
-        </QContainer>
-      </Row>
-    </>
+    <Row>
+      <QContainer>
+        {question ? (
+          <>
+            <Question>
+              <span>{question}</span>
+              <ul ref={ulAnswersRef}>
+                {shuffleArr(answerPool)?.map((option, an) => {
+                  return (
+                    <li key={an} value={option} onClick={quizCheck}>
+                      {option}
+                    </li>
+                  )
+                })}
+              </ul>
+            </Question>
+            <BtnContainer>
+              <BtnRed onClick={quitQuiz}>Quit</BtnRed>
+              <Btn onClick={nextQuestion}>Next</Btn>
+            </BtnContainer>
+          </>
+        ) : (
+          <Loading />
+        )}
+      </QContainer>
+    </Row>
   )
 }
 

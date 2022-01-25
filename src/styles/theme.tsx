@@ -19,7 +19,9 @@ export interface ThemeType {
   borderR: string
   buttonR: string
   sidePad: string
-  compPad: string
+  compPadLg: string
+  compPadMd: string
+  compPadSm: string
 
   mediaSm: string
   mediaMd: string
@@ -53,13 +55,15 @@ const appTheme: ThemeType = {
   // OTHER VALUES ---- ]]]
   // ---- PADDING ----
   // vvvvvvvvvvvvvvvv
-  sidePad: '10vw',
-  compPad: '3rem',
+  sidePad: '1.5rem',
+  compPadLg: '3rem',
+  compPadMd: '1.5rem',
+  compPadSm: '1rem',
   // ---- MEDIA ----
   // vvvvvvvvvvvvvvvv
   mediaSm: '850px',
-  mediaMd: '1050px',
-  mediaLg: '1250px',
+  mediaMd: '1200px',
+  mediaLg: '1920px',
 }
 
 export default appTheme

@@ -10,8 +10,6 @@ export const NavContainer = styled.nav<NavContainerProps>`
   display: flex;
   position: fixed;
   z-index: 99;
-  /* height: ${p =>
-    (p.scrollpos === 0 ? p.theme.navH : p.theme.navHS) + 'rem'}; */
   height: ${p => p.theme.navH + 'rem'};
   top: 0;
   width: 100%;
@@ -31,7 +29,7 @@ export const NavContainer = styled.nav<NavContainerProps>`
 
 export const LogoContainer = styled.div`
   display: flex;
-  padding-left: 15vw;
+  padding-left: 8rem;
   height: inherit;
   text-decoration: none;
   align-self: flex-start;
@@ -41,6 +39,7 @@ export const LogoContainer = styled.div`
     position: absolute;
     top: 0rem;
     left: 0rem;
+    padding-left: 3rem;
   }
 `
 
@@ -71,7 +70,7 @@ export const HamburguerContainer = styled.div<MenuProps>`
     flex-direction: column;
     position: absolute;
     top: 0rem;
-    right: 5rem;
+    right: 3rem;
   }
 `
 
@@ -116,7 +115,7 @@ export const Menu = styled.ul<MenuProps>`
   --navH: ${p => p.theme.navH + 'rem'};
   display: flex;
   flex-grow: 1;
-  padding: 0 15vw 0 0;
+  padding: 0 8rem 0 0;
   justify-content: flex-end;
   transition: all ease-in-out 0.25s;
 

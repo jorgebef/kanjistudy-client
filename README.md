@@ -1,46 +1,48 @@
-# Getting Started with Create React App
+# KanjiStudy frontend app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a personal project based on my own interests to practice and learn further about the Japanese language.
 
-## Available Scripts
+The project is focused only on kanji for certain levels or grades for the official JLPT tests.
 
-In the project directory, you can run:
+## About the Project: 📚
 
-### `npm start`
+I have created this project as a way to create a tool for myself to practice and review the basics of Japanese
+to have a place to quickly access and get a few minutes checking and reviewing my knowledge of basic Kanji.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Additionally, I have created a page to review katakana and hiragana, as occasionally I doubt myself when reading
+some japanese text and I really want to solidify my basics!!
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+For my web development abilities, I chose to create a front-end project that utilizes an external backend not
+created by myself to retrieve the necessary data to perform the tasks I wish.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I forced myself to use a third party backend to face the problems that I would face and how I would resolve them
+in order to adapt the retrieved information but not miss any functionality that I desired to have on the app.
 
-### `npm run build`
+## Technologies Used: ☕️ 🐍 ⚛️
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Typescript
+In order to further understand the intricacies of React, frontend development and how it all works together, I have
+decided to use the superset of JS, Typescript.
+By using this language, I have deepened my knowledge about types, how they work, how and why to pass props
+a certain way and details that I was unaware of.
+This has made me become more hungry for knowledge and wish to study more than ever.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### React JS
+As a frontend library, I have chosen React given the flexibility it offers and high customizability.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Styled Components
+For styling, I chose to create my own styled components.
+This is the first time I have worked with them and I have learned to appreciate the flexibility and integration that
+it offers with JS code, allowing to conditionally style components and edit the style based on variables, state or props.
 
-### `npm run eject`
+## Screenshots: 📷
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Status: 📶
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**Work in Progress
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Credits: 📝
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+app.kanjialive.com

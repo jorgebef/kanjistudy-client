@@ -20,17 +20,17 @@ export const RowGradient = styled.div`
 
 export const QuizGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   width: 100%;
-  max-width: 60rem;
+  max-width: ${p => p.theme.mediaMd};
   gap: 1rem;
 
   @media (max-width: ${p => p.theme.mediaMd}) {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 
   @media (max-width: ${p => p.theme.mediaSm}) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 `
 

@@ -38,6 +38,7 @@ it offers with JS code, allowing to conditionally style components and edit the 
 
 ## Screenshots: 📷
 
+To be added...
 
 ## Status: 📶
 
@@ -45,4 +46,5 @@ it offers with JS code, allowing to conditionally style components and edit the 
 
 ## Credits: 📝
 
+API used:
 app.kanjialive.com

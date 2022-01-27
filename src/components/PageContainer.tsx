@@ -43,6 +43,14 @@ export const Row = styled.div`
   align-items: center;
   justify-content: center;
   padding: 2rem ${p => p.theme.sidePad};
+
+  & .fadein {
+    opacity: 0;
+    transition: all fade-in-out 1s;
+  }
+  & .appear {
+    opacity: 1;
+  }
 `
 
 export const Grid = styled.div`

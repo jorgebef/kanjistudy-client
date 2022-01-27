@@ -28,6 +28,19 @@ const LastRow = styled(Grid)`
   );
 `
 
+const observer = new IntersectionObserver(entries => {
+  if (entries == null) console.log('empty input')
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('appear')
+    } else {
+      entry.target.classList.remove('appear')
+    }
+  })
+})
+const fadeinComp = document.querySelector('.fadein')
+if (fadeinComp) observer.observe(fadeinComp)
+
 export const Home: React.FC = () => {
   return (
     <Container>
@@ -55,7 +68,7 @@ export const Home: React.FC = () => {
         </CellWrapper>
       </RowGradient>
       <Row>
-        <img src={toriGates} alt='Tori Gates' />
+        <img className='fadein' src={toriGates} alt='Tori Gates' />
       </Row>
       <Row>TEST TEXT</Row>
     </Container>

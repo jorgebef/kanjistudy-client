@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import {
   Container,
@@ -14,6 +14,8 @@ import {
   RowGradientInverted,
 } from '../components/RowGradient'
 import toriGates from '../assets/tori-gates.jpeg'
+import useAppear from '../utils/useAppear'
+import AOSImage from '../components/common/AOSImage'
 
 const LastRow = styled(Grid)`
   --specPad: 6rem;
@@ -28,20 +30,10 @@ const LastRow = styled(Grid)`
   );
 `
 
-const observer = new IntersectionObserver(entries => {
-  if (entries == null) console.log('empty input')
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('appear')
-    } else {
-      entry.target.classList.remove('appear')
-    }
-  })
-})
-const fadeinComp = document.querySelector('.fadein')
-if (fadeinComp) observer.observe(fadeinComp)
-
 export const Home: React.FC = () => {
+  const imgRef = useRef(null)
+  const visible = useAppear(imgRef)
+
   return (
     <Container>
       <TopRow>
@@ -68,7 +60,11 @@ export const Home: React.FC = () => {
         </CellWrapper>
       </RowGradient>
       <Row>
-        <img className='fadein' src={toriGates} alt='Tori Gates' />
+        <AOSImage
+          ref={imgRef}
+          src={toriGates}
+          alt='Tori Gates'
+        />
       </Row>
       <Row>TEST TEXT</Row>
     </Container>

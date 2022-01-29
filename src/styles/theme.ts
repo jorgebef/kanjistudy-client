@@ -2,14 +2,18 @@ export interface ThemeType {
   fg: string
   bg: string
 
+  white: string
+  black: string
   red: string
   orange: string
   grey: string
-  black: string
+  darkgrey: string
+  lightgrey: string
   lavender: string
   violet: string
   purple: string
   blue: string
+  green: string
   yellow: string
   pink: string
 
@@ -33,15 +37,19 @@ const appTheme: ThemeType = {
   // vvvvvvvvvvvvvvvv
   fg: '#30332E',
   bg: '#ffffff',
-  red: '#A31621',
+  white: '#ffffff',
+  red: '#e7001d',
   orange: '#C3533D',
-  grey: '#cfcfcf',
+  grey: '#afafaf',
+  darkgrey: '#afafaf',
+  lightgrey: '#fafafa',
   black: '#30332E',
   lavender: '#EAE6FF',
+  green: '#4F9D69',
   violet: '#8479d1',
   purple: '#3e3491',
   blue: '#009FFF',
-  yellow: '#f5c745',
+  yellow: '#FFA400',
   pink: '#ec2F4B',
   // ]]]
   // ---- SIZING ----

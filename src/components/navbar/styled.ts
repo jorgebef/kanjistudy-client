@@ -14,16 +14,15 @@ export const NavContainer = styled.nav<NavContainerProps>`
   top: 0;
   width: 100%;
   justify-content: space-between;
-  background-color: ${p => (p.scrollpos === 0 ? null : p.theme.bg)};
-  box-shadow: ${p =>
-    p.scrollpos === 0 ? null : 'rgb(10 10 10 / 15%) 0px 0.5rem 1rem 0px'};
+  background-color: ${p => p.theme.white};
+  /* background-color: ${p => (p.scrollpos === 0 ? null : p.theme.white)}; */
+  /* border-bottom: ${p => p.scrollpos === 0 ? null : '1px solid '+p.theme.grey}; */
+  /* box-shadow: ${p => p.scrollpos === 0 ? null : 'rgb(10 10 10 / 15%) 0px 0.5rem 1rem 0px'}; */
   align-items: stretch;
   transition: all ease-in-out 0.25s;
 
   @media (max-width: ${p => p.theme.mediaMd}) {
     flex-direction: column;
-    background-color: ${p =>
-      p.scrollpos !== 0 || p.isopen ? p.theme.bg : null};
   }
 `
 
@@ -121,7 +120,7 @@ export const Menu = styled.ul<MenuProps>`
 
   @media (max-width: ${p => p.theme.mediaMd}) {
     display: flex;
-    background-color: ${p => p.theme.bg};
+    background-color: ${p => p.theme.white};
     flex-direction: column;
     margin-top: var(--navH);
     width: 100%;
@@ -179,12 +178,8 @@ export const MenuLinkName = styled.span`
     width: 0;
     margin-top: 0.1rem;
     margin-left: -10%;
-    border-radius: var(--ulineH);
-    background: linear-gradient(
-      90deg,
-      ${p => p.theme.pink} 0%,
-      ${p => p.theme.violet} 100%
-    );
+    /* border-radius: var(--ulineH); */
+    background-color: ${p => p.theme.red};
     transition: all 0.15s ease-in-out;
   }
 `
@@ -198,7 +193,7 @@ export const Overlay = styled.div<MenuProps>`
     position: fixed;
     background-color: #000;
     opacity: ${p => (p.isopen ? 0.35 : 0)};
-    width: 100vh;
+    width: 100%;
     height: 100vh;
     margin-top: ${p => p.theme.navH + 'rem'};
     z-index: -1;

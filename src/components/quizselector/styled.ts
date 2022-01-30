@@ -6,7 +6,7 @@ export const QuizMenuContainer = styled.form`
   flex-direction: column;
   gap: 3rem;
   padding: ${p => p.theme.compPadLg};
-  background-color: ${p => p.theme.lavender};
+  background-color: ${p => p.theme.lightgrey};
   border-radius: ${p => p.theme.borderR};
   padding: ${p => p.theme.compPad};
   width: 100%;
@@ -44,13 +44,13 @@ export const Option = styled.div`
 export const OptionTitle = styled.span`
   font-size: 1.3rem;
   font-weight: 700;
-  color: ${p => p.theme.fg};
+  color: ${p => p.theme.black};
 `
 
 export const ValueDisplay = styled.span`
   font-size: 1.3rem;
   font-weight: 700;
-  color: ${p => p.theme.pink};
+  color: ${p => p.theme.red};
 `
 
 const backgroundCalc = (v: any, max: any, min: any): number => {
@@ -72,9 +72,9 @@ export const Slider = styled.input.attrs(() => ({
   /* background-color: ${p => p.theme.grey}; */
   background: ${p =>
     'linear-gradient(to right, ' +
-    p.theme.pink +
+    p.theme.red +
     ' 0%, ' +
-    p.theme.violet +
+    p.theme.red +
     ' ' +
     backgroundCalc(p.value, p.max, p.min) +
     '%, ' +
@@ -92,7 +92,7 @@ export const Slider = styled.input.attrs(() => ({
     width: 1.2rem;
     height: 1.2rem;
     border-radius: 50%;
-    background-color: ${p => p.theme.pink};
+    background-color: ${p => p.theme.red};
     cursor: pointer;
     box-shadow: none;
   }
@@ -134,14 +134,11 @@ export const Checkbox = styled.input.attrs(() => ({
 
   &:checked {
     box-shadow: none;
-    background-color: ${p => p.theme.pink};
+    background-color: ${p => p.theme.red};
   }
 `
 
 export const SubmitBtn = styled(Btn)`
   justify-self: center;
-
-  &:hover {
-    background-color: ${p => p.theme.pink};
-  }
+  background-color: ${p => p.theme.red};
 `

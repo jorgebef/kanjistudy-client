@@ -9,7 +9,7 @@ export const QContainer = styled.div`
 `
 
 export const Question = styled.div`
-  background-color: ${p => p.theme.lavender};
+  background-color: ${p => p.theme.lightgrey};
   display: grid;
   grid-template-columns: 2fr 6fr;
   gap: 1rem;
@@ -54,22 +54,25 @@ export const Question = styled.div`
     text-align: center;
     justify-content: center;
     align-items: center;
-    font-weight: 500;
+    font-size: 1.1rem;
+    font-weight: 700;
     padding: 0.5rem 1rem;
     border-radius: ${p => p.theme.borderR};
     list-style: none;
     transition: all 0.3s linear;
-    background-color: ${p => p.theme.bg};
+    background-color: ${p => p.theme.white};
   }
   & li:hover {
-    color: ${p => p.theme.bg};
-    background-color: ${p => p.theme.pink};
+    color: ${p => p.theme.white};
+    background-color: ${p => p.theme.grey};
   }
   & li.incorrect {
-    background-color: red;
+    color: ${p => p.theme.white};
+    background-color: ${p => p.theme.red};
   }
   & li.correct {
-    background-color: green;
+    color: ${p => p.theme.white};
+    background-color: ${p => p.theme.green};
   }
 `
 

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { BtnContainer, QContainer, Question } from './styled'
-import { Row } from '../PageContainer'
+import { Row } from '../common/PageContainer'
 import { QuizCtx, QuizCtxT } from '../../context/KanjiAliveCtx'
 import singleKanjiFetch from '../../middleware/singleKanji'
 import { KanjiAliveListT, KanjiAliveSingleT } from '../../middleware/types'

@@ -17,7 +17,7 @@ export const PopupContainer = styled.div<PopupProps>`
   left: 0;
   bottom: 0;
   right: 0;
-  transition: all 0.2s ease-in-out;
+  transition: all ${p => p.theme.transition};
 `
 
 export const Popup = styled.div<PopupProps>`
@@ -38,7 +38,7 @@ export const Popup = styled.div<PopupProps>`
   overflow: scroll;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
-  transition: all 0.3s ease-in-out;
+  transition: inherit;
 
   @media (max-width: ${p => p.theme.mediaSm}) {
     width: 70%;
@@ -63,12 +63,12 @@ export const Overlay = styled.div`
   height: 100vh;
   background-color: black;
   background-color: #00000035;
-  transition: opacity 0.9s ease-in-out;
+  transition: opacity 0.5s ease;
 `
 
 export const CloseButton = styled.div<PopupProps>`
   position: absolute;
-  visibility: ${p => (p.kanjiset ? 'visible' : 'hidden')};
+  opacity: ${p => (p.kanjiset ? 1 : 0)};
   display: flex;
   flex-direction: column;
   align-self: end;

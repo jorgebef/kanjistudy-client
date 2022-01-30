@@ -25,11 +25,11 @@ function createAnimation() {
       }
       ${i * e + 2 * e}% {
         font-size: calc(var(--size) * 1.3);
-      color:${appTheme.pink};
+      color:${appTheme.red};
       }
       ${i * e + 4 * e}% {
         font-size: var(--size);
-      color:${appTheme.pink};
+      color:${appTheme.red};
       }
     }
     `

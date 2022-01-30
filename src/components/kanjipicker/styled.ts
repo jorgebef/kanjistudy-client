@@ -22,8 +22,11 @@ export const QuizGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   width: 100%;
-  max-width: ${p => p.theme.mediaMd};
   gap: 1rem;
+  padding: ${p => p.theme.compPadSm};
+  max-width: ${p => p.theme.mediaMd};
+  background-color: ${p => p.theme.lightgrey};
+  border-radius: ${p => p.theme.borderR};
 
   @media (max-width: ${p => p.theme.mediaMd}) {
     grid-template-columns: repeat(5, 1fr);
@@ -43,12 +46,17 @@ export const KanjiCell = styled.a<KanjiProps>`
   font-size: 3rem;
   justify-content: center;
   align-items: center;
-  background-color: ${p => p.theme.lavender};
-  border-radius: ${p => p.theme.borderR};
+  background-color: ${p => p.theme.white};
+  border-radius: ${p => p.theme.buttonR};
   min-height: 5rem;
   /* This gives the 3d effect */
   perspective: 1000px;
   overflow: hidden;
+  transition: all ${p => p.theme.transition};
+
+  &:hover {
+    background-color: ${p => p.theme.red};
+  }
 
   & .kanji {
     /* background-color: ${p => p.theme.lavender}; */

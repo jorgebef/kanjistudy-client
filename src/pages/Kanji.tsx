@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, TopRow, Title } from '../components/PageContainer'
+import { Container, TopRow, Title } from '../components/common/PageContainer'
 import KanjiPicker from '../components/kanjipicker/KanjiPicker'
 // import { KanjiContext } from '../context/KanjiContext'
 

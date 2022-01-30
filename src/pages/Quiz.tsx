@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import { Container, TopRow } from '../components/PageContainer'
+import { Container, TopRow } from '../components/common/PageContainer'
 import { QuizSelector } from '../components/quizselector/QuizSelector'
 import KanjiQuiz from '../components/kanjiquiz/KanjiQuiz'
 import { QuizCtx, QuizCtxT } from '../context/KanjiAliveCtx'

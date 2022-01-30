@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Row } from '../PageContainer'
+import { Row } from '../common/PageContainer'
 // import { kanjiData, KanjiType } from '../utils/kanjiData'
 import { QuizGrid, KanjiCell } from '../kanjipicker/styled'
 import PopupKanji from '../popup/Popup'

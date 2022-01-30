@@ -6,7 +6,7 @@ import {
   useContext,
 } from 'react'
 import { QuizCtx, QuizCtxT } from '../../context/KanjiAliveCtx'
-import { Row } from './../PageContainer'
+import { Row } from '../common/PageContainer'
 import {
   QuizMenuContainer,
   Slider,

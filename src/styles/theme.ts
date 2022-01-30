@@ -30,6 +30,9 @@ export interface ThemeType {
   mediaSm: string
   mediaMd: string
   mediaLg: string
+
+  transition: string
+  transitionL: string
 }
 
 const appTheme: ThemeType = {
@@ -38,11 +41,11 @@ const appTheme: ThemeType = {
   fg: '#30332E',
   bg: '#ffffff',
   white: '#ffffff',
-  red: '#e7001d',
+  red: '#DA2C38',
   orange: '#C3533D',
-  grey: '#afafaf',
-  darkgrey: '#afafaf',
-  lightgrey: '#fafafa',
+  grey: '#9d9d9d',
+  darkgrey: '#434641',
+  lightgrey: '#e1e1e1',
   black: '#30332E',
   lavender: '#EAE6FF',
   green: '#4F9D69',
@@ -58,7 +61,7 @@ const appTheme: ThemeType = {
   navHS: 3,
   footH: '10rem',
   // [[[ OTHER VALUES ----
-  borderR: '0.5rem',
+  borderR: '0.2rem',
   buttonR: '0.3rem',
   // OTHER VALUES ---- ]]]
   // ---- PADDING ----
@@ -72,6 +75,9 @@ const appTheme: ThemeType = {
   mediaSm: '850px',
   mediaMd: '1200px',
   mediaLg: '1920px',
+
+  transition: 'ease 0.25s',
+  transitionL: 'ease 0.45s',
 }
 
 export default appTheme

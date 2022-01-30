@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, TopRow } from '../components/PageContainer'
+import { Container, TopRow } from '../components/common/PageContainer'
 
 export const NotFound: React.FC = () => {
   return (

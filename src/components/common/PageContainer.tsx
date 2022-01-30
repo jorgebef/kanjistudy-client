@@ -28,20 +28,22 @@ export const TopRow: React.FC = styled.div.attrs(() => ({
   flex-direction: column;
   /* +++ Padding-top is set in the parent container +++ */
   padding: calc(${p => p.theme.navH + 'rem'} + 5vw) ${p => p.theme.sidePad} 5vw;
-  background: linear-gradient(
-    180deg,
-    ${p => p.theme.lavender} 0%,
-    ${p => p.theme.bg} 100%
-  );
-  /* background-color: ${p => p.theme.bg}; */
+  /* background: linear-gradient( */
+  /*   180deg, */
+  /*   ${p => p.theme.lavender} 0%, */
+  /*   ${p => p.theme.bg} 100% */
+  /* ); */
+  background-color: ${p => p.theme.bg};
   background-clip: padding-box;
   overflow: hidden;
 `
 
 export const Row = styled.div`
   display: flex;
+  position:relative;
   align-items: center;
   justify-content: center;
+  overflow:hidden;
   padding: 2rem ${p => p.theme.sidePad};
 `
 

@@ -1,21 +1,15 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import styled from 'styled-components'
-import {
-  Container,
-  Grid,
-  Row,
-  Title,
-  TopRow,
-} from '../components/PageContainer'
+import { Container, Grid, Row } from '../components/common/PageContainer'
 import {
   CellWrapper,
   HomeCell,
   RowGradient,
-  RowGradientInverted,
-} from '../components/RowGradient'
+} from '../components/common/RowGradient'
 import toriGates from '../assets/tori-gates.jpeg'
 import useAppear from '../utils/useAppear'
-import AOSImage from '../components/common/AOSImage'
+import { AOStranslateL, AOStranslateR } from '../components/common/AOSImage'
+import Hero from '../components/hero/Hero'
 
 const LastRow = styled(Grid)`
   --specPad: 6rem;
@@ -31,14 +25,15 @@ const LastRow = styled(Grid)`
 `
 
 export const Home: React.FC = () => {
+  const imgRefA = useRef(null)
+  useAppear(imgRefA)
   const imgRef = useRef(null)
-  const visible = useAppear(imgRef)
+  useAppear(imgRef)
 
   return (
     <Container>
-      <TopRow>
-        <Title>Practice Kanji for JLPT</Title>
-      </TopRow>
+      {/* <Hero bgImg={toriGates}> */}
+      <Hero />
       <RowGradient>
         <CellWrapper>
           <HomeCell to={'/kana'}>
@@ -54,19 +49,20 @@ export const Home: React.FC = () => {
                 <p>九 書 中 聞 高 子 下 校 前 南 食 山</p>
               </div>
             </div>
-            {/* <div className='pop'>Learn Jlaksdlfkjalsdk lasdkjfla ksdflaksjdf Kanji</div> */}
           </HomeCell>
           <HomeCell to={'/about'}>HOME</HomeCell>
         </CellWrapper>
       </RowGradient>
-      <Row>
-        <AOSImage
-          ref={imgRef}
-          src={toriGates}
-          alt='Tori Gates'
-        />
+      <Row ref={imgRefA}>
+        <AOStranslateR className='aos'>
+          <img width='300px' height='200px' src={toriGates} alt='Tori Gates' />
+        </AOStranslateR>
       </Row>
-      <Row>TEST TEXT</Row>
+      <Row ref={imgRef}>
+        <AOStranslateL className='aos'>
+          <img width='300px' height='200px' src={toriGates} alt='Tori Gates' />
+        </AOStranslateL>
+      </Row>
     </Container>
   )
 }

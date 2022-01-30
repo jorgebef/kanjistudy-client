@@ -34,12 +34,7 @@ export const Popup = styled.div<PopupProps>`
   justify-content: ${p => (p.kanjiset ? 'flex-start' : 'center')};
   color: ${p => p.theme.fg};
   border-radius: ${p => p.theme.borderR};
-  /* background-color: ${p => p.theme.lavender}; */
-  background: linear-gradient(
-    -45deg,
-    ${p => p.theme.bg} 10%,
-    ${p => p.theme.lavender} 90%
-  );
+  background-color: ${p => p.theme.white};
   overflow: scroll;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
@@ -73,7 +68,7 @@ export const Overlay = styled.div`
 
 export const CloseButton = styled.div<PopupProps>`
   position: absolute;
-  visibility: ${p => p.kanjiset ? 'visible' : 'hidden'};
+  visibility: ${p => (p.kanjiset ? 'visible' : 'hidden')};
   display: flex;
   flex-direction: column;
   align-self: end;
@@ -97,18 +92,10 @@ export const CloseButton = styled.div<PopupProps>`
   & > div:nth-child(1) {
     transform: rotate(-45deg);
     margin-bottom: -0.2rem;
-    background: linear-gradient(
-      90deg,
-      ${p => p.theme.pink} 0%,
-      ${p => p.theme.violet} 100%
-    );
+    background-color: ${p => p.theme.red};
   }
   & > div:nth-child(2) {
     transform: rotate(45deg);
-    background: linear-gradient(
-      90deg,
-      ${p => p.theme.pink} 0%,
-      ${p => p.theme.violet} 100%
-    );
+    background-color: ${p => p.theme.red};
   }
 `

@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import { BtnContainer, QContainer, Question } from './styled'
+import * as S from './styles'
 import { Row } from '../common/PageContainer'
 import { QuizCtx, QuizCtxT } from '../../context/KanjiAliveCtx'
 import singleKanjiFetch from '../../middleware/singleKanji'
 import { KanjiAliveListT, KanjiAliveSingleT } from '../../middleware/types'
 import gradeListFetch from '../../middleware/levelFetch'
-import Loading from '../loading/Loading'
+import Loading from '../loading'
 import { Btn, BtnRed } from '../common/Button.style'
 
 const KanjiQuiz: React.FC = () => {
@@ -131,10 +131,10 @@ const KanjiQuiz: React.FC = () => {
 
   return (
     <Row>
-      <QContainer>
+      <S.QContainer>
         {question ? (
           <>
-            <Question>
+            <S.Question>
               <span>{question}</span>
               <ul ref={ulAnswersRef}>
                 {shuffleArr(answerPool)?.map((option, an) => {
@@ -145,16 +145,16 @@ const KanjiQuiz: React.FC = () => {
                   )
                 })}
               </ul>
-            </Question>
-            <BtnContainer>
+            </S.Question>
+            <S.BtnContainer>
               <BtnRed onClick={quitQuiz}>Quit</BtnRed>
               <Btn onClick={nextQuestion}>Next</Btn>
-            </BtnContainer>
+            </S.BtnContainer>
           </>
         ) : (
           <Loading />
         )}
-      </QContainer>
+      </S.QContainer>
     </Row>
   )
 }

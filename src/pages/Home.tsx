@@ -1,16 +1,14 @@
 import React, { useRef } from 'react'
 import styled from 'styled-components'
 import { Container, Grid, Row } from '../components/common/PageContainer'
-import {
-  CellWrapper,
-  HomeCell,
-  RowClipPath,
-  RowGradient,
-} from '../components/common/RowGradient'
+import HomeCards from '../components/homecards'
 import toriGates from '../assets/tori-gates.jpeg'
 import useAppear from '../utils/useAppear'
-import { AOStranslateL, AOStranslateR } from '../components/common/AOSImage.style'
-import Hero from '../components/hero/Hero'
+import {
+  AOStranslateL,
+  AOStranslateR,
+} from '../components/common/AOSImage.style'
+import Hero from '../components/hero'
 
 const LastRow = styled(Grid)`
   --specPad: 6rem;
@@ -35,25 +33,7 @@ export const Home: React.FC = () => {
     <Container>
       {/* <Hero bgImg={toriGates}> */}
       <Hero />
-      <RowClipPath>
-        <CellWrapper>
-          <HomeCell to={'/kana'}>
-            <h1>KANA</h1>
-            <p className='pop'>Learn hiragana and katakana</p>
-          </HomeCell>
-          <HomeCell to={'/kanji'}>
-            <h1>JLPT N5 KANJI</h1>
-            <div className='pop'>
-              <div>Learn JLPTN5 Kanji</div>
-              <div className='scrolling'>
-                <p>九 書 中 聞 高 子 下 校 前 南 食 山</p>
-                <p>九 書 中 聞 高 子 下 校 前 南 食 山</p>
-              </div>
-            </div>
-          </HomeCell>
-          <HomeCell to={'/about'}>HOME</HomeCell>
-        </CellWrapper>
-      </RowClipPath>
+      <HomeCards />
       <Row ref={imgRefA}>
         <AOStranslateR className='aos'>
           <img width='300px' height='200px' src={toriGates} alt='Tori Gates' />

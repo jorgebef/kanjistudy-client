@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import appTheme from '../../styles/theme'
 
-const LoadingContainer = styled.div`
+export const LoadingContainer = styled.div`
   display: flex;
   justify-self: center;
   align-self: center;
@@ -39,7 +39,7 @@ function createAnimation() {
   `
 }
 
-const JPText = styled.p.attrs(() => ({
+export const JPText = styled.p.attrs(() => ({
   lang: 'ja',
 }))`
   --size: 3rem;
@@ -53,24 +53,3 @@ const JPText = styled.p.attrs(() => ({
   ${createAnimation()}
 `
 
-const Loading = () => {
-  return (
-    <LoadingContainer>
-      <JPText>
-        <span>ロ</span>
-        <span>ー</span>
-        <span>デ</span>
-        <span>ィ</span>
-        <span>ン</span>
-        <span>グ</span>
-        {/* <span>あ</span> */}
-        {/* <span>り</span> */}
-        {/* <span>が</span> */}
-        {/* <span>と</span> */}
-        {/* <span>う</span> */}
-      </JPText>
-    </LoadingContainer>
-  )
-}
-
-export default Loading

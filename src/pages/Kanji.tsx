@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, TopRow, Title } from '../components/common/PageContainer'
-import KanjiPicker from '../components/kanjipicker/KanjiPicker'
+import KanjiPicker from '../components/kanjipicker'
 // import { KanjiContext } from '../context/KanjiContext'
 
 export const Kanji: React.FC = () => {

@@ -8,7 +8,7 @@ export const QuizMenuContainer = styled.form`
   padding: ${p => p.theme.compPadLg};
   background-color: ${p => p.theme.lightgrey};
   border-radius: ${p => p.theme.borderR};
-  padding: ${p => p.theme.compPad};
+  padding: ${p => p.theme.compPadMd};
   width: 100%;
   max-width: ${p => p.theme.mediaMd};
 

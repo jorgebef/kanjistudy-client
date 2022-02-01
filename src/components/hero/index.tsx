@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { AOStranslateL, AOStranslateR } from '../common/AOSImage.style'
 import KanjiSVG from './kanjiSVG'
-import toriGates from '../../assets/tori-gates.jpeg'
 import sensoJi from '../../assets/senso-ji-good.jpg'
 import { useRef } from 'react'
 import useAppear from '../../utils/useAppear'

@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { Container, TopRow } from '../components/common/PageContainer'
-import { QuizSelector } from '../components/quizselector/QuizSelector'
-import KanjiQuiz from '../components/kanjiquiz/KanjiQuiz'
+import { QuizSelector } from '../components/quizselector'
+import KanjiQuiz from '../components/kanjiquiz'
 import { QuizCtx, QuizCtxT } from '../context/KanjiAliveCtx'
 
 export const Quiz: React.FC = () => {

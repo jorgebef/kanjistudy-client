@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Row } from '../common/PageContainer'
 // import { kanjiData, KanjiType } from '../utils/kanjiData'
-import { QuizGrid, KanjiCell } from '../kanjipicker/styled'
-import PopupKanji from '../popup/Popup'
+import * as S from '../kanjipicker/styles'
+import PopupKanji from '../popupkanji'
 import gradeListFetch from '../../middleware/levelFetch'
 import { KanjiAliveListT } from '../../middleware/types'
-import Loading from '../loading/Loading'
+import Loading from '../loading'
 
 const KanjiPicker: React.FC = () => {
   const [kanjiList, setKanjiList] = useState<KanjiAliveListT[] | null>(null)
@@ -26,19 +26,19 @@ const KanjiPicker: React.FC = () => {
   return (
     <Row>
       {kanjiList ? (
-        <QuizGrid>
+        <S.QuizGrid>
           {kanjiList.map((k: KanjiAliveListT, i) => {
             return (
-              <KanjiCell
+              <S.KanjiCell
                 key={i}
                 kanji={k.kanji.character}
                 onClick={e => popupSet(e, k)}
               >
                 <div className='kanji'>{k.kanji.character}</div>
-              </KanjiCell>
+              </S.KanjiCell>
             )
           })}
-        </QuizGrid>
+        </S.QuizGrid>
       ) : (
         <Loading />
       )}

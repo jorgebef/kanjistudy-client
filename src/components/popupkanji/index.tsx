@@ -1,8 +1,8 @@
 // import { KanjiType } from '../../utils/kanjiData'
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import singleKanjiFetch from '../../middleware/singleKanji'
-import Loading from '../loading/Loading'
-import { CloseButton, Overlay, Popup, PopupContainer } from './styled'
+import Loading from '../loading'
+import * as S from './styles'
 
 interface PopupProps {
   visible: boolean
@@ -24,16 +24,16 @@ const PopupKanji: React.FC<PopupProps> = ({ visible, setVisible, kanji }) => {
   }
 
   return (
-    <PopupContainer vis={visible}>
-      <Overlay onClick={toggleVisible}></Overlay>
-      <Popup vis={visible} kanjiset={kanjialive ? true : false}>
-        <CloseButton
+    <S.PopupContainer vis={visible}>
+      <S.Overlay onClick={toggleVisible}></S.Overlay>
+      <S.Popup vis={visible} kanjiset={kanjialive ? true : false}>
+        <S.CloseButton
           kanjiset={kanjialive ? true : false}
           onClick={toggleVisible}
         >
           <div></div>
           <div></div>
-        </CloseButton>
+        </S.CloseButton>
         {kanjialive ? (
           <>
             <div className='kanji'>{kanjialive?.kanji?.character}</div>
@@ -61,8 +61,8 @@ const PopupKanji: React.FC<PopupProps> = ({ visible, setVisible, kanji }) => {
         ) : (
           <Loading />
         )}
-      </Popup>
-    </PopupContainer>
+      </S.Popup>
+    </S.PopupContainer>
   )
 }
 

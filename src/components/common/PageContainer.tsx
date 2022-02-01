@@ -22,7 +22,7 @@ export const Title = styled.p<TitleProps>`
   text-align: center;
   align-self: center;
   font-size: 3rem;
-  color: ${p => (p.color ? p.theme[p.color] : p.theme.black)};
+  color: ${p => (p.color ? p.color : p.theme.black)};
   font-weight: 700;
 `
 

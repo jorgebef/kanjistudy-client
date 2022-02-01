@@ -7,17 +7,7 @@ import {
 } from 'react'
 import { QuizCtx, QuizCtxT } from '../../context/KanjiAliveCtx'
 import { Row } from '../common/PageContainer'
-import {
-  QuizMenuContainer,
-  Slider,
-  Option,
-  Checkbox,
-  Levels,
-  OptionTitle,
-  SubmitBtn,
-  OptionContainer,
-  ValueDisplay,
-} from './styled'
+import * as S from './styles'
 
 export const QuizSelector: React.FC = () => {
   const {
@@ -50,54 +40,54 @@ export const QuizSelector: React.FC = () => {
 
   return (
     <Row>
-      <QuizMenuContainer onSubmit={e => createQuiz(e)}>
-        <OptionContainer>
-          <Option>
-            <OptionTitle>Number of questions</OptionTitle>
-            <ValueDisplay>{qNumber}</ValueDisplay>
-            <Slider
+      <S.QuizMenuContainer onSubmit={e => createQuiz(e)}>
+        <S.OptionContainer>
+          <S.Option>
+            <S.OptionTitle>Number of questions</S.OptionTitle>
+            <S.ValueDisplay>{qNumber}</S.ValueDisplay>
+            <S.Slider
               min={10}
               max={40}
               value={qNumber}
               onChange={e => setQNumber(Number(e.currentTarget.value))}
             />
-          </Option>
-          <Option>
-            <Levels>
-              <OptionTitle>Levels</OptionTitle>
+          </S.Option>
+          <S.Option>
+            <S.Levels>
+              <S.OptionTitle>Levels</S.OptionTitle>
               <div className='checkbox-cont'>
                 <label>
-                  <Checkbox value={1} onChange={updateLevel} />
+                  <S.Checkbox value={1} onChange={updateLevel} />
                   Grade 1
                 </label>
                 <label>
-                  <Checkbox value={2} onChange={updateLevel} />
+                  <S.Checkbox value={2} onChange={updateLevel} />
                   Grade 2
                 </label>
                 <label>
-                  <Checkbox value={3} onChange={updateLevel} />
+                  <S.Checkbox value={3} onChange={updateLevel} />
                   Grade 3
                 </label>
                 <label>
-                  <Checkbox value={4} onChange={updateLevel} />
+                  <S.Checkbox value={4} onChange={updateLevel} />
                   Grade 4
                 </label>
               </div>
-            </Levels>
-          </Option>
-          <Option>
-            <OptionTitle>Number of choices</OptionTitle>
-            <ValueDisplay>{aNumber}</ValueDisplay>
-            <Slider
+            </S.Levels>
+          </S.Option>
+          <S.Option>
+            <S.OptionTitle>Number of choices</S.OptionTitle>
+            <S.ValueDisplay>{aNumber}</S.ValueDisplay>
+            <S.Slider
               value={aNumber}
               min={2}
               max={5}
               onChange={e => setANumber(Number(e.currentTarget.value))}
             />
-          </Option>
-        </OptionContainer>
-        <SubmitBtn as='input' type='submit' value='Start Quiz!' />
-      </QuizMenuContainer>
+          </S.Option>
+        </S.OptionContainer>
+        <S.SubmitBtn as='input' type='submit' value='Start Quiz!' />
+      </S.QuizMenuContainer>
     </Row>
   )
 }

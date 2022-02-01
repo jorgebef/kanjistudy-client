@@ -1,15 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {
-  Hamburguer,
-  HamburguerContainer,
-  Logo,
-  LogoContainer,
-  Menu,
-  MenuLink,
-  MenuLinkName,
-  NavContainer,
-  Overlay,
-} from './styled'
+import * as S from './styles'
 
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -43,14 +33,14 @@ const NavBar: React.FC = () => {
   }
 
   return (
-    <NavContainer isopen={isOpen} scrollpos={scrollPos}>
-      <LogoContainer>
-        <Logo to='/'>LOGO logo</Logo>
-      </LogoContainer>
-      <Menu isopen={isOpen} scrollpos={scrollPos}>
+    <S.NavContainer isopen={isOpen} scrollpos={scrollPos}>
+      <S.LogoContainer>
+        <S.Logo to='/'>LOGO logo</S.Logo>
+      </S.LogoContainer>
+      <S.Menu isopen={isOpen} scrollpos={scrollPos}>
         {Object.entries(links).map(([name, path]) => {
           return (
-            <MenuLink
+            <S.MenuLink
               key={path}
               to={path}
               isopen={isOpen}
@@ -58,20 +48,20 @@ const NavBar: React.FC = () => {
               onClick={toggleOpen}
               className={isActive => (isActive ? 'active' : '')}
             >
-              <MenuLinkName key={name}>{name}</MenuLinkName>
-            </MenuLink>
+              <S.MenuLinkName key={name}>{name}</S.MenuLinkName>
+            </S.MenuLink>
           )
         })}
-      </Menu>
-      <HamburguerContainer isopen={isOpen}>
-        <Hamburguer isopen={isOpen} onClick={() => setIsOpen(!isOpen)}>
+      </S.Menu>
+      <S.HamburguerContainer isopen={isOpen}>
+        <S.Hamburguer isopen={isOpen} onClick={() => setIsOpen(!isOpen)}>
           <div></div>
           <div></div>
           <div></div>
-        </Hamburguer>
-      </HamburguerContainer>
-      <Overlay isopen={isOpen}></Overlay>
-    </NavContainer>
+        </S.Hamburguer>
+      </S.HamburguerContainer>
+      <S.Overlay isopen={isOpen}></S.Overlay>
+    </S.NavContainer>
   )
 }
 

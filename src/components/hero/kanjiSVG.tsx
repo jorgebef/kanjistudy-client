@@ -154,15 +154,20 @@ const style = css`
 `
 
 const SVGDraw = styled.div`
-  align-self: start;
+  align-self: center;
 
   & svg {
+    width: 35rem;
+    height: 17.5rem;
+
+    @media (max-width: ${p => p.theme.mediaMd}) {
     width: 30rem;
-    height: 20rem;
+    height: 15rem;
+    }
 
     @media (max-width: ${p => p.theme.mediaSm}) {
-      width: 20rem;
-      height: 15rem;
+      width: 100%;
+      height: 100%;
     }
 
     path {

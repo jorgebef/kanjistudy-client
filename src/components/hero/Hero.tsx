@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { AOStranslateL, AOStranslateR } from '../common/AOSImage'
+import { AOStranslateL, AOStranslateR } from '../common/AOSImage.style'
 import KanjiSVG from './kanjiSVG'
 import toriGates from '../../assets/tori-gates.jpeg'
 import sensoJi from '../../assets/senso-ji-good.jpg'
@@ -21,16 +21,38 @@ const HeroWrapper = styled.div<HeroWrapperProps>`
   ${p => (p.bgImg ? `background-image: url(${p.bgImg})` : null)};
   background-repeat: no-repeat;
   background-size: cover;
-  margin-bottom: -5rem;
+  /* margin-bottom: -5rem; */
   padding: ${p => p.theme.compPadLg};
   overflow: hidden;
 `
 
-const ImgLeft = styled(AOStranslateL)`
+const TextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   position: absolute;
-  /* left: 0; */
-  /* height:100%; */
+  left: 10rem;
+  align-self: center;
+  justify-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  height: 30rem;
+  width: 30rem;
+  background-color: ${p => p.theme.red + 'd9'};
+  transition: all ${p => p.theme.transition};
+
+  @media (max-width: ${p => p.theme.mediaMd}) {
+  left: 5rem;
+    height: 25rem;
+    width: 25rem;
+  }
+
+  @media (max-width: ${p => p.theme.mediaSm}) {
+    position: unset;
+    height: 20rem;
+    width: 20rem;
+  }
 `
+
 const ImgRight = styled(AOStranslateR)`
   display: flex;
   z-index: -9;
@@ -42,7 +64,7 @@ const ImgRight = styled(AOStranslateR)`
 
   @media (max-width: ${p => p.theme.mediaSm}) {
     height: 70%;
-    clip-path: polygon(99% 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 0% 100%);
   }
 
   @keyframes appear {
@@ -62,8 +84,10 @@ const Hero = () => {
       <ImgRight>
         <img src={sensoJi} alt='Senso-ji' />
       </ImgRight>
-      <KanjiSVG />
-      <Title>Learn Kanji</Title>
+      <TextContainer>
+        <KanjiSVG />
+        <Title color='white'>Kanji Study</Title>
+      </TextContainer>
     </HeroWrapper>
   )
 }

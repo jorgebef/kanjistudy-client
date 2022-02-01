@@ -4,11 +4,12 @@ import { Container, Grid, Row } from '../components/common/PageContainer'
 import {
   CellWrapper,
   HomeCell,
+  RowClipPath,
   RowGradient,
 } from '../components/common/RowGradient'
 import toriGates from '../assets/tori-gates.jpeg'
 import useAppear from '../utils/useAppear'
-import { AOStranslateL, AOStranslateR } from '../components/common/AOSImage'
+import { AOStranslateL, AOStranslateR } from '../components/common/AOSImage.style'
 import Hero from '../components/hero/Hero'
 
 const LastRow = styled(Grid)`
@@ -34,7 +35,7 @@ export const Home: React.FC = () => {
     <Container>
       {/* <Hero bgImg={toriGates}> */}
       <Hero />
-      <RowGradient>
+      <RowClipPath>
         <CellWrapper>
           <HomeCell to={'/kana'}>
             <h1>KANA</h1>
@@ -52,7 +53,7 @@ export const Home: React.FC = () => {
           </HomeCell>
           <HomeCell to={'/about'}>HOME</HomeCell>
         </CellWrapper>
-      </RowGradient>
+      </RowClipPath>
       <Row ref={imgRefA}>
         <AOStranslateR className='aos'>
           <img width='300px' height='200px' src={toriGates} alt='Tori Gates' />

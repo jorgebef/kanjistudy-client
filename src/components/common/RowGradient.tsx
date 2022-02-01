@@ -20,7 +20,7 @@ export const RowGradient = styled.div`
   }
 `
 
-export const RowGradientInverted = styled.div`
+export const RowClipPath = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,18 +28,13 @@ export const RowGradientInverted = styled.div`
   padding: 6rem 0;
   justify-self: center;
   align-self: center;
-  background: linear-gradient(
-    45deg,
-    ${p => p.theme.violet} 10%,
-    ${p => p.theme.purple} 90%
-  );
-  clip-path: polygon(0 0%, 100% 8%, 100% 100%, 0 92%);
+  background-color: ${p => p.theme.red};
 
   @media (min-width: ${p => p.theme.mediaMd}) {
-    clip-path: polygon(0 0%, 100% 10%, 100% 100%, 0 90%);
+    /* clip-path: polygon(0 0%, 100% 10%, 100% 100%, 0 90%); */
   }
   @media (min-width: ${p => p.theme.mediaLg}) {
-    clip-path: polygon(0 0%, 100% 15%, 100% 100%, 0 85%);
+    /* clip-path: polygon(0 0%, 100% 15%, 100% 100%, 0 85%); */
   }
 `
 
@@ -51,6 +46,7 @@ export const CellWrapper = styled.div`
   max-width: ${p => p.theme.mediaLg};
   grid-template-columns: repeat(3, 1fr);
   max-width: ${p => p.theme.mediaMd};
+  transition: all ${p => p.theme.transition};
 
   @media (max-width: ${p => p.theme.mediaMd}) {
     grid-template-columns: repeat(1, 1fr);
@@ -66,22 +62,22 @@ export const HomeCell = styled.div.attrs(() => ({
   flex-direction: column;
   padding: ${p => p.theme.compPadMd};
   justify-self: stretch;
-  align-items: start;
+  align-items: center;
   justify-content: center;
   border-radius: ${p => p.theme.borderR};
   min-height: 9rem;
-  transition: all ease-in-out 0.25s;
-  backdrop-filter: blur(10px);
+  /* backdrop-filter: blur(10px); */
   align-items: center;
   text-decoration: none;
   overflow: hidden;
   color: ${p => p.theme.fg};
   background-color: ${p => p.theme.bg + '94'};
+  transition: inherit;
 
   &:hover {
     background-color: ${p => p.theme.bg};
-  box-shadow: rgb(10 10 10 / 15%) 0px 0.5rem 1rem 0px;
-  border-radius: ${p => p.theme.buttonR};
+    box-shadow: rgb(10 10 10 / 15%) 0px 0.5rem 1rem 0px;
+    border-radius: ${p => p.theme.buttonR};
 
     & > .pop {
       max-height: 6rem;
@@ -91,7 +87,7 @@ export const HomeCell = styled.div.attrs(() => ({
 
   & > h1 {
     font-weight: 900;
-    transition: all ease-in-out 0.35s;
+    transition: inherit;
   }
 
   & > .pop {
@@ -101,7 +97,7 @@ export const HomeCell = styled.div.attrs(() => ({
     font-weight: 500;
     max-height: 0;
     opacity: 0;
-    transition: all ease-in-out 0.35s;
+    transition: inherit;
   }
 
   .scrolling {

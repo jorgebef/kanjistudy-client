@@ -14,11 +14,16 @@ export const Container: React.FC = styled.div`
   }
 `
 
-export const Title: React.FC = styled.p`
+interface TitleProps {
+  color?: string
+}
+
+export const Title = styled.p<TitleProps>`
   text-align: center;
   align-self: center;
   font-size: 3rem;
-  font-weight: 900;
+  color: ${p => (p.color ? p.theme[p.color] : p.theme.black)};
+  font-weight: 700;
 `
 
 export const TopRow: React.FC = styled.div.attrs(() => ({
@@ -40,10 +45,10 @@ export const TopRow: React.FC = styled.div.attrs(() => ({
 
 export const Row = styled.div`
   display: flex;
-  position:relative;
+  position: relative;
   align-items: center;
   justify-content: center;
-  overflow:hidden;
+  overflow: hidden;
   padding: 2rem ${p => p.theme.sidePad};
 `
 

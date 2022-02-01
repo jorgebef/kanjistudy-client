@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle<PropsType>`
     }
 
   body {
-    background: ${p => p.theme.bg};
+    background: ${p => p.theme.white};
   }
   `
 

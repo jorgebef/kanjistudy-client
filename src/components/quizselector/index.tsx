@@ -1,41 +1,34 @@
-import {
-  ChangeEvent,
-  Dispatch,
-  FormEvent,
-  SetStateAction,
-  useContext,
-} from 'react'
+import { ChangeEvent, FormEvent, useContext } from 'react'
 import { QuizCtx, QuizCtxT } from '../../context/KanjiAliveCtx'
 import { Row } from '../common/PageContainer'
 import * as S from './styles'
 
 export const QuizSelector: React.FC = () => {
   const {
-    // kanjiList,
-    // setKanjiList,
     qNumber,
     setQNumber,
     aNumber,
     setANumber,
     grade,
     setGrade,
-    // quiz,
+    quiz,
     setQuiz,
   }: QuizCtxT = useContext(QuizCtx)
 
   const updateLevel = (e: ChangeEvent<HTMLInputElement>) => {
     const val: number = Number(e.currentTarget.value)
-    if (grade.includes(val)) {
-      setGrade(grade.filter(i => i !== val))
-    } else {
-      setGrade([...grade, val])
-    }
+    // De-duplicate grades from the array
+    const newGrade = grade ? [...grade, val] : [val]
+    const uniqueGradeArr = [...Array.from(new Set(newGrade))]
+    setGrade(uniqueGradeArr)
+    // }
   }
 
   const createQuiz = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setQuiz(true)
-    console.log('create quiz')
+    console.log('Quiz: ' + quiz)
+    console.log(grade)
   }
 
   return (

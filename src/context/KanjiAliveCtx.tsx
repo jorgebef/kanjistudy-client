@@ -10,8 +10,8 @@ export interface QuizCtxT {
   setQNumber: (n: number) => void
   aNumber: number
   setANumber: (n: number) => void
-  grade: number[]
-  setGrade: (n: number[]) => void
+  grade: number[]|null
+  setGrade: (n: number[]|null) => void
   quiz:boolean
   setQuiz:(q:boolean) => void
 }
@@ -25,7 +25,7 @@ export const QuizCtx = createContext<QuizCtxT>({
   setQNumber: () => {},
   aNumber: 4,
   setANumber: () => {},
-  grade: [1],
+  grade: null,
   setGrade: () => {},
   quiz: false,
   setQuiz: () => {}
@@ -36,7 +36,7 @@ export const QuizCtxProvider: React.FC = ({ children }) => {
   const [kanjiPool, setKanjiPool] = useState<string[] | null>(null)
   const [qNumber, setQNumber] = useState<number>(20)
   const [aNumber, setANumber] = useState<number>(4)
-  const [grade, setGrade] = useState<number[]>([1])
+  const [grade, setGrade] = useState<number[]|null>(null)
   const [quiz, setQuiz] = useState<boolean>(false)
 
   return (

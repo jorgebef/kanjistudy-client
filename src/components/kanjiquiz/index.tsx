@@ -34,9 +34,14 @@ const KanjiQuiz: React.FC = () => {
     setKanjiPool(null)
     setQuestion(null)
     setAnswerPool(null)
+    setGrade([])
   }
 
   const startTest = () => {
+    if (!grade) {
+      alert('NO GRADE SELECTED')
+      return
+    }
     gradeListFetch(grade[0]).then((res: KanjiAliveListT[]) => {
       setKanjiPool(res.map((k: KanjiAliveListT) => k.kanji.character))
       console.log('fetched list')
@@ -44,13 +49,14 @@ const KanjiQuiz: React.FC = () => {
   }
 
   const nextQuestion = () => {
-    if (ulAnswersRef.current?.children) {
-      const lis = Array.from(ulAnswersRef.current?.children)
-      lis.forEach(li => {
-        li.classList.remove('correct')
-        li.classList.remove('incorrect')
-      })
+    if (!ulAnswersRef.current?.children) {
+      return
     }
+    const lis = Array.from(ulAnswersRef.current?.children)
+    lis.forEach(li => {
+      li.classList.remove('correct')
+      li.classList.remove('incorrect')
+    })
     // if (answered) {
     clearQuestion()
     startTest()
@@ -70,25 +76,25 @@ const KanjiQuiz: React.FC = () => {
   }, [quiz])
 
   useEffect(() => {
-    if (kanjiPool) {
-      console.log('KanjiPool: ')
-      console.log(kanjiPool)
-      let arr: string[] = []
-      let poolCopy: string[] = kanjiPool
-      for (let i = 0; i < aNumber; i++) {
-        const kAdd: string = poolCopy[~~(Math.random() * poolCopy.length)]
-        // Remove the used kanji from pool to avoid duplicate answers
-        poolCopy = poolCopy.filter((i: string) => i !== kAdd)
-        arr.push(kAdd)
-      }
-      const kfetch = arr.map(i => singleKanjiFetch(i))
-      Promise.all(kfetch).then((res: KanjiAliveSingleT[]) => {
-        setKanjiList(res.map((k: KanjiAliveSingleT) => k))
-        setQuestion(arr[0])
-      })
-    } else {
+    if (!kanjiPool) {
+      console.log('KanjiPool is null')
       return
     }
+    console.log('KanjiPool: ')
+    console.log(kanjiPool)
+    let arr: string[] = []
+    let poolCopy: string[] = kanjiPool
+    for (let i = 0; i < aNumber; i++) {
+      const kAdd: string = poolCopy[~~(Math.random() * poolCopy.length)]
+      // Remove the used kanji from pool to avoid duplicate answers
+      poolCopy = poolCopy.filter((i: string) => i !== kAdd)
+      arr.push(kAdd)
+    }
+    const kfetch = arr.map(i => singleKanjiFetch(i))
+    Promise.all(kfetch).then((res: KanjiAliveSingleT[]) => {
+      setKanjiList(res.map((k: KanjiAliveSingleT) => k))
+      setQuestion(arr[0])
+    })
   }, [kanjiPool])
 
   useEffect(() => {

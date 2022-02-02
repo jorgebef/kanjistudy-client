@@ -13,9 +13,9 @@ export const NavContainer = styled.nav<NavContainerProps>`
   height: ${p => p.theme.navH + 'rem'};
   top: 0;
   width: 100%;
-  justify-content: space-between;
-  background-color: ${p => p.theme.white};
-  /* background-color: ${p => (p.scrollpos === 0 ? null : p.theme.white)}; */
+  /* justify-content: space-between; */
+  /* background-color: ${p => p.theme.white}; */
+  background-color: ${p => (p.scrollpos === 0 ? p.isopen ? p.theme.white : null : p.theme.white)};
   /* border-bottom: ${p => p.scrollpos === 0 ? null : '1px solid '+p.theme.grey}; */
   /* box-shadow: ${p => p.scrollpos === 0 ? null : 'rgb(10 10 10 / 15%) 0px 0.5rem 1rem 0px'}; */
   align-items: stretch;
@@ -32,6 +32,8 @@ export const LogoContainer = styled.div`
   height: inherit;
   text-decoration: none;
   align-self: flex-start;
+  align-items: center;
+  /* justify-content:center; */
   white-space: nowrap;
 
   @media (max-width: ${p => p.theme.mediaMd}) {
@@ -43,7 +45,6 @@ export const LogoContainer = styled.div`
 `
 
 export const Logo = styled(Link)`
-  align-self: center;
   text-decoration: none;
   font-weight: 800;
   cursor: pointer;
@@ -131,7 +132,7 @@ export const Menu = styled.ul<MenuProps>`
 
 export const MenuLink = styled(NavLink)<MenuProps>`
   display: flex;
-  color: ${p => p.theme.fg};
+  color: ${p => p.theme.black};
   padding: 0 1rem;
   margin: 0 1vw;
   cursor: pointer;
@@ -141,7 +142,7 @@ export const MenuLink = styled(NavLink)<MenuProps>`
   text-align: center;
   align-self: stretch;
   transition: all ease-in-out 0.25s;
-  opacity: 0.6;
+  opacity: 0.8;
 
   &:hover,
   &.active {

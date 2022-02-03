@@ -23,8 +23,14 @@ const Hero = () => {
 
   return (
     <S.HeroWrapperB>
-      <S.ImgRight bgImg={sensoJi}>
-      </S.ImgRight>
+      {/* <S.ImgRight bgImg={sensoJi}> */}
+      <S.HeroTitle>KANJI STUDY</S.HeroTitle>
+      <S.Separator></S.Separator>
+      {/* <S.ImgRight > */}
+      {/* <S.Image src={sensoJi}/> */}
+      {/* </S.ImgRight> */}
+      <KanjiSVG />
+      {/* <S.HeroText>漢字を<br/> 勉強する</S.HeroText> */}
     </S.HeroWrapperB>
   )
 }

@@ -5,10 +5,13 @@ export const Container: React.FC = styled.div`
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - ${p => p.theme.footH});
+  /* padding-top: ${p => p.theme.navH + 'rem'}; */
 
   & > div:first-child {
+    /* padding-top: ${p => p.theme.navH + 'rem'}; */
     padding-top: calc(${p => p.theme.navH + 'rem'} + 5vw);
   }
+
   & > div:last-child {
     padding-bottom: 5rem;
   }

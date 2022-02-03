@@ -13,11 +13,16 @@ export const NavContainer = styled.nav<NavContainerProps>`
   height: ${p => p.theme.navH + 'rem'};
   top: 0;
   width: 100%;
-  /* justify-content: space-between; */
+  padding: 0 8rem;
+  box-sizing: border-box;
+  justify-content: space-between;
   /* background-color: ${p => p.theme.white}; */
-  background-color: ${p => (p.scrollpos === 0 ? p.isopen ? p.theme.white : null : p.theme.white)};
-  /* border-bottom: ${p => p.scrollpos === 0 ? null : '1px solid '+p.theme.grey}; */
-  /* box-shadow: ${p => p.scrollpos === 0 ? null : 'rgb(10 10 10 / 15%) 0px 0.5rem 1rem 0px'}; */
+  background-color: ${p =>
+    p.scrollpos === 0 ? (p.isopen ? p.theme.white : null) : p.theme.white};
+  /* border-bottom: ${p =>
+    p.scrollpos === 0 ? null : '1px solid ' + p.theme.grey}; */
+  /* box-shadow: ${p =>
+    p.scrollpos === 0 ? null : 'rgb(10 10 10 / 15%) 0px 0.5rem 1rem 0px'}; */
   align-items: stretch;
   transition: all ease-in-out 0.25s;
 
@@ -28,7 +33,7 @@ export const NavContainer = styled.nav<NavContainerProps>`
 
 export const LogoContainer = styled.div`
   display: flex;
-  padding-left: 8rem;
+  /* padding-left: 8rem; */
   height: inherit;
   text-decoration: none;
   align-self: flex-start;
@@ -62,7 +67,7 @@ export const HamburguerContainer = styled.div<MenuProps>`
 
   display: none;
   height: inherit;
-  color: ${p => p.theme.fg};
+  color: ${p => p.theme.black};
   justify-content: center;
 
   @media (max-width: ${p => p.theme.mediaMd}) {
@@ -114,18 +119,24 @@ export const Menu = styled.ul<MenuProps>`
     (p.scrollpos === 0 ? p.theme.navH : p.theme.navHS) + 'rem'}; */
   --navH: ${p => p.theme.navH + 'rem'};
   display: flex;
-  flex-grow: 1;
-  padding: 0 8rem 0 0;
-  justify-content: flex-end;
-  transition: all ease-in-out 0.25s;
+  gap: 5rem;
+  padding: 0 2rem;
+  transition: all ${p => p.theme.transition};
 
   @media (max-width: ${p => p.theme.mediaMd}) {
-    display: flex;
-    background-color: ${p => p.theme.white};
+    /* display: flex; */
+    visibility: ${p => (p.isopen ? 'visible' : 'hidden')};
+    /* opacity: ${p => (p.isopen ? 1 : 0)}; */
+    position: absolute;
+    gap: 3rem;
+    left: 0;
+    box-sizing: content-box;
     flex-direction: column;
     margin-top: var(--navH);
     width: 100%;
-    height: ${p => (p.isopen ? '25rem' : '0')};
+    padding: 2rem 0;
+    background-color: ${p => p.theme.white};
+    max-height: ${p => (p.isopen ? '30rem' : 0)};
     /* box-shadow: rgb(10 10 10 / 15%) 0px 0.5rem 1rem 0px; */
   }
 `
@@ -133,15 +144,13 @@ export const Menu = styled.ul<MenuProps>`
 export const MenuLink = styled(NavLink)<MenuProps>`
   display: flex;
   color: ${p => p.theme.black};
-  padding: 0 1rem;
-  margin: 0 1vw;
   cursor: pointer;
   text-decoration: none;
   font-size: 1.2rem;
   font-weight: 600;
   text-align: center;
   align-self: stretch;
-  transition: all ease-in-out 0.25s;
+  transition: all ${p => p.theme.transition};
   opacity: 0.8;
 
   &:hover,
@@ -161,8 +170,11 @@ export const MenuLink = styled(NavLink)<MenuProps>`
     justify-content: center;
     visibility: ${p => (p.isopen ? 'visible' : 'hidden')};
     opacity: ${p => (p.isopen ? '0.6' : '0')};
-    padding: 1.25rem 0;
     margin: 0;
+
+    & span::after {
+      visibility: ${p => (p.isopen ? 'visible' : 'hidden')};
+    }
   }
 `
 
@@ -172,32 +184,35 @@ export const MenuLinkName = styled.span`
   }
 
   &::after {
-    --ulineH: 0.35rem;
+    --ulineH: 0.25rem;
     content: '';
     display: block;
     height: var(--ulineH);
+    left: -10px;
     width: 0;
-    margin-top: 0.1rem;
+    /* margin-top: 0.1rem; */
     margin-left: -10%;
     /* border-radius: var(--ulineH); */
     background-color: ${p => p.theme.red};
-    transition: all 0.15s ease-in-out;
+    transition: all ${p => p.theme.transitionS};
   }
 `
 
 export const Overlay = styled.div<MenuProps>`
+  display: none;
   visibility: hidden;
 
   @media (max-width: ${p => p.theme.mediaMd}) {
     display: block;
-    visibility: ${p => (p.isopen ? 'visible' : 'hidden')};
     position: fixed;
+    visibility: ${p => (p.isopen ? 'visible' : 'hidden')};
+    left: 0;
     background-color: #000;
     opacity: ${p => (p.isopen ? 0.35 : 0)};
     width: 100%;
     height: 100vh;
     margin-top: ${p => p.theme.navH + 'rem'};
     z-index: -1;
-    transition: all 0.25s ease-in-out;
+    transition: all ${p => p.theme.transitionL};
   }
 `

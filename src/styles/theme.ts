@@ -24,8 +24,8 @@ const appTheme = {
   footH: '10rem',
   // ]]]
   // [[[ OTHER VALUES ----
-  borderR: '0.2rem',
-  buttonR: '0.3rem',
+  borderR: '0.8rem',
+  buttonR: '0.4rem',
   // ]]]
   // [[[[ PADDING ----
   sidePad: '1.5rem',
@@ -41,6 +41,7 @@ const appTheme = {
 
   // [[[[ TRANSITIONS ----
   transition: 'ease 0.25s',
+  transitionS: 'ease 0.15s',
   transitionL: 'ease 0.45s',
   // ]]]]
 }

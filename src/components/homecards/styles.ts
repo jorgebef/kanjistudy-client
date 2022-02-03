@@ -51,12 +51,13 @@ export const HomeCell = styled.div.attrs(() => ({
   align-items: center;
   text-decoration: none;
   overflow: hidden;
-  color: ${p => p.theme.fg};
-  background-color: ${p => p.theme.bg + '94'};
+  color: ${p => p.theme.black};
+  background-color: ${p => p.theme.white + '94'};
+  /* background-color: ${p => p.theme.red}; */
   transition: inherit;
 
   &:hover {
-    background-color: ${p => p.theme.bg};
+    background-color: ${p => p.theme.white};
     box-shadow: rgb(10 10 10 / 15%) 0px 0.5rem 1rem 0px;
     border-radius: ${p => p.theme.buttonR};
 

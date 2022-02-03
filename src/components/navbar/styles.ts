@@ -16,24 +16,21 @@ export const NavContainer = styled.nav<NavContainerProps>`
   padding: 0 8rem;
   box-sizing: border-box;
   justify-content: space-between;
-  /* background-color: ${p => p.theme.white}; */
-  background-color: ${p =>
-    p.scrollpos === 0 ? (p.isopen ? p.theme.white : null) : p.theme.white};
-  /* border-bottom: ${p =>
-    p.scrollpos === 0 ? null : '1px solid ' + p.theme.grey}; */
+  background-color: ${p => p.theme.white};
+  /* background-color: ${p =>
+    p.scrollpos === 0 ? (p.isopen ? p.theme.white : null) : p.theme.white}; */
   /* box-shadow: ${p =>
     p.scrollpos === 0 ? null : 'rgb(10 10 10 / 15%) 0px 0.5rem 1rem 0px'}; */
   align-items: stretch;
   transition: all ease-in-out 0.25s;
 
   @media (max-width: ${p => p.theme.mediaMd}) {
-    flex-direction: column;
+    padding: 0 3rem;
   }
 `
 
 export const LogoContainer = styled.div`
   display: flex;
-  /* padding-left: 8rem; */
   height: inherit;
   text-decoration: none;
   align-self: flex-start;
@@ -42,10 +39,11 @@ export const LogoContainer = styled.div`
   white-space: nowrap;
 
   @media (max-width: ${p => p.theme.mediaMd}) {
-    position: absolute;
-    top: 0rem;
-    left: 0rem;
-    padding-left: 3rem;
+    /* align-self:center; */
+    /* position: absolute; */
+    /* top: 0rem; */
+    /* left: 0rem; */
+    /* padding-left: 4rem; */
   }
 `
 
@@ -62,71 +60,17 @@ interface MenuProps {
   scrollpos?: number
 }
 
-export const HamburguerContainer = styled.div<MenuProps>`
-  --divH: 4px;
-
-  display: none;
-  height: inherit;
-  color: ${p => p.theme.black};
-  justify-content: center;
-
-  @media (max-width: ${p => p.theme.mediaMd}) {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 0rem;
-    right: 3rem;
-  }
-`
-
-export const Hamburguer = styled.div<MenuProps>`
-  cursor: pointer;
-  padding: 0;
-  margin: 0;
-
-  & > div {
-    width: calc(var(--divH) * 9);
-    height: var(--divH);
-    border-radius: var(--divH);
-    justify-self: center;
-    background-color: ${p => p.theme.fg};
-    margin: var(--divH) 0;
-    transition: all ease-in-out;
-    -webkit-transition: all ease-in-out;
-    transition-duration: 250ms;
-    -webkit-transition-duration: 250ms;
-  }
-
-  & > div:nth-child(1) {
-    transform: ${p => (p.isopen ? 'rotate(45deg)' : null)};
-    -webkit-transform: ${p => (p.isopen ? 'rotate(45deg)' : null)};
-    margin: ${p => (p.isopen ? '15px 0 calc(var(--divH)*-1) 0' : null)};
-  }
-  & > div:nth-child(2) {
-    opacity: ${p => (p.isopen ? 0 : 1)};
-    height: ${p => (p.isopen ? 0 : null)};
-    margin: ${p => (p.isopen ? 0 : null)};
-  }
-  & > div:nth-child(3) {
-    transform: ${p => (p.isopen ? 'rotate(-45deg)' : null)};
-    -webkit-transform: ${p => (p.isopen ? 'rotate(-45deg)' : null)};
-    margin: ${p => (p.isopen ? '0 0 15px 0' : null)};
-  }
-`
-
 export const Menu = styled.ul<MenuProps>`
-  /* --navH: ${p =>
-    (p.scrollpos === 0 ? p.theme.navH : p.theme.navHS) + 'rem'}; */
   --navH: ${p => p.theme.navH + 'rem'};
   display: flex;
   gap: 5rem;
   padding: 0 2rem;
   transition: all ${p => p.theme.transition};
+  overflow: hidden;
 
   @media (max-width: ${p => p.theme.mediaMd}) {
     /* display: flex; */
     visibility: ${p => (p.isopen ? 'visible' : 'hidden')};
-    /* opacity: ${p => (p.isopen ? 1 : 0)}; */
     position: absolute;
     gap: 3rem;
     left: 0;
@@ -190,7 +134,6 @@ export const MenuLinkName = styled.span`
     height: var(--ulineH);
     left: -10px;
     width: 0;
-    /* margin-top: 0.1rem; */
     margin-left: -10%;
     /* border-radius: var(--ulineH); */
     background-color: ${p => p.theme.red};
@@ -214,5 +157,54 @@ export const Overlay = styled.div<MenuProps>`
     margin-top: ${p => p.theme.navH + 'rem'};
     z-index: -1;
     transition: all ${p => p.theme.transitionL};
+  }
+`
+
+export const HamburguerContainer = styled.div<MenuProps>`
+  --divH: 4px;
+
+  display: none;
+  height: inherit;
+  color: ${p => p.theme.black};
+  justify-content: center;
+
+  @media (max-width: ${p => p.theme.mediaMd}) {
+    display: flex;
+    flex-direction: column;
+  }
+`
+
+export const Hamburguer = styled.div<MenuProps>`
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+
+  & > div {
+    width: calc(var(--divH) * 9);
+    height: var(--divH);
+    border-radius: var(--divH);
+    justify-self: center;
+    background-color: ${p => p.theme.fg};
+    margin: var(--divH) 0;
+    transition: all ease-in-out;
+    -webkit-transition: all ease-in-out;
+    transition-duration: 250ms;
+    -webkit-transition-duration: 250ms;
+  }
+
+  & > div:nth-child(1) {
+    transform: ${p => (p.isopen ? 'rotate(45deg)' : null)};
+    -webkit-transform: ${p => (p.isopen ? 'rotate(45deg)' : null)};
+    margin: ${p => (p.isopen ? '15px 0 calc(var(--divH)*-1) 0' : null)};
+  }
+  & > div:nth-child(2) {
+    opacity: ${p => (p.isopen ? 0 : 1)};
+    height: ${p => (p.isopen ? 0 : null)};
+    margin: ${p => (p.isopen ? 0 : null)};
+  }
+  & > div:nth-child(3) {
+    transform: ${p => (p.isopen ? 'rotate(-45deg)' : null)};
+    -webkit-transform: ${p => (p.isopen ? 'rotate(-45deg)' : null)};
+    margin: ${p => (p.isopen ? '0 0 15px 0' : null)};
   }
 `

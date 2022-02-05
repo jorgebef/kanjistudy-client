@@ -141,16 +141,16 @@ const KanjiQuiz: React.FC = () => {
         {question ? (
           <>
             <S.Question>
-              <span>{question}</span>
-              <ul ref={ulAnswersRef}>
+              <S.QuestionKanji>{question}</S.QuestionKanji>
+              <S.AnswerUL ref={ulAnswersRef}>
                 {shuffleArr(answerPool)?.map((option, an) => {
                   return (
-                    <li key={an} value={option} onClick={quizCheck}>
+                    <S.AnswerOption key={an} value={option} onClick={quizCheck}>
                       {option}
-                    </li>
+                    </S.AnswerOption>
                   )
                 })}
-              </ul>
+              </S.AnswerUL>
             </S.Question>
             <S.BtnContainer>
               <BtnRed onClick={quitQuiz}>Quit</BtnRed>

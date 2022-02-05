@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Wave1, Wave2 } from '../waveseparators/styles'
 
 export const QuizGrid = styled.div`
   display: grid;
@@ -8,7 +9,6 @@ export const QuizGrid = styled.div`
   padding: ${p => p.theme.compPadSm};
   max-width: ${p => p.theme.mediaMd};
   background-color: ${p => p.theme.lightgrey};
-  /* border-radius: ${p => p.theme.borderR}; */
 
   @media (max-width: ${p => p.theme.mediaMd}) {
     grid-template-columns: repeat(5, 1fr);
@@ -38,4 +38,10 @@ export const KanjiCell = styled.a<KanjiProps>`
   &:hover {
     background-color: ${p => p.theme.red};
   }
+`
+
+export const WaveTop = styled(Wave1)`
+`
+export const WaveBottom = styled(Wave2)`
+  margin-bottom: 4rem;
 `

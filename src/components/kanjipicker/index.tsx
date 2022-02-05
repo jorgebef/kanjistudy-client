@@ -1,22 +1,38 @@
 import React, { useEffect, useState } from 'react'
 import { Row } from '../common/PageContainer'
-// import { kanjiData, KanjiType } from '../utils/kanjiData'
 import * as S from '../kanjipicker/styles'
 import PopupKanji from '../popupkanji'
 import gradeListFetch from '../../middleware/levelFetch'
 import { KanjiAliveListT } from '../../middleware/types'
 import Loading from '../loading'
-import { WaveBottom, WaveTop } from '../waveseparators/styles'
+import { Wave2, Wave1 } from '../waveseparators/styles'
 
 const KanjiPicker: React.FC = () => {
   const [kanjiList, setKanjiList] = useState<KanjiAliveListT[] | null>(null)
   const [kanji, setKanji] = useState<string>()
   const [visible, setVisible] = useState<boolean>(false)
-  const grade = 1
+  const [grade, setGrade] = useState<number[]>([1, 2])
+  const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
-    gradeListFetch(grade).then(r => setKanjiList(r))
-  }, [])
+    const gradeFetch = grade.map(g => gradeListFetch(g))
+    let tempList: typeof kanjiList = kanjiList
+    Promise.all(gradeFetch)
+      .then((r: KanjiAliveListT[][]) =>
+        r.forEach((r: KanjiAliveListT[]) => {
+          console.log(r)
+          tempList = tempList ? [...tempList, ...r] : r
+        })
+      )
+      .then(() => {
+        setKanjiList(tempList)
+        setLoading(false)
+      })
+  }, [grade])
+
+  useEffect(() => {
+    console.log('kanjiList is reset')
+  }, [kanjiList])
 
   const popupSet = (e: React.MouseEvent<HTMLElement>, k: KanjiAliveListT) => {
     // e.currentTarget.classList.toggle('selected')
@@ -26,11 +42,11 @@ const KanjiPicker: React.FC = () => {
 
   return (
     <>
-      <WaveTop color='lightgrey'/>
+      <S.WaveTop color='lightgrey' />
       <Row color='lightgrey'>
-        {kanjiList ? (
+        {!loading ? (
           <S.QuizGrid>
-            {kanjiList.map((k: KanjiAliveListT, i) => {
+            {kanjiList?.map((k: KanjiAliveListT, i) => {
               return (
                 <S.KanjiCell
                   key={i}
@@ -47,7 +63,7 @@ const KanjiPicker: React.FC = () => {
         )}
         <PopupKanji visible={visible} setVisible={setVisible} kanji={kanji} />
       </Row>
-      <WaveBottom color='lightgrey'/>
+      <S.WaveBottom color='lightgrey' />
     </>
   )
 }

@@ -1,10 +1,9 @@
-import { WaveBottom, WaveTop } from '../waveseparators/styles'
 import * as S from './styles'
 
 const HomeCards = () => {
   return (
     <>
-      <WaveTop />
+      <S.WaveTop color='red' />
       <S.RowClipPath>
         <S.CardWrapper>
           <S.HomeCard>
@@ -27,7 +26,7 @@ const HomeCards = () => {
           </S.HomeCard>
         </S.CardWrapper>
       </S.RowClipPath>
-      <WaveBottom />
+      <S.WaveBottom color='red' />
     </>
   )
 }

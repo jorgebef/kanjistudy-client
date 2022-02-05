@@ -52,7 +52,7 @@ export interface RowProps {
 
 export const Row = styled.div<RowProps>`
   display: flex;
-  /* width:100%; */
+  width:100%;
   position: relative;
   align-items: center;
   justify-content: center;

@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Link, LinkProps } from 'react-router-dom'
 import { Btn } from '../common/Button.styles'
+import { Wave1, Wave2 } from '../waveseparators/styles'
 
 export const RowClipPath = styled.div`
   display: flex;
@@ -125,4 +126,10 @@ export const Button = styled(Btn).attrs(() => ({
 }))<LinkProps>`
   z-index: 1;
   margin-top: 1rem;
+`
+
+export const WaveTop = styled(Wave1)`
+`
+export const WaveBottom = styled(Wave2)`
+  margin-bottom: 3rem;
 `

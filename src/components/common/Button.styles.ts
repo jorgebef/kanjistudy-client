@@ -28,6 +28,7 @@ export const Btn = styled.button`
   transition: all ${p => p.theme.transition};
 
   &:hover {
+  background-color: ${p => p.theme.red};
     filter: brightness(85%);
   }
 `

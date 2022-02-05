@@ -7,7 +7,7 @@ export interface WaveProps {
   color?: keyof ThemeType
 }
 
-export const WaveTop = styled(WaveSVG1)<WaveProps>`
+export const Wave1 = styled(WaveSVG1)<WaveProps>`
   margin-bottom: -5px;
   width: 100%;
 
@@ -16,7 +16,7 @@ export const WaveTop = styled(WaveSVG1)<WaveProps>`
   }
 `
 
-export const WaveBottom = styled(WaveSVG2)<WaveProps>`
+export const Wave2 = styled(WaveSVG2)<WaveProps>`
   margin-top: -5px;
   width: 100%;
   path {

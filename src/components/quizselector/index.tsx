@@ -1,4 +1,5 @@
-import { ChangeEvent, FormEvent, useContext } from 'react'
+import { ChangeEvent, FormEvent, useContext, useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { QuizCtx, QuizCtxT } from '../../context/KanjiAliveCtx'
 import { Row } from '../common/PageContainer'
 import * as S from './styles'
@@ -17,8 +18,13 @@ export const QuizSelector: React.FC = () => {
 
   const updateLevel = (e: ChangeEvent<HTMLInputElement>) => {
     const val: number = Number(e.currentTarget.value)
+    const checked: boolean = e.currentTarget.checked
     // De-duplicate grades from the array
-    const newGrade = grade ? [...grade, val] : [val]
+    const newGrade = grade
+      ? checked
+        ? [...grade, val]
+        : grade.filter(v => v !== val)
+      : [val]
     const uniqueGradeArr = [...Array.from(new Set(newGrade))]
     setGrade(uniqueGradeArr)
     // }

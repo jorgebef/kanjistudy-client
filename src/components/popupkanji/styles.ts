@@ -32,7 +32,7 @@ export const Popup = styled.div<PopupProps>`
   text-align: center;
   align-items: center;
   justify-content: ${p => (p.kanjiset ? 'flex-start' : 'center')};
-  color: ${p => p.theme.fg};
+  color: ${p => p.theme.black};
   border-radius: ${p => p.theme.borderR};
   background-color: ${p => p.theme.white};
   overflow: scroll;

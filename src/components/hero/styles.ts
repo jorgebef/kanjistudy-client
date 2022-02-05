@@ -24,7 +24,7 @@ export const HeroWrapperB = styled.div`
   gap: 5rem;
   align-items: center;
   justify-content: center;
-  min-height: 75vh;
+  min-height: 50vh;
   background-repeat: no-repeat;
   background-size: cover;
   /* margin-bottom: -5rem; */
@@ -87,7 +87,7 @@ export const Separator = styled.div`
 `
 
 export const HeroText = styled.span`
-  --fontHeight: 8rem;
+  --fontHeight: 5rem;
   --shadowSize: 0.2rem;
   --shadowColor: ${p => p.theme.white};
   font-family: 'Yuji Boku', serif;

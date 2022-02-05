@@ -52,7 +52,7 @@ export const Logo = styled(Link)`
   font-weight: 800;
   cursor: pointer;
   font-size: 1.4rem;
-  color: ${p => p.theme.fg};
+  color: ${p => p.theme.black};
 `
 
 interface MenuProps {
@@ -184,7 +184,7 @@ export const Hamburguer = styled.div<MenuProps>`
     height: var(--divH);
     border-radius: var(--divH);
     justify-self: center;
-    background-color: ${p => p.theme.fg};
+    background-color: ${p => p.theme.black};
     margin: var(--divH) 0;
     transition: all ease-in-out;
     -webkit-transition: all ease-in-out;

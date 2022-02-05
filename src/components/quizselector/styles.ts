@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Btn } from '../common/Button.style'
+import { Btn } from '../common/Button.styles'
 
 export const QuizMenuContainer = styled.form`
   display: flex;

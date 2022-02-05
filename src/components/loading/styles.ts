@@ -21,7 +21,7 @@ function createAnimation() {
     @keyframes pulse${i} {
       ${i * e}% {
         font-size: var(--size);
-      color:${appTheme.fg};
+      color:${appTheme.white};
       }
       ${i * e + 2 * e}% {
         font-size: calc(var(--size) * 1.3);
@@ -45,7 +45,7 @@ export const JPText = styled.p.attrs(() => ({
   --size: 3rem;
   font-size: var(--size);
   font-weight: 600;
-  color: ${p => p.theme.fg};
+  color: ${p => p.theme.black};
   white-space: nowrap;
   transition: all ease-in-out 0.25s;
   line-height: 1.8rem; /* keep in mind this is vertical text, so this is the width */

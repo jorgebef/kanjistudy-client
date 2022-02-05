@@ -218,7 +218,7 @@ const SVGDraw = styled.div`
   align-self: center;
 
   & svg {
-    /* width: 35rem; */
+    width: 15rem;
     /* height: 17.5rem; */
 
     @media (max-width: ${p => p.theme.mediaMd}) {

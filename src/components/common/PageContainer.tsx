@@ -24,9 +24,9 @@ interface TitleProps {
 export const Title = styled.p<TitleProps>`
   text-align: center;
   align-self: center;
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: ${p => (p.color ? p.color : p.theme.black)};
-  font-weight: 700;
+  font-weight: 900;
 `
 
 export const TopRow: React.FC = styled.div.attrs(() => ({
@@ -38,21 +38,27 @@ export const TopRow: React.FC = styled.div.attrs(() => ({
   padding: calc(${p => p.theme.navH + 'rem'} + 5vw) ${p => p.theme.sidePad} 5vw;
   /* background: linear-gradient( */
   /*   180deg, */
-  /*   ${p => p.theme.lavender} 0%, */
-  /*   ${p => p.theme.bg} 100% */
+  /*   ${p => p.theme.red} 0%, */
+  /*   ${p => p.theme.black} 100% */
   /* ); */
-  background-color: ${p => p.theme.bg};
+  background-color: ${p => p.theme.white};
   background-clip: padding-box;
   overflow: hidden;
 `
 
-export const Row = styled.div`
+export interface RowProps {
+  color?: string
+}
+
+export const Row = styled.div<RowProps>`
   display: flex;
+  /* width:100%; */
   position: relative;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 2rem ${p => p.theme.sidePad};
+  background-color: ${(p: any) => (p.color ? p.theme[p.color] : null)};
+  /* padding: 2rem ${p => p.theme.sidePad}; */
 `
 
 export const Grid = styled.div`
@@ -135,7 +141,7 @@ export const VertJPText = styled.p.attrs(() => ({
   left: ${p => p.left + 'vw'};
   font-size: var(--size);
   font-weight: 600;
-  color: ${p => p.theme.fg};
+  color: ${p => p.theme.black};
   -webkit-writing-mode: vertical-rl;
   -moz-writing-mode: vertical-rl;
   -ms-writing-mode: vertical-rl;

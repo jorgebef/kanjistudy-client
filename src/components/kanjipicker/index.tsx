@@ -6,6 +6,7 @@ import PopupKanji from '../popupkanji'
 import gradeListFetch from '../../middleware/levelFetch'
 import { KanjiAliveListT } from '../../middleware/types'
 import Loading from '../loading'
+import { WaveBottom, WaveTop } from '../waveseparators/styles'
 
 const KanjiPicker: React.FC = () => {
   const [kanjiList, setKanjiList] = useState<KanjiAliveListT[] | null>(null)
@@ -24,26 +25,30 @@ const KanjiPicker: React.FC = () => {
   }
 
   return (
-    <Row>
-      {kanjiList ? (
-        <S.QuizGrid>
-          {kanjiList.map((k: KanjiAliveListT, i) => {
-            return (
-              <S.KanjiCell
-                key={i}
-                kanji={k.kanji.character}
-                onClick={e => popupSet(e, k)}
-              >
-                <div className='kanji'>{k.kanji.character}</div>
-              </S.KanjiCell>
-            )
-          })}
-        </S.QuizGrid>
-      ) : (
-        <Loading />
-      )}
-      <PopupKanji visible={visible} setVisible={setVisible} kanji={kanji} />
-    </Row>
+    <>
+      <WaveTop color='lightgrey'/>
+      <Row color='lightgrey'>
+        {kanjiList ? (
+          <S.QuizGrid>
+            {kanjiList.map((k: KanjiAliveListT, i) => {
+              return (
+                <S.KanjiCell
+                  key={i}
+                  kanji={k.kanji.character}
+                  onClick={e => popupSet(e, k)}
+                >
+                  <div className='kanji'>{k.kanji.character}</div>
+                </S.KanjiCell>
+              )
+            })}
+          </S.QuizGrid>
+        ) : (
+          <Loading />
+        )}
+        <PopupKanji visible={visible} setVisible={setVisible} kanji={kanji} />
+      </Row>
+      <WaveBottom color='lightgrey'/>
+    </>
   )
 }
 

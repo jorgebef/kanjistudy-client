@@ -1,12 +1,15 @@
 import styled from 'styled-components'
 import { Link, LinkProps } from 'react-router-dom'
+import { Btn } from '../common/Button.styles'
 
 export const RowClipPath = styled.div`
   display: flex;
+  position: relative;
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 6rem 0;
+  box-sizing: content-box;
+  padding: 2rem 0;
   justify-self: center;
   align-self: center;
   background-color: ${p => p.theme.red};
@@ -19,12 +22,11 @@ export const RowClipPath = styled.div`
   }
 `
 
-export const CellWrapper = styled.div`
+export const CardWrapper = styled.div`
   display: grid;
-  gap: 3rem;
+  gap: 4rem;
   width: 100%;
   padding: 0 ${p => p.theme.compPadLg};
-  max-width: ${p => p.theme.mediaLg};
   grid-template-columns: repeat(3, 1fr);
   max-width: ${p => p.theme.mediaMd};
   transition: all ${p => p.theme.transition};
@@ -32,70 +34,37 @@ export const CellWrapper = styled.div`
   @media (max-width: ${p => p.theme.mediaMd}) {
     grid-template-columns: repeat(1, 1fr);
     padding: ${p => p.theme.compPadMd};
-    gap: 2rem;
+    place-items: center;
+    /* gap: 2rem; */
   }
 `
 
-export const HomeCell = styled.div.attrs(() => ({
-  as: Link,
-}))<LinkProps>`
+export const Pop = styled.div`
   display: flex;
   flex-direction: column;
-  padding: ${p => p.theme.compPadMd};
-  justify-self: stretch;
-  align-items: center;
-  justify-content: center;
-  border-radius: ${p => p.theme.borderR};
-  min-height: 9rem;
-  /* backdrop-filter: blur(10px); */
-  align-items: center;
-  text-decoration: none;
-  overflow: hidden;
-  color: ${p => p.theme.black};
-  background-color: ${p => p.theme.white + '94'};
-  /* background-color: ${p => p.theme.red}; */
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+  max-height: 0;
+  opacity: 0;
   transition: inherit;
+`
 
-  &:hover {
-    background-color: ${p => p.theme.white};
-    box-shadow: rgb(10 10 10 / 15%) 0px 0.5rem 1rem 0px;
-    border-radius: ${p => p.theme.buttonR};
+export const Scrolling = styled.div`
+  max-width: 100%;
+  position: absolute;
+  overflow: hidden;
+  bottom: -1rem;
+  opacity: 0;
+  white-space: nowrap;
+  transform: rotate(-3deg);
+  transition: all ${p => p.theme.transitionL};
 
-    & > .pop {
-      max-height: 6rem;
-      opacity: 1;
-    }
-  }
-
-  & > h1 {
+  & > p {
+    font-size: 5rem;
+    opacity: 0.2;
     font-weight: 900;
-    transition: inherit;
-  }
-
-  & > .pop {
-    width: 100%;
-    text-align: center;
-    margin-top: 0.5rem;
-    font-weight: 500;
-    max-height: 0;
-    opacity: 0;
-    transition: inherit;
-  }
-
-  .scrolling {
-    --scrollH: 1rem;
-    margin-top: 1rem;
-    max-width: 100%;
-    max-height: var(--scrollH);
-    white-space: nowrap;
-    /* transform: rotate(-3deg); */
-  }
-
-  .scrolling > p {
-    margin-top: -1rem;
-    font-size: 4rem;
-    font-weight: 900;
-    color: ${p => p.theme.fg + '45'};
+    color: ${p => p.theme.grey};
     display: inline-block;
     animation: marquee 10s linear infinite;
   }
@@ -108,4 +77,52 @@ export const HomeCell = styled.div.attrs(() => ({
       transform: translate(-100%, 0);
     }
   }
+`
+
+export const HomeCard = styled.div`
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  padding: 3rem ${p => p.theme.compPadMd};
+  /* justify-self: stretch; */
+  align-items: center;
+  justify-content: space-between;
+  border-radius: ${p => p.theme.borderR};
+  min-height: 15rem;
+  /* width: 20rem; */
+  text-decoration: none;
+  overflow: hidden;
+  color: ${p => p.theme.black};
+  background-color: ${p => p.theme.white};
+  /* background-color: ${p => p.theme.red}; */
+  transition: inherit;
+
+  &:hover {
+    /* width: 30rem; */
+    /* box-shadow: rgb(10 10 10 / 15%) 0px 0.5rem 1rem 0px; */
+
+    & ${Scrolling} {
+      opacity: 1;
+    }
+  }
+
+  & > h1 {
+    font-weight: 900;
+    transition: inherit;
+  }
+
+  & > span {
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: ${p => p.theme.mediaMd}) {
+    min-width: 16rem;
+  }
+`
+
+export const Button = styled(Btn).attrs(() => ({
+  as: Link,
+}))<LinkProps>`
+  z-index: 1;
+  margin-top: 1rem;
 `

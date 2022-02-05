@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const FooterWrapper = styled.footer`
   width: 100%;
   height: ${p => p.theme.footH};
-  background-color: ${p => p.theme.darkgrey};
+  background-color: ${p => p.theme.black};
 `
 
 export const FooterContainer = styled.div`
@@ -66,7 +66,7 @@ export const Separator = styled.div`
   background-color: ${p => p.theme.grey};
   /* background: linear-gradient( */
   /*   90deg, */
-  /*   ${p => p.theme.pink} 0%, */
+  /*   ${p => p.theme.red} 0%, */
   /*   ${p => p.theme.violet} 100% */
   /* ); */
 `

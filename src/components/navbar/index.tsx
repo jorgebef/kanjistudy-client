@@ -52,6 +52,7 @@ const NavBar: React.FC = () => {
             </S.MenuLink>
           )
         })}
+        <S.SignInBtn>Sign In</S.SignInBtn>
       </S.Menu>
       <S.HamburguerContainer isopen={isOpen}>
         <S.Hamburguer isopen={isOpen} onClick={() => setIsOpen(!isOpen)}>

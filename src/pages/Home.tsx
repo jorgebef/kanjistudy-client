@@ -15,11 +15,11 @@ const LastRow = styled(Grid)`
   padding-top: calc(var(--specPad) * 2);
   padding-bottom: var(--specPad);
   /* margin-top: calc(-1 * var(--specPad)); */
-  /* background-color: ${p => p.theme.lavender}; */
+  /* background-color: ${p => p.theme.red}; */
   background: linear-gradient(
     45deg,
-    ${p => p.theme.bg} 10%,
-    ${p => p.theme.lavender} 90%
+    ${p => p.theme.white} 10%,
+    ${p => p.theme.red} 90%
   );
 `
 

@@ -1,7 +1,7 @@
 // import { KanjiType } from '../../utils/kanjiData'
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import singleKanjiFetch from '../../middleware/singleKanji'
-import Loading from '../loading'
+import Loading from '../Loading'
 import * as S from './styles'
 
 interface PopupProps {

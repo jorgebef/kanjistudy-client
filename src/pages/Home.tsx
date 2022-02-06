@@ -1,14 +1,14 @@
 import React, { useRef } from 'react'
 import styled from 'styled-components'
 import { Container, Grid, Row } from '../components/common/PageContainer'
-import HomeCards from '../components/homecards'
+import HomeCards from '../components/HomeCards'
 import toriGates from '../assets/tori-gates.jpeg'
 import useAppear from '../utils/useAppear'
 import {
   AOStranslateL,
   AOStranslateR,
 } from '../components/common/AOSImage.style'
-import Hero from '../components/hero'
+import Hero from '../components/Hero'
 
 const LastRow = styled(Grid)`
   --specPad: 6rem;

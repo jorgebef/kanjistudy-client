@@ -2,8 +2,8 @@ import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import { Home, Kanji, NotFound } from './pages/'
-import Footer from './components/footer'
-import NavBar from './components/navbar'
+import Footer from './components/Footer'
+import NavBar from './components/NavBar'
 
 import { ThemeProvider } from 'styled-components'
 

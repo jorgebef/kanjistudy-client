@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Row } from '../common/PageContainer'
-import * as S from '../kanjipicker/styles'
-import PopupKanji from '../popupkanji'
+import * as S from './styles'
+import PopupKanji from '../PopupKanji'
 import gradeListFetch from '../../middleware/levelFetch'
 import { KanjiAliveListT } from '../../middleware/types'
-import Loading from '../loading'
-import { Wave2, Wave1 } from '../waveseparators/styles'
+import Loading from '../Loading'
+import { Wave2, Wave1 } from '../WaveSeparators/styles'
+import WaveRow from '../WaveRow'
 
 const KanjiPicker: React.FC = () => {
   const [kanjiList, setKanjiList] = useState<KanjiAliveListT[] | null>(null)
@@ -41,8 +42,7 @@ const KanjiPicker: React.FC = () => {
   }
 
   return (
-    <>
-      <S.WaveTop color='lightgrey' />
+    <WaveRow color='lightgrey'>
       <Row color='lightgrey'>
         {!loading ? (
           <S.QuizGrid>
@@ -63,8 +63,7 @@ const KanjiPicker: React.FC = () => {
         )}
         <PopupKanji visible={visible} setVisible={setVisible} kanji={kanji} />
       </Row>
-      <S.WaveBottom color='lightgrey' />
-    </>
+    </WaveRow>
   )
 }
 

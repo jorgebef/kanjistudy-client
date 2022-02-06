@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Wave1, Wave2 } from '../waveseparators/styles'
+import { Wave1, Wave2 } from '../WaveSeparators/styles'
 
 export const QuizGrid = styled.div`
   display: grid;

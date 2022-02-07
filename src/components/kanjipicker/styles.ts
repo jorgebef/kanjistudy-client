@@ -8,7 +8,7 @@ export const QuizGrid = styled.div`
   gap: 1rem;
   padding: ${p => p.theme.compPadSm};
   max-width: ${p => p.theme.mediaMd};
-  background-color: ${p => p.theme.lightgrey};
+  /* background-color: ${p => p.theme.lightgrey}; */
 
   @media (max-width: ${p => p.theme.mediaMd}) {
     grid-template-columns: repeat(5, 1fr);

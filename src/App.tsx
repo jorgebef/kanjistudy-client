@@ -10,7 +10,7 @@ import { ThemeProvider } from 'styled-components'
 import appTheme from './styles/theme'
 import GlobalStyle from './styles/globalStyles'
 import { Quiz } from './pages/Quiz'
-import { QuizCtxProvider } from './context/KanjiAliveCtx'
+import { QuizCtxProvider } from './context/QuizCtx'
 
 const App: React.FC = () => {
   return (

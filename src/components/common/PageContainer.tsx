@@ -52,13 +52,13 @@ export interface RowProps {
 
 export const Row = styled.div<RowProps>`
   display: flex;
-  width:100%;
+  width: 100%;
   position: relative;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   background-color: ${(p: any) => (p.color ? p.theme[p.color] : null)};
-  /* padding: 2rem ${p => p.theme.sidePad}; */
+  padding: 2rem 0;
 `
 
 export const Grid = styled.div`

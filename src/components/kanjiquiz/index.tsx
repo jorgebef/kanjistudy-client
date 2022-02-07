@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import * as S from './styles'
 import { Row } from '../common/PageContainer'
-import { QuizCtx, QuizCtxT } from '../../context/KanjiAliveCtx'
+import { QuizCtx, QuizCtxT } from '../../context/QuizCtx'
 import singleKanjiFetch from '../../middleware/singleKanji'
 import { KanjiAliveListT, KanjiAliveSingleT } from '../../middleware/types'
 import gradeListFetch from '../../middleware/levelFetch'
@@ -34,18 +34,25 @@ const KanjiQuiz: React.FC = () => {
     setKanjiPool(null)
     setQuestion(null)
     setAnswerPool(null)
-    setGrade([])
+    setGrade(null)
   }
 
   const startTest = () => {
-    if (!grade) {
-      alert('NO GRADE SELECTED')
-      return
-    }
-    gradeListFetch(grade[0]).then((res: KanjiAliveListT[]) => {
-      setKanjiPool(res.map((k: KanjiAliveListT) => k.kanji.character))
-      console.log('fetched list')
-    })
+    if (!grade) return
+
+    const gradeFetch = grade.map(g => gradeListFetch(g))
+    let tempList: typeof kanjiPool = kanjiPool
+    Promise.all(gradeFetch)
+      .then((r: KanjiAliveListT[][]) =>
+        r.forEach((r: KanjiAliveListT[]) => {
+          console.log(r)
+          const rMap = r.map((k: KanjiAliveListT) => k.kanji.character)
+          tempList = tempList ? [...tempList, ...rMap] : rMap
+        })
+      )
+      .then(() => {
+        setKanjiPool(tempList)
+      })
   }
 
   const nextQuestion = () => {

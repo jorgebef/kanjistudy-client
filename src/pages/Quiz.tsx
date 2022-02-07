@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Container, TopRow } from '../components/common/PageContainer'
 import { QuizSelector } from '../components/QuizSelector'
 import KanjiQuiz from '../components/KanjiQuiz'
-import { QuizCtx, QuizCtxT } from '../context/KanjiAliveCtx'
+import { QuizCtx, QuizCtxT } from '../context/QuizCtx'
 
 export const Quiz: React.FC = () => {
   const { quiz }: QuizCtxT = useContext(QuizCtx)

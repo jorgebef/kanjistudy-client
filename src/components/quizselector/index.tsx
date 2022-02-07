@@ -1,6 +1,5 @@
 import { ChangeEvent, FormEvent, useContext, useEffect } from 'react'
-import { useSearchParams } from 'react-router-dom'
-import { QuizCtx, QuizCtxT } from '../../context/KanjiAliveCtx'
+import { QuizCtx, QuizCtxT } from '../../context/QuizCtx'
 import { Row } from '../common/PageContainer'
 import * as S from './styles'
 
@@ -32,6 +31,10 @@ export const QuizSelector: React.FC = () => {
 
   const createQuiz = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    if (!grade) {
+      alert('NO GRADE SELECTED')
+      return
+    }
     setQuiz(true)
     console.log('Quiz: ' + quiz)
     console.log(grade)

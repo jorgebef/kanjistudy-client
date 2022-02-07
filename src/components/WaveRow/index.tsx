@@ -1,4 +1,5 @@
 import { ThemeType } from '../../styles/theme'
+import { Row } from '../common/PageContainer'
 import * as S from './styles'
 
 type WaveRowProps = {
@@ -10,7 +11,7 @@ const WaveRow = ({ color, children }: WaveRowProps) => {
   return (
     <>
       <S.WaveTop color={color} />
-      {children}
+      <Row color={color}>{children}</Row>
       <S.WaveBottom color={color} />
     </>
   )

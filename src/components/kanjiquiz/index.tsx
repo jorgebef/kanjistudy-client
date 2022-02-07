@@ -6,7 +6,7 @@ import singleKanjiFetch from '../../middleware/singleKanji'
 import { KanjiAliveListT, KanjiAliveSingleT } from '../../middleware/types'
 import gradeListFetch from '../../middleware/levelFetch'
 import Loading from '../Loading'
-import { Btn, BtnRed } from '../common/Button.styles'
+import { Btn } from '../common/Button.styles'
 
 const KanjiQuiz: React.FC = () => {
   const {
@@ -160,7 +160,7 @@ const KanjiQuiz: React.FC = () => {
               </S.AnswerUL>
             </S.Question>
             <S.BtnContainer>
-              <BtnRed onClick={quitQuiz}>Quit</BtnRed>
+              <Btn onClick={quitQuiz}>Quit</Btn>
               <Btn onClick={nextQuestion}>Next</Btn>
             </S.BtnContainer>
           </>

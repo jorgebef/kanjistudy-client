@@ -57,7 +57,7 @@ export const Row = styled.div<RowProps>`
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: ${(p: any) => (p.color ? p.theme[p.color] : null)};
+  background-color: ${(p: any) => (p.theme[p.color] || null)};
   padding: 2rem 0;
 `
 

@@ -123,7 +123,7 @@ export const HomeCard = styled.div`
 export const Button = styled(Btn).attrs(() => ({
   as: Link,
 }))<LinkProps>`
-position:relative;
+  position: relative;
   z-index: 1;
   margin-top: 1rem;
 `

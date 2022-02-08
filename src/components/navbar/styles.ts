@@ -1,6 +1,5 @@
 import { Link, NavLink } from 'react-router-dom'
 import styled from 'styled-components'
-import { Btn } from '../common/Button.styles'
 
 interface NavContainerProps {
   isopen?: boolean
@@ -141,8 +140,6 @@ export const MenuLinkName = styled.span`
     transition: all ${p => p.theme.transitionS};
   }
 `
-
-export const SignInBtn = styled(Btn)``
 
 export const Overlay = styled.div<MenuProps>`
   display: none;

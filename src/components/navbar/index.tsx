@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Btn } from '../common/Button'
 import * as S from './styles'
 
 const NavBar: React.FC = () => {
@@ -52,7 +53,7 @@ const NavBar: React.FC = () => {
             </S.MenuLink>
           )
         })}
-        <S.SignInBtn>Sign In</S.SignInBtn>
+        <Btn>Sign In</Btn>
       </S.Menu>
       <S.HamburguerContainer isopen={isOpen}>
         <S.Hamburguer isopen={isOpen} onClick={() => setIsOpen(!isOpen)}>

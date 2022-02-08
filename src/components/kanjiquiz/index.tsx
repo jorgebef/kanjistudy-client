@@ -6,7 +6,7 @@ import singleKanjiFetch from '../../middleware/singleKanji'
 import { KanjiAliveListT, KanjiAliveSingleT } from '../../middleware/types'
 import gradeListFetch from '../../middleware/levelFetch'
 import Loading from '../Loading'
-import { Btn } from '../common/Button.styles'
+import { Btn } from '../common/Button'
 
 const KanjiQuiz: React.FC = () => {
   const {

@@ -18,6 +18,7 @@ function adjustColor(color: string, amount: number) {
 }
 
 export const Btn = styled.button`
+  z-index: 1;
   text-decoration: none;
   border: none;
   outline: none;

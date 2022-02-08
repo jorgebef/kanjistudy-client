@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Btn } from '../common/Button.styles'
+import { Btn } from '../common/Button'
 
 export const QuizMenuContainer = styled.form`
   display: flex;
@@ -140,5 +140,4 @@ export const Checkbox = styled.input.attrs(() => ({
 
 export const SubmitBtn = styled(Btn)`
   justify-self: center;
-  background-color: ${p => p.theme.red};
 `

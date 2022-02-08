@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
+import { ThemeType } from '../../styles/theme'
 
 export const Container: React.FC = styled.div`
   display: flex;
@@ -47,7 +48,7 @@ export const TopRow: React.FC = styled.div.attrs(() => ({
 `
 
 export interface RowProps {
-  color?: string
+  color?: keyof ThemeType
 }
 
 export const Row = styled.div<RowProps>`
@@ -57,7 +58,7 @@ export const Row = styled.div<RowProps>`
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: ${(p: any) => (p.theme[p.color] || null)};
+  background-color: ${p => (p.color ? p.theme[p.color] : p.theme.white)};
   padding: 2rem 0;
 `
 

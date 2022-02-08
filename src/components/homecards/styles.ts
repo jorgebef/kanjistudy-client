@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Link, LinkProps } from 'react-router-dom'
-import { Btn } from '../common/Button.styles'
+import { Btn } from '../common/Button'
 
 export const RowClipPath = styled.div`
   display: flex;
@@ -51,6 +51,7 @@ export const Pop = styled.div`
 `
 
 export const Scrolling = styled.div`
+  z-index: 0;
   max-width: 100%;
   position: absolute;
   overflow: hidden;

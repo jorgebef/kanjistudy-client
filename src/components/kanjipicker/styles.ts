@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Wave1, Wave2 } from '../WaveSeparators/styles'
 
 export const QuizGrid = styled.div`
   display: grid;
@@ -38,10 +37,4 @@ export const KanjiCell = styled.a<KanjiProps>`
   &:hover {
     background-color: ${p => p.theme.red};
   }
-`
-
-export const WaveTop = styled(Wave1)`
-`
-export const WaveBottom = styled(Wave2)`
-  margin-bottom: 4rem;
 `

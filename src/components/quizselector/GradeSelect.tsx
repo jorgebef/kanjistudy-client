@@ -1,3 +1,4 @@
+import { Title } from '../common/Title'
 import * as S from './styles'
 
 type LevelSelectorProps = {
@@ -9,7 +10,7 @@ type LevelSelectorProps = {
 const GradeSelect = ({ grades, cols, onChange }: LevelSelectorProps) => {
   return (
     <S.Levels cols={cols}>
-      <S.OptionTitle>Levels</S.OptionTitle>
+      <Title fontSize='sm'>Levels</Title>
       <div className='checkbox-cont'>
         {Array(grades)
           .fill(null)

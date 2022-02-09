@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent, useContext, useEffect } from 'react'
 import { QuizCtx, QuizCtxT } from '../../context/QuizCtx'
 import { Row } from '../common/PageContainer'
+import { Title } from '../common/Title'
 import GradeSelect from './GradeSelect'
 import * as S from './styles'
 
@@ -46,7 +47,7 @@ export const QuizSelector: React.FC = () => {
       <S.QuizMenuContainer onSubmit={e => createQuiz(e)}>
         <S.OptionContainer>
           <S.Option>
-            <S.OptionTitle>Number of questions</S.OptionTitle>
+            <Title fontSize='sm'>Number of questions</Title>
             <S.ValueDisplay>{qNumber}</S.ValueDisplay>
             <S.Slider
               min={10}
@@ -59,7 +60,7 @@ export const QuizSelector: React.FC = () => {
             <GradeSelect onChange={updateLevel} grades={4}></GradeSelect>
           </S.Option>
           <S.Option>
-            <S.OptionTitle>Number of choices</S.OptionTitle>
+            <Title fontSize='sm'>Number of choices</Title>
             <S.ValueDisplay>{aNumber}</S.ValueDisplay>
             <S.Slider
               value={aNumber}
@@ -69,7 +70,7 @@ export const QuizSelector: React.FC = () => {
             />
           </S.Option>
         </S.OptionContainer>
-        <S.SubmitBtn as='input' type='submit' value='Start Quiz!' />
+        <S.SubmitBtn as='input' type='submit' value='START' />
       </S.QuizMenuContainer>
     </Row>
   )

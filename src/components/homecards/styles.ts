@@ -68,6 +68,7 @@ export const HomeCard = styled.div`
   justify-content: space-between;
   border-radius: ${p => p.theme.borderR};
   min-height: 15rem;
+  max-width: 20rem;
   text-decoration: none;
   overflow: hidden;
   color: ${p => p.theme.black};
@@ -89,14 +90,14 @@ export const HomeCard = styled.div`
     transition: inherit;
   }
 
-  & > p {
-    text-align: center;
-    font-size: 1rem;
-  }
-
   @media (max-width: ${p => p.theme.mediaMd}) {
     min-width: 16rem;
   }
+`
+
+export const CardText = styled.p`
+  /* padding: 0 1rem; */
+  text-align: center;
 `
 
 export const Button = styled(Btn).attrs(() => ({

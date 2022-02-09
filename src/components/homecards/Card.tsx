@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Btn } from '../common/Button'
+import { Title } from '../common/Title'
 import * as S from './styles'
 
 type CardProps = {
@@ -13,9 +14,9 @@ type CardProps = {
 const Card = ({ title, path, button, children }: CardProps) => {
   return (
     <S.HomeCard>
-      <h1>{title}</h1>
+      <Title fontSize='md'>{title}</Title>
       {/* <S.Pop>Learn hiragana and katakana</S.Pop> */}
-      <p>{children}</p>
+      <S.CardText>{children}</S.CardText>
       <Btn as={Link} to={path}>
         {button}
       </Btn>

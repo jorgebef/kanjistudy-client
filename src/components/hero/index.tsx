@@ -10,9 +10,9 @@ const Hero = () => {
 
   return (
     <S.HeroWrapper>
-      <Title>KANJI STUDY</Title>
+      <Title fontSize='lg'>KANJI STUDY</Title>
       <S.Separator></S.Separator>
-      <FadeInKanji/>
+      <FadeInKanji />
     </S.HeroWrapper>
   )
 }

@@ -8,7 +8,7 @@ export const Kanji: React.FC = () => {
   return (
     <Container>
       <TopRow>
-        <Title>Kanji review!!</Title>
+        <Title fontSize='md'>Kanji review!!</Title>
       </TopRow>
       <KanjiGrid />
     </Container>

@@ -98,7 +98,15 @@ export const Slider = styled.input.attrs(() => ({
   }
 `
 
-export const Levels = styled.div`
+export const SubmitBtn = styled(Btn)`
+  justify-self: center;
+`
+
+type LevelsProps = {
+  cols?: number
+}
+
+export const Levels = styled.div<LevelsProps>`
   --thumb-shadow: calc(25px - (50px * var(--is-left-most))) 0 0 -15px #000 inset;
   display: flex;
   flex-direction: column;
@@ -106,7 +114,7 @@ export const Levels = styled.div`
 
   & > .checkbox-cont {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(${p => p.cols || 2}, 1fr);
     margin-top: 1rem;
     flex-direction: column;
     gap: 0.7rem;
@@ -136,8 +144,4 @@ export const Checkbox = styled.input.attrs(() => ({
     box-shadow: none;
     background-color: ${p => p.theme.red};
   }
-`
-
-export const SubmitBtn = styled(Btn)`
-  justify-self: center;
 `

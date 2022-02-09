@@ -13,7 +13,7 @@ export const NavContainer = styled.nav<NavContainerProps>`
   height: ${p => p.theme.navH + 'rem'};
   top: 0;
   width: 100%;
-  padding: 0 8rem;
+  padding: 0 6rem;
   box-sizing: border-box;
   justify-content: space-between;
   background-color: ${p => p.theme.white};
@@ -74,7 +74,7 @@ export const Menu = styled.ul<MenuProps>`
     position: absolute;
     gap: 3rem;
     left: 0;
-    box-sizing: content-box;
+    box-sizing: border-box;
     flex-direction: column;
     margin-top: var(--navH);
     width: 100%;
@@ -90,7 +90,7 @@ export const MenuLink = styled(NavLink)<MenuProps>`
   color: ${p => p.theme.black};
   cursor: pointer;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
   text-align: center;
   align-self: stretch;
@@ -135,7 +135,7 @@ export const MenuLinkName = styled.span`
     left: -10px;
     width: 0;
     margin-left: -10%;
-    /* border-radius: var(--ulineH); */
+    border-radius: var(--ulineH);
     background-color: ${p => p.theme.red};
     transition: all ${p => p.theme.transitionS};
   }

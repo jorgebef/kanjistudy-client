@@ -8,6 +8,7 @@ export interface WaveProps {
 }
 
 export const WaveTop = styled(WaveSVG1)<WaveProps>`
+  margin-top: 3rem;
   margin-bottom: -5px;
   width: 100%;
 
@@ -18,8 +19,8 @@ export const WaveTop = styled(WaveSVG1)<WaveProps>`
 
 export const WaveBottom = styled(WaveSVG2)<WaveProps>`
   margin-top: -5px;
-  width: 100%;
   margin-bottom: 3rem;
+  width: 100%;
   path {
     fill: ${p => (p.color ? p.theme[p.color] : p.theme.red)};
   }

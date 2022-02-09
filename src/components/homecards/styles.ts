@@ -2,26 +2,6 @@ import styled from 'styled-components'
 import { Link, LinkProps } from 'react-router-dom'
 import { Btn } from '../common/Button'
 
-export const RowClipPath = styled.div`
-  display: flex;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  box-sizing: content-box;
-  padding: 2rem 0;
-  justify-self: center;
-  align-self: center;
-  background-color: ${p => p.theme.red};
-
-  @media (min-width: ${p => p.theme.mediaMd}) {
-    /* clip-path: polygon(0 0%, 100% 10%, 100% 100%, 0 90%); */
-  }
-  @media (min-width: ${p => p.theme.mediaLg}) {
-    /* clip-path: polygon(0 0%, 100% 15%, 100% 100%, 0 85%); */
-  }
-`
-
 export const CardWrapper = styled.div`
   display: grid;
   gap: 4rem;
@@ -54,7 +34,6 @@ export const Scrolling = styled.div`
   z-index: 0;
   max-width: 100%;
   position: absolute;
-  overflow: hidden;
   bottom: -1rem;
   opacity: 0;
   white-space: nowrap;
@@ -85,17 +64,14 @@ export const HomeCard = styled.div`
   position: relative;
   flex-direction: column;
   padding: 3rem ${p => p.theme.compPadMd};
-  /* justify-self: stretch; */
   align-items: center;
   justify-content: space-between;
   border-radius: ${p => p.theme.borderR};
   min-height: 15rem;
-  /* width: 20rem; */
   text-decoration: none;
   overflow: hidden;
   color: ${p => p.theme.black};
   background-color: ${p => p.theme.white};
-  /* background-color: ${p => p.theme.red}; */
   transition: inherit;
 
   &:hover {
@@ -108,12 +84,14 @@ export const HomeCard = styled.div`
   }
 
   & > h1 {
+    font-size: 2rem;
     font-weight: 900;
     transition: inherit;
   }
 
-  & > span {
-    font-size: 1.1rem;
+  & > p {
+    text-align: center;
+    font-size: 1rem;
   }
 
   @media (max-width: ${p => p.theme.mediaMd}) {

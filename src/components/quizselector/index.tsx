@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent, useContext, useEffect } from 'react'
 import { QuizCtx, QuizCtxT } from '../../context/QuizCtx'
 import { Row } from '../common/PageContainer'
+import GradeSelect from './GradeSelect'
 import * as S from './styles'
 
 export const QuizSelector: React.FC = () => {
@@ -55,27 +56,7 @@ export const QuizSelector: React.FC = () => {
             />
           </S.Option>
           <S.Option>
-            <S.Levels>
-              <S.OptionTitle>Levels</S.OptionTitle>
-              <div className='checkbox-cont'>
-                <label>
-                  <S.Checkbox value={1} onChange={updateLevel} />
-                  Grade 1
-                </label>
-                <label>
-                  <S.Checkbox value={2} onChange={updateLevel} />
-                  Grade 2
-                </label>
-                <label>
-                  <S.Checkbox value={3} onChange={updateLevel} />
-                  Grade 3
-                </label>
-                <label>
-                  <S.Checkbox value={4} onChange={updateLevel} />
-                  Grade 4
-                </label>
-              </div>
-            </S.Levels>
+            <GradeSelect onChange={updateLevel} grades={4}></GradeSelect>
           </S.Option>
           <S.Option>
             <S.OptionTitle>Number of choices</S.OptionTitle>

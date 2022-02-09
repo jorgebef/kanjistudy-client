@@ -7,6 +7,7 @@ import { KanjiAliveListT, KanjiAliveSingleT } from '../../middleware/types'
 import gradeListFetch from '../../middleware/levelFetch'
 import Loading from '../Loading'
 import { Btn } from '../common/Button'
+import WaveRow from '../WaveRow'
 
 const KanjiQuiz: React.FC = () => {
   const {
@@ -143,7 +144,7 @@ const KanjiQuiz: React.FC = () => {
   }
 
   return (
-    <Row>
+    <WaveRow color='lightgrey'>
       <S.QContainer>
         {question ? (
           <>
@@ -152,9 +153,9 @@ const KanjiQuiz: React.FC = () => {
               <S.AnswerUL ref={ulAnswersRef}>
                 {shuffleArr(answerPool)?.map((option, an) => {
                   return (
-                    <S.AnswerOption key={an} value={option} onClick={quizCheck}>
+                    <S.AnswerLi key={an} value={option} onClick={quizCheck}>
                       {option}
-                    </S.AnswerOption>
+                    </S.AnswerLi>
                   )
                 })}
               </S.AnswerUL>
@@ -168,7 +169,7 @@ const KanjiQuiz: React.FC = () => {
           <Loading />
         )}
       </S.QContainer>
-    </Row>
+    </WaveRow>
   )
 }
 

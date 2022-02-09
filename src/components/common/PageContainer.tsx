@@ -10,24 +10,12 @@ export const Container: React.FC = styled.div`
 
   & > div:first-child {
     /* padding-top: ${p => p.theme.navH + 'rem'}; */
-    padding-top: calc(${p => p.theme.navH + 'rem'} + 5vw);
+    padding-top: calc(${p => p.theme.navH + 'rem'} + 2rem);
   }
 
   & > div:last-child {
     padding-bottom: 5rem;
   }
-`
-
-interface TitleProps {
-  color?: string
-}
-
-export const Title = styled.p<TitleProps>`
-  text-align: center;
-  align-self: center;
-  font-size: 2.5rem;
-  color: ${p => (p.color ? p.color : p.theme.black)};
-  font-weight: 900;
 `
 
 export const TopRow: React.FC = styled.div.attrs(() => ({

@@ -48,7 +48,7 @@ export const AnswerUL = styled.ul`
   }
 `
 
-export const AnswerOption = styled.li`
+export const AnswerLi = styled.li`
   display: flex;
   cursor: pointer;
   text-decoration: none;

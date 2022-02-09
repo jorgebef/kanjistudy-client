@@ -15,7 +15,7 @@ const Card = ({ title, path, button, children }: CardProps) => {
     <S.HomeCard>
       <h1>{title}</h1>
       {/* <S.Pop>Learn hiragana and katakana</S.Pop> */}
-      {children}
+      <p>{children}</p>
       <Btn as={Link} to={path}>
         {button}
       </Btn>

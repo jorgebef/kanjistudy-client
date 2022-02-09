@@ -23,7 +23,7 @@ export const Btn = styled.button`
   border: none;
   outline: none;
   cursor: pointer;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 500;
   color: ${p => p.theme.white};
   background-color: ${p => p.theme.red};

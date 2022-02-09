@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const QuizGrid = styled.div`
+export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   width: 100%;
@@ -22,7 +22,7 @@ type KanjiProps = {
   kanji: string
 }
 
-export const KanjiCell = styled.a<KanjiProps>`
+export const Cell = styled.a<KanjiProps>`
   display: flex;
   font-size: 3rem;
   justify-content: center;

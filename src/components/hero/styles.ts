@@ -1,49 +1,28 @@
-import { AOStranslateL, AOStranslateR } from '../common/AOSImage.style'
+import { AOStranslateR } from '../common/AOSImage.style'
 import styled from 'styled-components'
-import { Title } from '../common/PageContainer'
 
 export const HeroWrapper = styled.div`
   display: flex;
   position: relative;
+  align-self: center;
   flex-direction: row;
+  gap: 2rem;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-around;
   height: 75vh;
-  /* height: 860rem; */
   background-repeat: no-repeat;
   background-size: cover;
+  box-sizing: border-box;
   /* margin-bottom: -5rem; */
   padding: ${p => p.theme.compPadLg};
+  width: 100%;
+  max-width: ${p => p.theme.mediaMd};
   overflow: hidden;
-`
-
-export const HeroWrapperB = styled.div`
-  display: flex;
-  position: relative;
-  flex-direction: row;
-  gap: 5rem;
-  align-items: center;
-  justify-content: center;
-  min-height: 50vh;
-  background-repeat: no-repeat;
-  background-size: cover;
-  /* margin-bottom: -5rem; */
-  overflow: hidden;
-  padding: ${p => p.theme.compPadLg};
   /* background-color:green; */
 
   @media (max-width: ${p => p.theme.mediaSm}) {
-    gap: 2rem;
+    /* gap: 2rem; */
     flex-direction: column-reverse;
-  }
-`
-
-export const HeroTitle = styled(Title)`
-  white-space: nowrap;
-
-  @media (max-width: ${p => p.theme.mediaSm}) {
-    /* position: absolute; */
-    /* visibility: hidden; */
   }
 `
 
@@ -95,7 +74,6 @@ export const HeroText = styled.span`
   white-space: nowrap;
   line-height: calc(var(--fontHeight) + 1rem);
   text-align: center;
-  /* background-color:green; */
   writing-mode: vertical-rl;
   /* text-shadow: calc(-1 * var(--shadowSize)) calc(-1 * var(--shadowSize)) 0 */
   /*     var(--shadowColor), */

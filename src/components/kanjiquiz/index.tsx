@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import * as S from './styles'
-import { Row } from '../common/PageContainer'
 import { QuizCtx, QuizCtxT } from '../../context/QuizCtx'
 import singleKanjiFetch from '../../middleware/singleKanji'
 import { KanjiAliveListT, KanjiAliveSingleT } from '../../middleware/types'
@@ -15,48 +14,56 @@ const KanjiQuiz: React.FC = () => {
     setKanjiList,
     kanjiPool,
     setKanjiPool,
-    qNumber,
-    setQNumber,
+    // qNumber,
+    // setQNumber,
     aNumber,
-    setANumber,
+    // setANumber,
     grade,
-    setGrade,
+    // setGrade,
     quiz,
     setQuiz,
+    results,
+    setResults,
   }: QuizCtxT = useContext(QuizCtx)
 
   const [question, setQuestion] = useState<string | null>(null)
   const [answerPool, setAnswerPool] = useState<string[] | null>(null)
-  // const [answered, setAnswered] = useState<boolean>(false)
+  const [answered, setAnswered] = useState<boolean>(false)
   const ulAnswersRef = useRef<HTMLUListElement>(null)
 
   const clearQuestion = () => {
+    setAnswered(false)
     setKanjiList(null)
     setKanjiPool(null)
     setQuestion(null)
     setAnswerPool(null)
-    setGrade(null)
   }
 
   const startTest = () => {
     if (!grade) return
 
     const gradeFetch = grade.map(g => gradeListFetch(g))
-    let tempList: typeof kanjiPool = kanjiPool
+    let tempList: typeof kanjiPool = null
     Promise.all(gradeFetch)
       .then((r: KanjiAliveListT[][]) =>
         r.forEach((r: KanjiAliveListT[]) => {
-          console.log(r)
+          console.log(tempList)
+          console.log('Promise response --> ' + r.length)
           const rMap = r.map((k: KanjiAliveListT) => k.kanji.character)
           tempList = tempList ? [...tempList, ...rMap] : rMap
         })
       )
       .then(() => {
+        console.log('templist: ' + tempList?.length)
         setKanjiPool(tempList)
       })
   }
 
-  const nextQuestion = () => {
+  const nextQuestion = (): void => {
+    if (!answered) {
+      alert('NO ANSWER PROVIDED')
+      return
+    }
     if (!ulAnswersRef.current?.children) {
       return
     }
@@ -65,11 +72,10 @@ const KanjiQuiz: React.FC = () => {
       li.classList.remove('correct')
       li.classList.remove('incorrect')
     })
-    // if (answered) {
     clearQuestion()
-    startTest()
-    // setAnswered(false)
-    // }
+    const newKanjiPool =
+      kanjiPool?.filter((k: string) => k !== question) || null
+    setKanjiPool(newKanjiPool)
   }
 
   const quitQuiz = () => {
@@ -90,34 +96,33 @@ const KanjiQuiz: React.FC = () => {
     }
     console.log('KanjiPool: ')
     console.log(kanjiPool)
-    let arr: string[] = []
+    let kArr: string[] = []
     let poolCopy: string[] = kanjiPool
     for (let i = 0; i < aNumber; i++) {
       const kAdd: string = poolCopy[~~(Math.random() * poolCopy.length)]
       // Remove the used kanji from pool to avoid duplicate answers
       poolCopy = poolCopy.filter((i: string) => i !== kAdd)
-      arr.push(kAdd)
+      kArr.push(kAdd)
     }
-    const kfetch = arr.map(i => singleKanjiFetch(i))
+    const kfetch = kArr.map(i => singleKanjiFetch(i))
     Promise.all(kfetch).then((res: KanjiAliveSingleT[]) => {
       setKanjiList(res.map((k: KanjiAliveSingleT) => k))
-      setQuestion(arr[0])
+      setQuestion(kArr[0])
     })
   }, [kanjiPool])
 
   useEffect(() => {
-    if (kanjiList) {
-      console.log('kanjiList: ')
-      console.log(kanjiList)
-      setAnswerPool(
-        kanjiList.map((k: KanjiAliveSingleT) => k.kanji.meaning.english)
+    if (!kanjiList) return
+    console.log('kanjiList: ')
+    console.log(kanjiList)
+    setAnswerPool(
+      shuffleArr(kanjiList).map(
+        (k: KanjiAliveSingleT) => k.kanji.meaning.english
       )
-    } else {
-      return
-    }
+    )
   }, [kanjiList])
 
-  const shuffleArr = (a: string[] | null) => {
+  const shuffleArr = (a: KanjiAliveSingleT[]): KanjiAliveSingleT[] => {
     if (a) {
       // ---------- FUNCTION TO SHUFFLE THE RESULTS ----------
       for (let i = a.length - 1; i > 0; i--) {
@@ -130,17 +135,26 @@ const KanjiQuiz: React.FC = () => {
     return a
   }
 
-  const quizCheck = (e: React.MouseEvent<HTMLElement>) => {
+  const quizCheck = (e: React.MouseEvent<HTMLElement>): void => {
+    setAnswered(true)
     const selA = e.currentTarget.textContent
-    const corrA = kanjiList?.find(k => k.kanji.character)?.kanji.meaning.english
+    const corrA = kanjiList?.find(k => k.kanji.character === question)?.kanji
+      .meaning.english
+    let result: boolean
     if (selA == corrA) {
+      result = true
       e.currentTarget.classList.toggle('correct')
     } else {
+      result = false
       e.currentTarget.classList.toggle('incorrect')
     }
-    // if (!answered) {
-    //   setAnswered(true)
-    // }
+    processResult(result)
+  }
+
+  const processResult = (result: boolean): void => {
+    console.log(results)
+    if (answered) return
+    setResults(results ? [...results, result] : [result])
   }
 
   return (
@@ -151,9 +165,13 @@ const KanjiQuiz: React.FC = () => {
             <S.Question>
               <S.QuestionKanji>{question}</S.QuestionKanji>
               <S.AnswerUL ref={ulAnswersRef}>
-                {shuffleArr(answerPool)?.map((option, an) => {
+                {answerPool?.map((option, an) => {
                   return (
-                    <S.AnswerLi key={an} value={option} onClick={quizCheck}>
+                    <S.AnswerLi
+                      key={an}
+                      value={option}
+                      onClick={e => quizCheck(e)}
+                    >
                       {option}
                     </S.AnswerLi>
                   )

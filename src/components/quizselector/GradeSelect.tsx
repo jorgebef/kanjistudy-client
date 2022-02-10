@@ -17,7 +17,7 @@ const GradeSelect = ({ grades, cols, onChange }: LevelSelectorProps) => {
           .map((_, i) => {
             i++
             return (
-              <label>
+              <label key={i}>
                 <S.Checkbox value={i} onChange={onChange} />
                 Grade {i}
               </label>

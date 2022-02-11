@@ -14,8 +14,8 @@ export interface QuizCtxT {
   setGrade: (n: number[] | null) => void
   quiz: boolean
   setQuiz: (q: boolean) => void
-  results: boolean[] | null
-  setResults: (a: boolean[] | null) => void
+  results: { [kanji: string]: boolean } | null
+  setResults: (a: { [kanji: string]: boolean } | null) => void
 }
 
 export const QuizCtx = createContext<QuizCtxT>({
@@ -42,7 +42,9 @@ export const QuizCtxProvider: React.FC = ({ children }) => {
   const [aNumber, setANumber] = useState<number>(4)
   const [grade, setGrade] = useState<number[] | null>(null)
   const [quiz, setQuiz] = useState<boolean>(false)
-  const [results, setResults] = useState<boolean[] | null>(null)
+  const [results, setResults] = useState<{ [kanji: string]: boolean } | null>(
+    null
+  )
 
   return (
     <QuizCtx.Provider

@@ -153,8 +153,14 @@ const KanjiQuiz: React.FC = () => {
 
   const processResult = (result: boolean): void => {
     console.log(results)
-    if (answered) return
-    setResults(results ? [...results, result] : [result])
+    if (answered || !question) return
+    // const answersCopy = results
+    //   ? (results[question] = result)
+    //   : { [question]: result }
+    const answersCopy = results ? results : {}
+    answersCopy[question] = result
+    // setResults( results ? { ...results, question: result } : { question: result })
+    setResults(answersCopy)
   }
 
   return (

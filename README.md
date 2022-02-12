@@ -4,6 +4,7 @@ This is a personal project based on my own interests to practice and learn furth
 
 The project is focused only on kanji for certain levels or grades for the official JLPT tests.
 
+
 ## About the Project: 📖
 
 I have created this project as a way to create a tool for myself to practice and review the basics of Japanese
@@ -18,6 +19,7 @@ created by myself to retrieve the necessary data to perform the tasks I wish.
 
 I forced myself to use a third party backend to face the problems that I would face and how I would resolve them
 in order to adapt the retrieved information but not miss any functionality that I desired to have on the app.
+
 
 ## Technologies Used: ☕️ ⚛️ 
 
@@ -35,6 +37,7 @@ As a frontend library, I have chosen React given the flexibility it offers and h
 For styling, I chose to create my own styled components.
 This is the first time I have worked with them and I have learned to appreciate the flexibility and integration that
 it offers with JS code, allowing to conditionally style components and edit the style based on variables, state or props.
+
 
 ## What I've learned: 📚 🤯
 
@@ -54,15 +57,18 @@ how component re-rendering works.
 #### Solution:
 Store the shuffled array in state and then loop through said array upon calling render.
 <br>
-6eecbad50a03e0ce9c095b8f639a84e22ec031cf
+[Solved in commit ec031cf](https://github.com/jorgebef/kanjistudy-client/commit/6eecbad50a03e0ce9c095b8f639a84e22ec031cf#r66544833)
+
 
 ## Screenshots: 📷
 
 To be added...
 
+
 ## Status: 📶
 
 **Work in Progress
+
 
 ## Credits: 📝
 

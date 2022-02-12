@@ -5,17 +5,20 @@ import gradeListFetch from '../../middleware/levelFetch'
 import { KanjiAliveListT } from '../../middleware/types'
 import Loading from '../Loading'
 import WaveRow from '../WaveRow'
+import LevelSelect from '../LevelSelect'
 
 const KanjiGrid: React.FC = () => {
   const [kanjiList, setKanjiList] = useState<KanjiAliveListT[] | null>(null)
   const [kanji, setKanji] = useState<string>()
   const [visible, setVisible] = useState<boolean>(false)
-  const [grade, setGrade] = useState<number[]>([1])
+  const [grade, setGrade] = useState<number[] | null>([1])
   const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
-    const gradeFetch = grade.map(g => gradeListFetch(g))
-    let tempList: typeof kanjiList = kanjiList
+    setLoading(true)
+    const gradeFetch = grade?.map(g => gradeListFetch(g))
+    let tempList: typeof kanjiList = null
+    if (!gradeFetch) return
     Promise.all(gradeFetch)
       .then((r: KanjiAliveListT[][]) =>
         r.forEach((r: KanjiAliveListT[]) => {
@@ -33,7 +36,7 @@ const KanjiGrid: React.FC = () => {
     console.log('kanjiList is reset')
   }, [kanjiList])
 
-  const popupSet = (e: React.MouseEvent<HTMLElement>, k: KanjiAliveListT) => {
+  const popupSet = (k: KanjiAliveListT) => {
     // e.currentTarget.classList.toggle('selected')
     setKanji(k.kanji.character)
     setVisible(true)
@@ -41,6 +44,7 @@ const KanjiGrid: React.FC = () => {
 
   return (
     <>
+      <LevelSelect grade={grade} setGrade={setGrade} />
       <WaveRow color='lightgrey'>
         {!loading ? (
           <S.Grid>
@@ -49,7 +53,7 @@ const KanjiGrid: React.FC = () => {
                 <S.Cell
                   key={i}
                   kanji={k.kanji.character}
-                  onClick={e => popupSet(e, k)}
+                  onClick={() => popupSet(k)}
                 >
                   <div className='kanji'>{k.kanji.character}</div>
                 </S.Cell>

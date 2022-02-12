@@ -1,8 +1,8 @@
-import { ChangeEvent, FormEvent, useContext, useEffect } from 'react'
+import { FormEvent, useContext } from 'react'
 import { QuizCtx, QuizCtxT } from '../../context/QuizCtx'
 import { Row } from '../common/PageContainer'
 import { Title } from '../common/Title'
-import GradeSelect from './GradeSelect'
+import LevelSelect from '../LevelSelect'
 import * as S from './styles'
 
 export const QuizSelector: React.FC = () => {
@@ -16,20 +16,6 @@ export const QuizSelector: React.FC = () => {
     quiz,
     setQuiz,
   }: QuizCtxT = useContext(QuizCtx)
-
-  const updateLevel = (e: ChangeEvent<HTMLInputElement>) => {
-    const val: number = Number(e.currentTarget.value)
-    const checked: boolean = e.currentTarget.checked
-    // De-duplicate grades from the array
-    const newGrade = grade
-      ? checked
-        ? [...grade, val]
-        : grade.filter(v => v !== val)
-      : [val]
-    const uniqueGradeArr = [...Array.from(new Set(newGrade))]
-    setGrade(uniqueGradeArr)
-    // }
-  }
 
   const createQuiz = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -57,7 +43,7 @@ export const QuizSelector: React.FC = () => {
             />
           </S.Option>
           <S.Option>
-            <GradeSelect onChange={updateLevel} grades={4}></GradeSelect>
+            <LevelSelect grade={grade} setGrade={setGrade} />
           </S.Option>
           <S.Option>
             <Title fontSize='sm'>Number of choices</Title>

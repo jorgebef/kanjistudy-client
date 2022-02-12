@@ -3,6 +3,8 @@ import styled from 'styled-components'
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(8, 1fr);
+  align-items:center;
+  justify-content:center;
   width: 100%;
   gap: 1rem;
   padding: ${p => p.theme.compPadSm};

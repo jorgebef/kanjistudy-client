@@ -52,7 +52,9 @@ This taught me that I have to be very careful when and how I work with state var
 how component re-rendering works.
 
 #### Solution:
-Store the shuffled array in state and then loop through said array upon calling render().
+Store the shuffled array in state and then loop through said array upon calling render.
+<br>
+6eecbad50a03e0ce9c095b8f639a84e22ec031cf
 
 ## Screenshots: 📷
 

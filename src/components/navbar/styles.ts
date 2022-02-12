@@ -15,35 +15,33 @@ export const NavContainer = styled.nav<NavContainerProps>`
   width: 100%;
   padding: 0 6rem;
   box-sizing: border-box;
-  justify-content: space-between;
+  justify-content: center;
   background-color: ${p => p.theme.white};
-  /* background-color: ${p =>
-    p.scrollpos === 0 ? (p.isopen ? p.theme.white : null) : p.theme.white}; */
-  /* box-shadow: ${p =>
-    p.scrollpos === 0 ? null : 'rgb(10 10 10 / 15%) 0px 0.5rem 1rem 0px'}; */
-  align-items: stretch;
   transition: all ease-in-out 0.25s;
 
-  @media (max-width: ${p => p.theme.mediaMd}) {
+  @media (max-width: ${p => p.theme.mediaSm}) {
     padding: 0 3rem;
   }
+`
+
+export const NavbarWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  justify-self: center;
+  height: inherit;
+  width: 100%;
+  max-width: ${p => p.theme.mediaMd};
 `
 
 export const LogoContainer = styled.div`
   display: flex;
   height: inherit;
   text-decoration: none;
-  align-self: flex-start;
   align-items: center;
-  /* justify-content:center; */
   white-space: nowrap;
 
   @media (max-width: ${p => p.theme.mediaMd}) {
-    /* align-self:center; */
-    /* position: absolute; */
-    /* top: 0rem; */
-    /* left: 0rem; */
-    /* padding-left: 4rem; */
   }
 `
 
@@ -64,24 +62,21 @@ export const Menu = styled.ul<MenuProps>`
   --navH: ${p => p.theme.navH + 'rem'};
   display: flex;
   gap: 3rem;
-  padding: 0 2rem;
   transition: all ${p => p.theme.transition};
   overflow: hidden;
 
   @media (max-width: ${p => p.theme.mediaMd}) {
-    /* display: flex; */
     visibility: ${p => (p.isopen ? 'visible' : 'hidden')};
     position: absolute;
-    gap: 3rem;
+    top: var(--navH);
     left: 0;
+    gap: 3rem;
     box-sizing: border-box;
     flex-direction: column;
-    margin-top: var(--navH);
     width: 100%;
     padding: 2rem 0;
     background-color: ${p => p.theme.white};
     max-height: ${p => (p.isopen ? '30rem' : 0)};
-    /* box-shadow: rgb(10 10 10 / 15%) 0px 0.5rem 1rem 0px; */
   }
 `
 

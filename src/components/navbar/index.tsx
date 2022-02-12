@@ -35,34 +35,36 @@ const NavBar: React.FC = () => {
 
   return (
     <S.NavContainer isopen={isOpen} scrollpos={scrollPos}>
-      <S.LogoContainer>
-        <S.Logo to='/'>LOGO logo</S.Logo>
-      </S.LogoContainer>
-      <S.Menu isopen={isOpen} scrollpos={scrollPos}>
-        {Object.entries(links).map(([name, path]) => {
-          return (
-            <S.MenuLink
-              key={path}
-              to={path}
-              isopen={isOpen}
-              scrollpos={scrollPos}
-              onClick={toggleOpen}
-              className={isActive => (isActive ? 'active' : '')}
-            >
-              <S.MenuLinkName key={name}>{name}</S.MenuLinkName>
-            </S.MenuLink>
-          )
-        })}
-        <Btn>Sign In</Btn>
-      </S.Menu>
-      <S.HamburguerContainer isopen={isOpen}>
-        <S.Hamburguer isopen={isOpen} onClick={() => setIsOpen(!isOpen)}>
-          <div></div>
-          <div></div>
-          <div></div>
-        </S.Hamburguer>
-      </S.HamburguerContainer>
-      <S.Overlay isopen={isOpen}></S.Overlay>
+      <S.NavbarWrapper>
+        <S.LogoContainer>
+          <S.Logo to='/'>LOGO logo</S.Logo>
+        </S.LogoContainer>
+        <S.Menu isopen={isOpen} scrollpos={scrollPos}>
+          {Object.entries(links).map(([name, path]) => {
+            return (
+              <S.MenuLink
+                key={path}
+                to={path}
+                isopen={isOpen}
+                scrollpos={scrollPos}
+                onClick={toggleOpen}
+                className={isActive => (isActive ? 'active' : '')}
+              >
+                <S.MenuLinkName key={name}>{name}</S.MenuLinkName>
+              </S.MenuLink>
+            )
+          })}
+          <Btn>Sign In</Btn>
+        </S.Menu>
+        <S.HamburguerContainer isopen={isOpen}>
+          <S.Hamburguer isopen={isOpen} onClick={() => setIsOpen(!isOpen)}>
+            <div></div>
+            <div></div>
+            <div></div>
+          </S.Hamburguer>
+        </S.HamburguerContainer>
+      </S.NavbarWrapper>
+        <S.Overlay isopen={isOpen}></S.Overlay>
     </S.NavContainer>
   )
 }

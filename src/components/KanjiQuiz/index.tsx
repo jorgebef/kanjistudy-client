@@ -14,12 +14,12 @@ const KanjiQuiz: React.FC = () => {
     setKanjiList,
     kanjiPool,
     setKanjiPool,
-    // qNumber,
+    qNumber,
     // setQNumber,
     aNumber,
     // setANumber,
     grade,
-    // setGrade,
+    setGrade,
     quiz,
     setQuiz,
     results,
@@ -37,6 +37,7 @@ const KanjiQuiz: React.FC = () => {
     setKanjiPool(null)
     setQuestion(null)
     setAnswerPool(null)
+    setGrade(null)
   }
 
   const startTest = () => {
@@ -60,6 +61,12 @@ const KanjiQuiz: React.FC = () => {
   }
 
   const nextQuestion = (): void => {
+    if (results && Object.keys(results).length == qNumber) {
+      alert(`ANSWERED ALL OF THE ${qNumber} questions already!!!`)
+      clearQuestion()
+      setQuiz(false)
+      return
+    }
     if (!answered) {
       alert('NO ANSWER PROVIDED')
       return

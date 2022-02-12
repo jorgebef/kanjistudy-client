@@ -74,7 +74,8 @@ export const Menu = styled.ul<MenuProps>`
     box-sizing: border-box;
     flex-direction: column;
     width: 100%;
-    padding: 2rem 0;
+    /* Otherwise there is a strange glitch when closing the menu */
+    padding: ${p => (p.isopen ? '2rem' : 0)} 0;
     background-color: ${p => p.theme.white};
     max-height: ${p => (p.isopen ? '30rem' : 0)};
   }

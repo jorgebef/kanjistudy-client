@@ -9,8 +9,7 @@ export const Container: React.FC = styled.div`
   /* padding-top: ${p => p.theme.navH + 'rem'}; */
 
   & > div:first-child {
-    /* padding-top: ${p => p.theme.navH + 'rem'}; */
-    padding-top: calc(${p => p.theme.navH + 'rem'} + 2rem);
+    padding-top: calc(${p => p.theme.navH + 'rem'} + 3rem);
   }
 
   & > div:last-child {

@@ -19,7 +19,7 @@ created by myself to retrieve the necessary data to perform the tasks I wish.
 I forced myself to use a third party backend to face the problems that I would face and how I would resolve them
 in order to adapt the retrieved information but not miss any functionality that I desired to have on the app.
 
-## Technologies Used: ☕️ 🐍 ⚛️
+## Technologies Used: ☕️ ⚛️  ﯤ
 
 #### Typescript
 In order to further understand the intricacies of React, frontend development and how it all works together, I have
@@ -35,6 +35,8 @@ As a frontend library, I have chosen React given the flexibility it offers and h
 For styling, I chose to create my own styled components.
 This is the first time I have worked with them and I have learned to appreciate the flexibility and integration that
 it offers with JS code, allowing to conditionally style components and edit the style based on variables, state or props.
+
+## What I've learned: 📚 🤯
 
 ## Screenshots: 📷
 

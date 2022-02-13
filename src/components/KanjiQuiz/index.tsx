@@ -31,7 +31,7 @@ const KanjiQuiz: React.FC = () => {
   const [answered, setAnswered] = useState<boolean>(false)
   const ulAnswersRef = useRef<HTMLUListElement>(null)
 
-  const clearQuestion = () => {
+  const clearQuestion = (): void => {
     setAnswered(false)
     // setKanjiList(null)
     // setKanjiPool(null)
@@ -39,7 +39,7 @@ const KanjiQuiz: React.FC = () => {
     setAnswerPool(null)
   }
 
-  const clearQuiz = () => {
+  const clearQuiz = (): void => {
     setResults(null)
     setGrade(null)
     setQuiz(false)
@@ -90,7 +90,7 @@ const KanjiQuiz: React.FC = () => {
     setKanjiPool(newKanjiPool)
   }
 
-  const quitQuiz = () => {
+  const quitQuiz = (): void => {
     clearQuestion()
     clearQuiz()
   }

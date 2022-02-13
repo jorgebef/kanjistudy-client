@@ -45,8 +45,9 @@ export const Row = styled.div<RowProps>`
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  box-sizing: border-box;
+  padding: ${p => p.theme.compPadLg};
   background-color: ${p => (p.color ? p.theme[p.color] : p.theme.white)};
-  padding: 2rem 0;
 `
 
 export const Grid = styled.div`

@@ -1,8 +1,8 @@
 import { FormEvent, useContext } from 'react'
 import { QuizCtx, QuizCtxT } from '../../context/QuizCtx'
-import { Row } from '../common/PageContainer'
 import { Title } from '../common/Title'
 import LevelSelect from '../LevelSelect'
+import WaveRow from '../WaveRow'
 import * as S from './styles'
 
 export const QuizSelector: React.FC = () => {
@@ -29,7 +29,7 @@ export const QuizSelector: React.FC = () => {
   }
 
   return (
-    <Row>
+    <WaveRow color='lightgrey'>
       <S.QuizMenuContainer onSubmit={e => createQuiz(e)}>
         <S.OptionContainer>
           <S.Option>
@@ -58,6 +58,6 @@ export const QuizSelector: React.FC = () => {
         </S.OptionContainer>
         <S.SubmitBtn as='input' type='submit' value='START' />
       </S.QuizMenuContainer>
-    </Row>
+    </WaveRow>
   )
 }

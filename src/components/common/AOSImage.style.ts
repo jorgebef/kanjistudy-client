@@ -1,35 +1,47 @@
 import styled from 'styled-components'
 
-export const AOSopacity = styled.div`
+export const AOSbase = styled.div`
+  position: relative;
   display: flex;
+  flex-direction: row;
+  gap: 2rem;
   opacity: 0;
-  -webkit-transition: all ${p => p.theme.transition};
-  transition: all ${p => p.theme.transition};
-  &.appear {
-    opacity: 1;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-transition: all ${p => p.theme.transitionL};
+  transition: all ${p => p.theme.transitionL};
+
+  @media (max-width: ${p => p.theme.mediaMd}) {
+    flex-direction: column;
   }
 `
 
-export const AOStranslateR = styled.div`
-  display: flex;
-  opacity: 0;
-  position: relative;
+export const AOStranslateR = styled(AOSbase)`
   right: -20rem;
-  -webkit-transition: all ${p => p.theme.transitionL};
-  transition: all ${p => p.theme.transitionL};
+  align-items: center;
+  justify-content: flex-start;
+
+  @media (max-width: ${p => p.theme.mediaMd}) {
+    align-items: flex-start;
+    justify-content: center;
+  }
+
   &.appear {
     opacity: 1;
     right: 0;
   }
 `
 
-export const AOStranslateL = styled.div`
-  display: flex;
-  opacity: 0;
-  position: relative;
+export const AOStranslateL = styled(AOSbase)`
   left: -20rem;
-  -webkit-transition: all ${p => p.theme.transitionL};
-  transition: all ${p => p.theme.transitionL};
+  align-items: center;
+  justify-content: flex-end;
+
+  @media (max-width: ${p => p.theme.mediaMd}) {
+    align-items: flex-end;
+    justify-content: center;
+  }
+
   &.appear {
     opacity: 1;
     left: 0;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import * as S from './styles'
-import PopupKanji from '../PopupKanji'
+import { PopupKanji } from '../Popup'
 import gradeListFetch from '../../middleware/levelFetch'
 import { KanjiAliveListT } from '../../middleware/types'
 import Loading from '../Loading'
@@ -63,7 +63,7 @@ const KanjiGrid: React.FC = () => {
         ) : (
           <Loading />
         )}
-        <PopupKanji visible={visible} setVisible={setVisible} kanji={kanji} />
+        <PopupKanji visible={visible} setVisible={setVisible} value={kanji} />
       </WaveRow>
     </>
   )

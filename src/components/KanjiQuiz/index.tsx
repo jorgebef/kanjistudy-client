@@ -33,11 +33,16 @@ const KanjiQuiz: React.FC = () => {
 
   const clearQuestion = () => {
     setAnswered(false)
-    setKanjiList(null)
-    setKanjiPool(null)
+    // setKanjiList(null)
+    // setKanjiPool(null)
     setQuestion(null)
     setAnswerPool(null)
+  }
+
+  const clearQuiz = () => {
+    setResults(null)
     setGrade(null)
+    setQuiz(false)
   }
 
   const startTest = () => {
@@ -64,7 +69,7 @@ const KanjiQuiz: React.FC = () => {
     if (results && Object.keys(results).length == qNumber) {
       alert(`ANSWERED ALL OF THE ${qNumber} questions already!!!`)
       clearQuestion()
-      setQuiz(false)
+      clearQuiz()
       return
     }
     if (!answered) {
@@ -87,7 +92,7 @@ const KanjiQuiz: React.FC = () => {
 
   const quitQuiz = () => {
     clearQuestion()
-    setQuiz(false)
+    clearQuiz()
   }
 
   useEffect(() => {

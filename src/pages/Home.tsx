@@ -36,11 +36,13 @@ export const Home: React.FC = () => {
       <HomeCards />
       <Row ref={imgRefA}>
         <AOStranslateR className='aos'>
+          <p>Ipsum lore ipsum</p>
           <img width='300px' height='200px' src={toriGates} alt='Tori Gates' />
         </AOStranslateR>
       </Row>
       <Row ref={imgRef}>
         <AOStranslateL className='aos'>
+          <p>Ipsum lore ipsum</p>
           <img width='300px' height='200px' src={toriGates} alt='Tori Gates' />
         </AOStranslateL>
       </Row>

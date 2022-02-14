@@ -66,12 +66,14 @@ const KanjiQuiz: React.FC = () => {
   }
 
   const nextQuestion = (): void => {
+    // --------- END THE QUIZ AND SHOW RESULTS ---------
     if (results && Object.keys(results).length == qNumber) {
       alert(`ANSWERED ALL OF THE ${qNumber} questions already!!!`)
       clearQuestion()
       clearQuiz()
       return
     }
+    // -----------------------------------------------------
     if (!answered) {
       alert('NO ANSWER PROVIDED')
       return
@@ -79,8 +81,8 @@ const KanjiQuiz: React.FC = () => {
     if (!ulAnswersRef.current?.children) {
       return
     }
-    const lis = Array.from(ulAnswersRef.current?.children)
-    lis.forEach(li => {
+    const liArr = Array.from(ulAnswersRef.current?.children)
+    liArr.forEach(li => {
       li.classList.remove('correct')
       li.classList.remove('incorrect')
     })

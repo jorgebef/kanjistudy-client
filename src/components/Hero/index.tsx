@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import FadeInKanji from './appearKanjiSVG'
-import useAppear from '../../utils/useAppear'
+import useAppear from '../../hooks/useAppear'
 import { Title } from '../common/Title'
 import * as S from './styles'
 

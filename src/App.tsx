@@ -1,7 +1,6 @@
-import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import { Home, Kanji, NotFound } from './pages/'
+import { Home, Kana, Kanji, NotFound } from './pages/'
 import Footer from './components/Footer'
 import NavBar from './components/NavBar'
 
@@ -21,6 +20,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/kanji' element={<Kanji />} />
+          <Route path='/kana' element={<Kana />} />
           <Route
             path='/quiz'
             element={

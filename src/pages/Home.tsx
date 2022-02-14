@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Container, Grid, Row } from '../components/common/PageContainer'
 import HomeCards from '../components/HomeCards'
 import toriGates from '../assets/tori-gates.jpeg'
-import useAppear from '../utils/useAppear'
+import useAppear from '../hooks/useAppear'
 import {
   AOStranslateL,
   AOStranslateR,
@@ -36,8 +36,8 @@ export const Home: React.FC = () => {
       <HomeCards />
       <Row ref={imgRefA}>
         <AOStranslateR className='aos'>
-          <p>Ipsum lore ipsum</p>
           <img width='300px' height='200px' src={toriGates} alt='Tori Gates' />
+          <p>Ipsum lore ipsum</p>
         </AOStranslateR>
       </Row>
       <Row ref={imgRef}>

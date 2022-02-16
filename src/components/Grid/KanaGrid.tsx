@@ -1,61 +1,51 @@
 import React, { useEffect, useState } from 'react'
 import * as S from './styles'
 import { PopupKanji } from '../Popup'
-import gradeListFetch from '../../middleware/levelFetch'
-import { KanjiAliveListT } from '../../middleware/types'
 import Loading from '../Loading'
 import WaveRow from '../WaveRow'
-import LevelSelect from '../LevelSelect'
+import { kanaData, kanaDataT } from '../../utils/kanaData'
 
 const KanaGrid: React.FC = (): React.ReactElement => {
-  const [kanjiList, setKanjiList] = useState<KanjiAliveListT[] | null>(null)
-  const [kanji, setKanji] = useState<string>()
+  const [kanaList, setKanaList] = useState<string[] | null>(null)
+  const [kanaType, setKanaType] = useState<string>('hiragana')
+  const [kana, setKana] = useState<string>()
   const [visible, setVisible] = useState<boolean>(false)
-  const [grade, setGrade] = useState<number[] | null>([1])
   const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
-    setLoading(true)
-    const gradeFetch = grade?.map(g => gradeListFetch(g))
-    let tempList: typeof kanjiList = null
-    if (!gradeFetch) return
-    Promise.all(gradeFetch)
-      .then((r: KanjiAliveListT[][]) =>
-        r.forEach((r: KanjiAliveListT[]) => {
-          console.log(r)
-          tempList = tempList ? [...tempList, ...r] : r
-        })
-      )
-      .then(() => {
-        setKanjiList(tempList)
-        setLoading(false)
+    let tempList: string[] = []
+    if (kanaType === 'hiragana') {
+      kanaData.map((k: kanaDataT) => {
+        tempList.push(k.hiragana)
       })
-  }, [grade])
+    } else {
+      kanaData.map((k: kanaDataT) => {
+        tempList.push(k.katakana)
+      })
+    }
+    setKanaList(tempList)
+    setLoading(false)
+  }, [kanaType])
 
-  useEffect(() => {
-    console.log('kanjiList is reset')
-  }, [kanjiList])
-
-  const popupSet = (k: KanjiAliveListT) => {
+  const popupSet = (k: string) => {
     // e.currentTarget.classList.toggle('selected')
-    setKanji(k.kanji.character)
+    setKana(k)
     setVisible(true)
   }
 
   return (
     <>
-      <LevelSelect grade={grade} setGrade={setGrade} />
       <WaveRow color='lightgrey'>
         {!loading ? (
           <S.Grid>
-            {kanjiList?.map((k: KanjiAliveListT, i) => {
+            {kanaList?.map((k: string, i) => {
               return (
                 <S.Cell
                   key={i}
-                  kanji={k.kanji.character}
+                  kana={k}
                   onClick={() => popupSet(k)}
                 >
-                  <div className='kanji'>{k.kanji.character}</div>
+                  <div className='kanji'>{k}</div>
                 </S.Cell>
               )
             })}
@@ -63,7 +53,7 @@ const KanaGrid: React.FC = (): React.ReactElement => {
         ) : (
           <Loading />
         )}
-        <PopupKanji visible={visible} setVisible={setVisible} value={kanji} />
+        <PopupKanji visible={visible} setVisible={setVisible} value={kana} />
       </WaveRow>
     </>
   )

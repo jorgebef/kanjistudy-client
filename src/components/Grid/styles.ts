@@ -21,7 +21,8 @@ export const Grid = styled.div`
 `
 
 type KanjiProps = {
-  kanji: string
+  kanji?: string
+  kana?: string
 }
 
 export const Cell = styled.a<KanjiProps>`

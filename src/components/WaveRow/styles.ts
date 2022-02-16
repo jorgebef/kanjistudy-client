@@ -8,7 +8,7 @@ export interface WaveProps {
 }
 
 export const WaveTop = styled(WaveSVG1)<WaveProps>`
-  margin-top: 3rem;
+  margin-top: 4.5rem;
   margin-bottom: -5px;
   width: 100%;
 

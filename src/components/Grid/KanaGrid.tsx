@@ -7,7 +7,7 @@ import Loading from '../Loading'
 import WaveRow from '../WaveRow'
 import LevelSelect from '../LevelSelect'
 
-const KanjiGrid: React.FC = () => {
+const KanaGrid: React.FC = (): React.ReactElement => {
   const [kanjiList, setKanjiList] = useState<KanjiAliveListT[] | null>(null)
   const [kanji, setKanji] = useState<string>()
   const [visible, setVisible] = useState<boolean>(false)
@@ -69,4 +69,4 @@ const KanjiGrid: React.FC = () => {
   )
 }
 
-export default KanjiGrid
+export default KanaGrid

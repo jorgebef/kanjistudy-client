@@ -63,7 +63,11 @@ const KanjiGrid: React.FC = (): React.ReactElement => {
         ) : (
           <Loading />
         )}
-        <PopupKanji visible={visible} setVisible={setVisible} value={kanji} />
+        <PopupKanji
+          visible={visible}
+          setVisible={setVisible}
+          value={kanji ? kanji : null}
+        />
       </WaveRow>
     </>
   )

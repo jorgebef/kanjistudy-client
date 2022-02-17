@@ -2,7 +2,7 @@
 import { KanjiAliveSingleT } from './types'
 
 const singleKanjiFetch = async (
-  kanji: string | undefined
+  kanji: string | null
 ): Promise<KanjiAliveSingleT> => {
   const key: string = process.env.REACT_APP_API_KEY as string
   const url: string = `${process.env.REACT_APP_API_URL}kanji/${kanji}`

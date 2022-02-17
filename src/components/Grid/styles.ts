@@ -1,8 +1,12 @@
 import styled from 'styled-components'
 
-export const Grid = styled.div`
+type GridProps = {
+  cols?:number
+}
+
+export const Grid = styled.div<GridProps>`
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(${p => p.cols ? p.cols : '8'}, 1fr);
   align-items:center;
   justify-content:center;
   width: 100%;
@@ -20,17 +24,19 @@ export const Grid = styled.div`
   }
 `
 
-type KanjiProps = {
+type CellProps = {
   kanji?: string
   kana?: string
+  newRow?:boolean
 }
 
-export const Cell = styled.a<KanjiProps>`
+export const Cell = styled.a<CellProps>`
   display: flex;
   font-size: 3rem;
   justify-content: center;
   align-items: center;
   min-height: 5rem;
+  grid-column-start: ${p => p.newRow ? 1 : null};
   overflow: hidden;
   cursor: pointer;
   background-color: ${p => p.theme.white};

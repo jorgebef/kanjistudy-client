@@ -1,42 +1,51 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
+import { kanaData, kanaDataT } from '../../utils/kanaData'
 import Loading from '../Loading'
 import * as S from './styles'
 
 interface PopupProps {
   visible: boolean
   setVisible: Dispatch<SetStateAction<boolean>>
-  value: string | undefined
+  value: string | null
 }
 
-const PopupKana: React.FC<PopupProps> = ({
-  visible,
-  setVisible,
-  value,
-}) => {
-  const [kana, setKana] = useState<string | null>(null)
+const PopupKana: React.FC<PopupProps> = ({ visible, setVisible, value }) => {
+  const [kanaFull, setKanaFull] = useState<kanaDataT | null>(null)
 
   const toggleVisible = (): void => {
     setVisible(!visible)
   }
 
+  useEffect(() => {
+    setKanaFull(null)
+    // setKanaFull(value ? value : null)
+    const fullKanaData: kanaDataT | undefined = kanaData.find(k =>
+      k.hiragana == value ? value : null
+    )
+    setKanaFull(fullKanaData ? fullKanaData : null)
+  }, [value])
+
   return (
     <S.PopupContainer vis={visible}>
       <S.Overlay onClick={toggleVisible}></S.Overlay>
-      <S.Popup vis={visible} kanjiset={kana ? true : false}>
-        <S.CloseButton kanjiset={kana ? true : false} onClick={toggleVisible}>
+      <S.Popup vis={visible} valueset={kanaFull ? true : false}>
+        <S.CloseButton
+          valueset={kanaFull ? true : false}
+          onClick={toggleVisible}
+        >
           <div></div>
           <div></div>
         </S.CloseButton>
-        {kana ? (
+        {kanaFull ? (
           <>
-            <div className='kanji'>{kana}</div>
+            <div className='value'>{kanaFull}</div>
             <div className='meaning'>
-              Meanings: <b>{kana}</b>
+              Meanings: <b>{kanaFull}</b>
             </div>
             <div className='yomis'>
-              Kunyomi: <b>{kana}</b>
+              Kunyomi: <b>{kanaFull}</b>
               <br />
-              Onyomi: <b>{kana}</b>
+              Onyomi: <b>{kanaFull}</b>
             </div>
           </>
         ) : (

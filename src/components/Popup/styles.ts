@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 interface PopupProps {
   vis?: boolean
-  kanjiset?: boolean
+  valueset?: boolean
 }
 
 export const PopupContainer = styled.div<PopupProps>`
@@ -27,11 +27,11 @@ export const Popup = styled.div<PopupProps>`
   padding: 1rem 2rem;
   width: 50%;
   max-width: ${p => p.theme.mediaSm};
-  height: ${p => (p.vis && p.kanjiset ? '80vh' : '40vh')};
+  height: ${p => (p.vis && p.valueset ? '80vh' : '40vh')};
   font-size: 1.8rem;
   text-align: center;
   align-items: center;
-  justify-content: ${p => (p.kanjiset ? 'flex-start' : 'center')};
+  justify-content: ${p => (p.valueset ? 'flex-start' : 'center')};
   color: ${p => p.theme.black};
   border-radius: ${p => p.theme.borderR};
   background-color: ${p => p.theme.white};
@@ -48,7 +48,7 @@ export const Popup = styled.div<PopupProps>`
     display: none;
   }
 
-  & > .kanji {
+  & > .value {
     font-size: 4rem;
     font-weight: 700;
   }
@@ -68,7 +68,7 @@ export const Overlay = styled.div`
 
 export const CloseButton = styled.div<PopupProps>`
   position: absolute;
-  opacity: ${p => (p.kanjiset ? 1 : 0)};
+  opacity: ${p => (p.valueset ? 1 : 0)};
   display: flex;
   flex-direction: column;
   align-self: end;

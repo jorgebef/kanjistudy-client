@@ -7,7 +7,7 @@ import * as S from './styles'
 interface PopupProps {
   visible: boolean
   setVisible: Dispatch<SetStateAction<boolean>>
-  value: string | undefined
+  value: string | null
 }
 
 const PopupKanji: React.FC<PopupProps> = ({
@@ -30,9 +30,9 @@ const PopupKanji: React.FC<PopupProps> = ({
   return (
     <S.PopupContainer vis={visible}>
       <S.Overlay onClick={toggleVisible}></S.Overlay>
-      <S.Popup vis={visible} kanjiset={kanjialive ? true : false}>
+      <S.Popup vis={visible} valueset={kanjialive ? true : false}>
         <S.CloseButton
-          kanjiset={kanjialive ? true : false}
+          valueset={kanjialive ? true : false}
           onClick={toggleVisible}
         >
           <div></div>
@@ -40,7 +40,7 @@ const PopupKanji: React.FC<PopupProps> = ({
         </S.CloseButton>
         {kanjialive ? (
           <>
-            <div className='kanji'>{kanjialive?.kanji?.character}</div>
+            <div className='value'>{kanjialive?.kanji?.character}</div>
             <div className='meaning'>
               Meanings: <b>{kanjialive?.kanji?.meaning?.english}</b>
             </div>

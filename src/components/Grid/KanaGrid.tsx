@@ -1,28 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import * as S from './styles'
-import { PopupKanji } from '../Popup'
+import { PopupKana } from '../Popup'
 import Loading from '../Loading'
 import WaveRow from '../WaveRow'
 import { kanaData, kanaDataT } from '../../utils/kanaData'
 
 const KanaGrid: React.FC = (): React.ReactElement => {
   const [kanaList, setKanaList] = useState<string[] | null>(null)
-  const [kanaType, setKanaType] = useState<string>('hiragana')
+  const [kanaType, setKanaType] = useState<'hiragana' | 'katakana'>('hiragana')
   const [kana, setKana] = useState<string>()
   const [visible, setVisible] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
     let tempList: string[] = []
-    if (kanaType === 'hiragana') {
-      kanaData.map((k: kanaDataT) => {
-        tempList.push(k.hiragana)
-      })
-    } else {
-      kanaData.map((k: kanaDataT) => {
-        tempList.push(k.katakana)
-      })
-    }
+    kanaData.map((k: kanaDataT) => {
+      tempList.push(k[kanaType])
+    })
     setKanaList(tempList)
     setLoading(false)
   }, [kanaType])
@@ -33,19 +27,22 @@ const KanaGrid: React.FC = (): React.ReactElement => {
     setVisible(true)
   }
 
+  const rowStart = ['ら', 'か', 'が', 'わ']
+
   return (
     <>
       <WaveRow color='lightgrey'>
         {!loading ? (
-          <S.Grid>
+          <S.Grid cols={5}>
             {kanaList?.map((k: string, i) => {
               return (
                 <S.Cell
                   key={i}
+                  newRow={k === rowStart.find(ka => ka === k) ? true : false}
                   kana={k}
                   onClick={() => popupSet(k)}
                 >
-                  <div className='kanji'>{k}</div>
+                  <div className='kana'>{k}</div>
                 </S.Cell>
               )
             })}
@@ -53,7 +50,11 @@ const KanaGrid: React.FC = (): React.ReactElement => {
         ) : (
           <Loading />
         )}
-        <PopupKanji visible={visible} setVisible={setVisible} value={kana} />
+        <PopupKana
+          visible={visible}
+          setVisible={setVisible}
+          value={kana ? kana : null}
+        />
       </WaveRow>
     </>
   )

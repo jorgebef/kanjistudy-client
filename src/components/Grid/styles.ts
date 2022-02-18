@@ -1,19 +1,17 @@
 import styled from 'styled-components'
 
-type GridProps = {
-  cols?:number
-}
-
-export const Grid = styled.div<GridProps>`
+const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(${p => p.cols ? p.cols : '8'}, 1fr);
-  align-items:center;
-  justify-content:center;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   gap: 1rem;
   padding: ${p => p.theme.compPadSm};
   max-width: ${p => p.theme.mediaMd};
-  /* background-color: ${p => p.theme.lightgrey}; */
+`
+
+export const KanjiGrid = styled(Grid)`
+  grid-template-columns: repeat(8, 1fr);
 
   @media (max-width: ${p => p.theme.mediaMd}) {
     grid-template-columns: repeat(5, 1fr);
@@ -24,10 +22,18 @@ export const Grid = styled.div<GridProps>`
   }
 `
 
+export const KanaGrid = styled(Grid)`
+  grid-template-columns: repeat(5, 1fr);
+
+  @media (max-width: ${p => p.theme.mediaSm}) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+`
+
 type CellProps = {
   kanji?: string
   kana?: string
-  newRow?:boolean
+  newRow?: boolean
 }
 
 export const Cell = styled.a<CellProps>`
@@ -36,7 +42,7 @@ export const Cell = styled.a<CellProps>`
   justify-content: center;
   align-items: center;
   min-height: 5rem;
-  grid-column-start: ${p => p.newRow ? 1 : null};
+  grid-column-start: ${p => (p.newRow ? 1 : null)};
   overflow: hidden;
   cursor: pointer;
   background-color: ${p => p.theme.white};

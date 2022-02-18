@@ -47,7 +47,7 @@ const KanjiGrid: React.FC = (): React.ReactElement => {
       <LevelSelect grade={grade} setGrade={setGrade} />
       <WaveRow color='lightgrey'>
         {!loading ? (
-          <S.Grid>
+          <S.KanjiGrid>
             {kanjiList?.map((k: KanjiAliveListT, i) => {
               return (
                 <S.Cell
@@ -59,7 +59,7 @@ const KanjiGrid: React.FC = (): React.ReactElement => {
                 </S.Cell>
               )
             })}
-          </S.Grid>
+          </S.KanjiGrid>
         ) : (
           <Loading />
         )}

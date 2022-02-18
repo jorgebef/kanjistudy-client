@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-export const LevelsWrapper = styled.div`
+export const Wrapper = styled.div`
   --thumb-shadow: calc(25px - (50px * var(--is-left-most))) 0 0 -15px #000 inset;
   display: flex;
   flex-direction: column;
@@ -16,6 +16,8 @@ export const LevelsWrapper = styled.div`
   }
 
   & label {
+    font-size: 1.1rem;
+    font-weight: 500;
     display: flex;
     align-items: center;
     cursor: pointer;

@@ -35,7 +35,7 @@ export const Scrolling = styled.div`
   max-width: 100%;
   position: absolute;
   bottom: -1rem;
-  opacity: 0;
+  opacity: 1;
   white-space: nowrap;
   transform: rotate(-3deg);
   transition: all ${p => p.theme.transitionL};
@@ -46,7 +46,7 @@ export const Scrolling = styled.div`
     font-weight: 900;
     color: ${p => p.theme.grey};
     display: inline-block;
-    animation: marquee 10s linear infinite;
+    animation: marquee 18s linear infinite;
   }
 
   @keyframes marquee {

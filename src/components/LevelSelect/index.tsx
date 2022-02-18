@@ -2,7 +2,6 @@ import { Title } from '../common/Title'
 import * as S from './styles'
 
 type LevelSelectorProps = {
-  // onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   grade: number[] | null
   setGrade: (g: number[] | null) => void
 }
@@ -26,7 +25,7 @@ const LevelSelect = ({ grade, setGrade }: LevelSelectorProps) => {
   }
 
   return (
-    <S.LevelsWrapper>
+    <S.Wrapper>
       <Title fontSize='sm'>Levels</Title>
       <div className='checkbox-cont'>
         {Array(5)
@@ -45,7 +44,7 @@ const LevelSelect = ({ grade, setGrade }: LevelSelectorProps) => {
             )
           })}
       </div>
-    </S.LevelsWrapper>
+    </S.Wrapper>
   )
 }
 

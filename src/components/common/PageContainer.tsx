@@ -48,6 +48,10 @@ export const Row = styled.div<RowProps>`
   box-sizing: border-box;
   padding: ${p => p.theme.compPadLg};
   background-color: ${p => (p.color ? p.theme[p.color] : p.theme.white)};
+
+  @media (max-width: ${p => p.theme.mediaSm}) {
+    padding: ${p => p.theme.compPadSm};
+  }
 `
 
 export const Grid = styled.div`

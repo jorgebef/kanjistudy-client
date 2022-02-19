@@ -24,8 +24,6 @@ export const QuizSelector: React.FC = () => {
       return
     }
     setQuiz(true)
-    console.log('Quiz: ' + quiz)
-    console.log(grade)
   }
 
   return (

@@ -8,7 +8,6 @@ type LevelSelectorProps = {
 
 const LevelSelect = ({ grade, setGrade }: LevelSelectorProps) => {
   const updateLevel = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('updating grade array!!!!!!!!!!!!!!...')
     const val: number = Number(e.currentTarget.value)
     const checked: boolean = e.currentTarget.checked
     let newGrade: typeof grade
@@ -17,7 +16,6 @@ const LevelSelect = ({ grade, setGrade }: LevelSelectorProps) => {
     } else {
       newGrade = checked ? [...grade, val] : grade.filter(v => v !== val)
     }
-    console.log(newGrade)
     // De-duplicate grades from the array
     const uniqueGradeArr = [...Array.from(new Set(newGrade))]
     setGrade(uniqueGradeArr == [] ? null : uniqueGradeArr)
@@ -26,11 +24,14 @@ const LevelSelect = ({ grade, setGrade }: LevelSelectorProps) => {
 
   return (
     <S.Wrapper>
-      <Title fontSize='sm'>Levels</Title>
+      <Title fontSize='sm'>JLPT Level</Title>
       <div className='checkbox-cont'>
         {Array(5)
           .fill(null)
           .map((_, i) => {
+            const N = 5 - i
+          // API only fetches based on Grades, from 1 to 5
+          // I prefer naming as JLPT levels, from N5 to N1
             i++
             return (
               <label key={i}>
@@ -39,7 +40,7 @@ const LevelSelect = ({ grade, setGrade }: LevelSelectorProps) => {
                   value={i}
                   onChange={updateLevel}
                 />
-                Grade {i}
+                N{N}
               </label>
             )
           })}

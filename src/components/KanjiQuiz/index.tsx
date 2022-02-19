@@ -40,8 +40,8 @@ const KanjiQuiz: React.FC = () => {
   }
 
   const clearQuiz = (): void => {
-    setResults(null)
-    setGrade(null)
+    setResults([])
+    setGrade([1])
     setQuiz(false)
   }
 
@@ -49,26 +49,31 @@ const KanjiQuiz: React.FC = () => {
     if (!grade) return
 
     const gradeFetch = grade.map(g => gradeListFetch(g))
-    let tempList: typeof kanjiPool = null
+    let newKanjiPool: typeof kanjiPool = null
     Promise.all(gradeFetch)
       .then((r: KanjiAliveListT[][]) =>
         r.forEach((r: KanjiAliveListT[]) => {
-          console.log(tempList)
+          console.log(newKanjiPool)
           console.log('Promise response --> ' + r.length)
           const rMap = r.map((k: KanjiAliveListT) => k.kanji.character)
-          tempList = tempList ? [...tempList, ...rMap] : rMap
+          newKanjiPool = newKanjiPool ? [...newKanjiPool, ...rMap] : rMap
         })
       )
       .then(() => {
-        console.log('templist: ' + tempList?.length)
-        setKanjiPool(tempList)
+        console.log('newKanjiPool: ' + newKanjiPool?.length)
+        setKanjiPool(newKanjiPool)
       })
   }
 
   const nextQuestion = (): void => {
     // --------- END THE QUIZ AND SHOW RESULTS ---------
-    if (results && Object.keys(results).length == qNumber) {
-      alert(`ANSWERED ALL OF THE ${qNumber} questions already!!!`)
+    if (results.length == qNumber) {
+      const answeredCorr: { [kanji: string]: boolean }[] = []
+      results.map((r: { [kanji: string]: boolean }) =>
+        Object.values(r)[0] === true ? answeredCorr.push(r) : null
+      )
+      alert(`ANSWERED ALL OF THE ${qNumber} questions already!!!
+You have answered a total of ${answeredCorr.length} correctly`)
       clearQuestion()
       clearQuiz()
       return
@@ -83,8 +88,7 @@ const KanjiQuiz: React.FC = () => {
     }
     const liArr = Array.from(ulAnswersRef.current?.children)
     liArr.forEach(li => {
-      li.classList.remove('correct')
-      li.classList.remove('incorrect')
+      li.classList.remove('correct', 'incorrect')
     })
     clearQuestion()
     const newKanjiPool =
@@ -162,15 +166,9 @@ const KanjiQuiz: React.FC = () => {
       result = false
       e.currentTarget.classList.toggle('incorrect')
     }
-    processResult(result)
-  }
-
-  const processResult = (result: boolean): void => {
-    console.log(results)
-    if (answered || !question) return
-    const answersCopy = results ? results : {}
-    answersCopy[question] = result
-    setResults(answersCopy)
+    if (!question) return
+    const currResult = { [question]: result }
+    setResults([...results, currResult])
   }
 
   return (

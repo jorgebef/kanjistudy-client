@@ -19,13 +19,13 @@ const NavBar: React.FC = () => {
     }
   }, [])
 
-  const toggleOpen = (e: React.MouseEvent<HTMLElement>) => {
+  const toggleOpen = (): void => {
     setIsOpen(false)
     window.scrollTo(0, 0)
     // e.currentTarget.classList.toggle('open')
   }
 
-  const links = {
+  const links: { [key: string]: string } = {
     Home: '/',
     Quiz: '/quiz',
     Kanji: '/kanji',
@@ -37,13 +37,13 @@ const NavBar: React.FC = () => {
     <S.NavContainer isopen={isOpen} scrollpos={scrollPos}>
       <S.NavbarWrapper>
         <S.LogoContainer>
-          <S.Logo to='/'>LOGO logo</S.Logo>
+          <S.Logo to='/'>漢字を勉強する</S.Logo>
         </S.LogoContainer>
         <S.Menu isopen={isOpen} scrollpos={scrollPos}>
           {Object.entries(links).map(([name, path]) => {
             return (
               <S.MenuLink
-                key={path}
+                key={name}
                 to={path}
                 isopen={isOpen}
                 scrollpos={scrollPos}
@@ -54,7 +54,8 @@ const NavBar: React.FC = () => {
               </S.MenuLink>
             )
           })}
-          <Btn>Sign In</Btn>
+          {/* Sign In Button is not ready yet*/}
+          {/* <Btn>Sign In</Btn> */}
         </S.Menu>
         <S.HamburguerContainer isopen={isOpen}>
           <S.Hamburguer isopen={isOpen} onClick={() => setIsOpen(!isOpen)}>
@@ -64,7 +65,7 @@ const NavBar: React.FC = () => {
           </S.Hamburguer>
         </S.HamburguerContainer>
       </S.NavbarWrapper>
-        <S.Overlay isopen={isOpen}></S.Overlay>
+      <S.Overlay isopen={isOpen}></S.Overlay>
     </S.NavContainer>
   )
 }

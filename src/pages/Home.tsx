@@ -37,12 +37,12 @@ export const Home: React.FC = () => {
       <Row ref={imgRefA}>
         <AOStranslateR className='aos'>
           <img width='300px' height='200px' src={toriGates} alt='Tori Gates' />
-          <p>Ipsum lore ipsum</p>
+          <p>I really want to travel to Japan, so since I'm stuck here without any possible way of actually visiting the country, I've decided to create this project to at least take my mind off the fact I can't travel and instead test out some skills. =)</p>
         </AOStranslateR>
       </Row>
       <Row ref={imgRef}>
         <AOStranslateL className='aos'>
-          <p>Ipsum lore ipsum</p>
+          <p>Review Kanji from any level from JLPT N5 to N1 as well as Hiragana and Katakana. Take a quick quiz which can be slightly customized to practice and make sure you know your stuff!</p>
           <img width='300px' height='200px' src={toriGates} alt='Tori Gates' />
         </AOStranslateL>
       </Row>

@@ -11,6 +11,14 @@ export const AOSbase = styled.div`
   -webkit-transition: all ${p => p.theme.transitionL};
   transition: all ${p => p.theme.transitionL};
 
+  & > p {
+    padding: ${p => p.theme.compPadSm};
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: justify;
+    max-width: 50%;
+  }
+
   @media (max-width: ${p => p.theme.mediaMd}) {
     flex-direction: column;
   }

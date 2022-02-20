@@ -14,12 +14,12 @@ const Footer: React.FC = () => {
           >
             <BsGithub color='inherit' size={20} />
           </S.Button>
-          <S.Button social='linkedin' href=''>
-            <BsLinkedin color='inherit' size={20} />
-          </S.Button>
-          <S.Button social='mail' href=''>
-            <BsMailbox color='inherit' size={20} />
-          </S.Button>
+          {/* <S.Button social='linkedin' href=''> */}
+          {/*   <BsLinkedin color='inherit' size={20} /> */}
+          {/* </S.Button> */}
+          {/* <S.Button social='mail' href=''> */}
+          {/*   <BsMailbox color='inherit' size={20} /> */}
+          {/* </S.Button> */}
         </S.ButtonContainer>
 
         <S.Separator>

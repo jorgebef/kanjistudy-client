@@ -47,9 +47,9 @@ export const LogoContainer = styled.div`
 
 export const Logo = styled(Link)`
   text-decoration: none;
-  font-weight: 800;
+  font-weight: 700;
   cursor: pointer;
-  font-size: 1.4rem;
+  font-size: 2rem;
   color: ${p => p.theme.black};
 `
 

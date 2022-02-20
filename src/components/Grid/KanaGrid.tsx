@@ -16,7 +16,7 @@ const KanaGrid: React.FC = (): React.ReactElement => {
     setLoading(false)
   }, [kanaType])
 
-  const popupSet = (k: kanaDataT) => {
+  const popupSet = (k: kanaDataT): void => {
     // e.currentTarget.classList.toggle('selected')
     setKana(k)
     setVisible(true)

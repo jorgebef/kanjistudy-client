@@ -48,9 +48,10 @@ export const Button = styled.a.attrs(p => ({
 
   &:hover {
     color: ${p => p.theme.black};
+    transform: rotate(360deg);
     background-color: ${p =>
       p.social === 'github'
-        ? p.theme.violet
+        ? p.theme.white
         : p.social === 'linkedin'
         ? p.theme.blue
         : p.social === 'mail'

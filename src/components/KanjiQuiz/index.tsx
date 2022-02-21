@@ -67,7 +67,7 @@ const KanjiQuiz: React.FC = () => {
 
   const nextQuestion = (): void => {
     // --------- END THE QUIZ AND SHOW RESULTS ---------
-    if (results.length == qNumber) {
+    if (results.length === qNumber) {
       const answeredCorr: { [kanji: string]: boolean }[] = []
       results.map((r: { [kanji: string]: boolean }) =>
         Object.values(r)[0] === true ? answeredCorr.push(r) : null
@@ -159,7 +159,7 @@ You have answered a total of ${answeredCorr.length} correctly`)
     const corrA = kanjiList?.find(k => k.kanji.character === question)?.kanji
       .meaning.english
     let result: boolean
-    if (selA == corrA) {
+    if (selA === corrA) {
       result = true
       e.currentTarget.classList.toggle('correct')
     } else {

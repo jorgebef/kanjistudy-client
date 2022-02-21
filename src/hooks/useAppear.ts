@@ -42,7 +42,7 @@ const useAppear = (ref: RefObject<Element>) => {
   const options: IntersectionObserverInit = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.75,
+    threshold: 0.35,
   }
 
   useEffect(() => {
@@ -54,7 +54,7 @@ const useAppear = (ref: RefObject<Element>) => {
     if (currRef) observer.observe(currRef)
 
     return () => observer.disconnect()
-  }, [ref, callback])
+  }, [options, ref, callback])
 
   return isVisible
 }

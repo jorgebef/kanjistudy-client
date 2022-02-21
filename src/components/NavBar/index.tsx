@@ -30,7 +30,7 @@ const NavBar: React.FC = () => {
     Quiz: '/quiz',
     Kanji: '/kanji',
     Kana: '/kana',
-    About: '/about',
+    // About: '/about',
   }
 
   return (

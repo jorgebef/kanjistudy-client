@@ -24,10 +24,11 @@ export const Popup = styled.div<PopupProps>`
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  padding: 1rem 2rem;
+  padding: 1rem 4rem;
+  box-sizing: border-box;
   width: 50%;
+  max-height: ${p => (p.vis && p.valueset ? '80vh' : '40vh')};
   max-width: ${p => p.theme.mediaSm};
-  height: ${p => (p.vis && p.valueset ? '80vh' : '40vh')};
   font-size: 1.8rem;
   text-align: center;
   align-items: center;

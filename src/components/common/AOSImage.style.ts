@@ -21,6 +21,10 @@ export const AOSbase = styled.div`
 
   @media (max-width: ${p => p.theme.mediaMd}) {
     flex-direction: column;
+
+  & > p {
+    max-width: 70%;
+  }
   }
 `
 

@@ -18,7 +18,7 @@ const LevelSelect = ({ grade, setGrade }: LevelSelectorProps) => {
     }
     // De-duplicate grades from the array
     const uniqueGradeArr = [...Array.from(new Set(newGrade))]
-    setGrade(uniqueGradeArr == [] ? null : uniqueGradeArr)
+    setGrade(uniqueGradeArr === [] ? null : uniqueGradeArr)
     // }
   }
 
@@ -36,7 +36,7 @@ const LevelSelect = ({ grade, setGrade }: LevelSelectorProps) => {
             return (
               <label key={i}>
                 <S.Checkbox
-                  checked={grade?.find(g => g == i) ? true : false}
+                  checked={grade?.find(g => g === i) ? true : false}
                   value={i}
                   onChange={updateLevel}
                 />

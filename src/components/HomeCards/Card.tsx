@@ -17,7 +17,7 @@ const Card = ({ title, path, button, children }: CardProps) => {
       <Title fontSize='md'>{title}</Title>
       {/* <S.Pop>Learn hiragana and katakana</S.Pop> */}
       <S.CardText>{children}</S.CardText>
-      <Btn as={Link} to={path}>
+      <Btn as={Link} onClick={() => window.scrollTo(0, 0)} to={path}>
         {button}
       </Btn>
     </S.HomeCard>

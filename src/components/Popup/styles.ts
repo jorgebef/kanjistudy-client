@@ -24,11 +24,11 @@ export const Popup = styled.div<PopupProps>`
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  padding: 1rem 4rem;
+  padding: ${p => p.theme.compPadSm};
   box-sizing: border-box;
-  width: 50%;
+  /* width: 50%; */
   max-height: ${p => (p.vis && p.valueset ? '80vh' : '40vh')};
-  max-width: ${p => p.theme.mediaSm};
+  width: ${p => p.theme.mediaSm};
   font-size: 1.8rem;
   text-align: center;
   align-items: center;
@@ -42,7 +42,7 @@ export const Popup = styled.div<PopupProps>`
   transition: inherit;
 
   @media (max-width: ${p => p.theme.mediaSm}) {
-    width: 70%;
+    width: 90%;
   }
 
   &::-webkit-scrollbar {

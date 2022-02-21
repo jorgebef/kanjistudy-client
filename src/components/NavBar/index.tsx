@@ -37,7 +37,7 @@ const NavBar: React.FC = () => {
     <S.NavContainer isopen={isOpen} scrollpos={scrollPos}>
       <S.NavbarWrapper>
         <S.LogoContainer>
-          <S.Logo to='/'>漢字を勉強する</S.Logo>
+          <S.Logo onClick={toggleOpen} to='/'>漢字を勉強する</S.Logo>
         </S.LogoContainer>
         <S.Menu isopen={isOpen} scrollpos={scrollPos}>
           {Object.entries(links).map(([name, path]) => {

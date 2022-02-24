@@ -33,7 +33,7 @@ const KanaGrid: React.FC = (): React.ReactElement => {
                 return (
                   <S.Cell
                     key={i}
-                    newRow={i == 0 ? true : false}
+                    newRow={i === 0 ? true : false}
                     kana={k[kanaType]}
                     onClick={() => popupSet(k)}
                   >

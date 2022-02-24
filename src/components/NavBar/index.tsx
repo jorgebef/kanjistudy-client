@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { Btn } from '../common/Button'
 import * as S from './styles'
 
 const NavBar: React.FC = () => {

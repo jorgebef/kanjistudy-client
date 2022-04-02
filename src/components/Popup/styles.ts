@@ -75,7 +75,7 @@ export const CloseButton = styled.div<PopupProps>`
   align-self: end;
   justify-content: center;
   margin-top: -0.5rem;
-  margin-right: -1.5rem;
+  margin-right: -0.5rem;
   cursor: pointer;
   min-height: 2rem;
   min-width: 2rem;
